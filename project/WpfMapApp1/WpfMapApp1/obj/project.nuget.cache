@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "FmMcBdZ9mWTsrNcGtuuAHawmmX+qm97or/xwr89/o5BMbNdScxEYvEU+FgbwD4c5J3v9VODOxo3Yq0VUtav6vA==",
+  "success": true,
+  "projectFilePath": "D:\\File\\vs\\project\\WpfMapApp1\\WpfMapApp1\\WpfMapApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime\\100.15.0\\esri.arcgisruntime.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime.runtimes.win\\100.15.0\\esri.arcgisruntime.runtimes.win.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime.wpf\\100.15.0\\esri.arcgisruntime.wpf.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\system.speech\\6.0.0\\system.speech.6.0.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.27\\microsoft.windows.sdk.net.ref.10.0.19041.27.nupkg.sha512"
+  ],
+  "logs": []
+}

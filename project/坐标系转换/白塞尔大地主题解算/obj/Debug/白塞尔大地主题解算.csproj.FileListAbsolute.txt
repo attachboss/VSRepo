@@ -1,0 +1,8 @@
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\bin\Debug\白塞尔大地主题解算.exe.config
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\bin\Debug\白塞尔大地主题解算.exe
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\bin\Debug\白塞尔大地主题解算.pdb
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\obj\Debug\白塞尔大地主题解算.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\obj\Debug\白塞尔大地主题解算.csproj.CoreCompileInputs.cache
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\obj\Debug\白塞尔大地主题解算.exe
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\obj\Debug\白塞尔大地主题解算.pdb
+D:\File\vs\project\坐标系转换\白塞尔大地主题解算\obj\Debug\白塞尔大地主题解算.csproj.AssemblyReference.cache

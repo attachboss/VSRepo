@@ -1,0 +1,8 @@
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\obj\Debug\SpaceResectionProcedure.csproj.AssemblyReference.cache
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\obj\Debug\SpaceResectionProcedure.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\obj\Debug\SpaceResectionProcedure.csproj.CoreCompileInputs.cache
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\bin\Debug\SpaceResectionProcedure.exe.config
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\bin\Debug\SpaceResectionProcedure.exe
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\bin\Debug\SpaceResectionProcedure.pdb
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\obj\Debug\SpaceResectionProcedure.exe
+D:\File\vs\project\SpaceResectionProcedure\SpaceResectionProcedure\obj\Debug\SpaceResectionProcedure.pdb

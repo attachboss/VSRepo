@@ -1,0 +1,8 @@
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\bin\Debug\PhotogrammetricAerialBeltApp.exe.config
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\bin\Debug\PhotogrammetricAerialBeltApp.exe
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\bin\Debug\PhotogrammetricAerialBeltApp.pdb
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\obj\Debug\PhotogrammetricAerialBeltApp.csproj.AssemblyReference.cache
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\obj\Debug\PhotogrammetricAerialBeltApp.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\obj\Debug\PhotogrammetricAerialBeltApp.csproj.CoreCompileInputs.cache
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\obj\Debug\PhotogrammetricAerialBeltApp.exe
+D:\File\vs\project\PhotogrammetricAerialBeltApp\PhotogrammetricAerialBeltApp\obj\Debug\PhotogrammetricAerialBeltApp.pdb

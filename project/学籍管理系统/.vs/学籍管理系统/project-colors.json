@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f0c0a389-b811-4fa6-9636-16a54532ddce": {
+      "ProjectGuid": "f0c0a389-b811-4fa6-9636-16a54532ddce",
+      "DisplayName": "学籍管理系统",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,8 @@
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\bin\Debug\RelativeOrientationElementSolution.exe.config
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\bin\Debug\RelativeOrientationElementSolution.exe
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\bin\Debug\RelativeOrientationElementSolution.pdb
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\obj\Debug\RelativeOrientationElementSolution.csproj.AssemblyReference.cache
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\obj\Debug\RelativeOrientationElementSolution.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\obj\Debug\RelativeOrientationElementSolution.csproj.CoreCompileInputs.cache
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\obj\Debug\RelativeOrientationElementSolution.exe
+D:\File\vs\project\SpaceForwardIntersection\RelativeOrientationElementSolution\obj\Debug\RelativeOrientationElementSolution.pdb

@@ -1,0 +1,15 @@
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\白塞尔大地问题正解.exe
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\白塞尔大地问题正解.deps.json
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\白塞尔大地问题正解.runtimeconfig.json
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\白塞尔大地问题正解.dll
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\ref\白塞尔大地问题正解.dll
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\bin\Debug\net6.0\白塞尔大地问题正解.pdb
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.csproj.AssemblyReference.cache
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.GeneratedMSBuildEditorConfig.editorconfig
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.AssemblyInfoInputs.cache
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.AssemblyInfo.cs
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.csproj.CoreCompileInputs.cache
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.dll
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\ref\白塞尔大地问题正解.dll
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.pdb
+D:\FileRecv\source\repos\坐标系转换\白塞尔大地问题正解\obj\Debug\net6.0\白塞尔大地问题正解.genruntimeconfig.cache

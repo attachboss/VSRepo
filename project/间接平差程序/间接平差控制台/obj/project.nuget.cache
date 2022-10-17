@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "uz/Mz7ncvzQQw1g0mx5VMIo5mrNKw5b4g4uwJ7ugAzq7bhmoOs1dEm8IWS6QRby7gPkk+ZU0ljHurs5S+KmQuw==",
+  "success": true,
+  "projectFilePath": "D:\\File\\vs\\project\\间接平差程序\\间接平差控制台\\间接平差控制台.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,87 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "gdalCS/1.0.0": {
+        "dependencies": {
+          "GDAL": "3.5.2",
+          "GDAL.Native": "3.5.2",
+          "System.Text.Encoding.CodePages": "6.0.0"
+        },
+        "runtime": {
+          "gdalCS.dll": {}
+        }
+      },
+      "GDAL/3.5.2": {
+        "runtime": {
+          "lib/netstandard2.0/gdal_csharp.dll": {
+            "assemblyVersion": "3.5.2.0",
+            "fileVersion": "3.5.2.0"
+          },
+          "lib/netstandard2.0/gdalconst_csharp.dll": {
+            "assemblyVersion": "3.5.2.0",
+            "fileVersion": "3.5.2.0"
+          },
+          "lib/netstandard2.0/ogr_csharp.dll": {
+            "assemblyVersion": "3.5.2.0",
+            "fileVersion": "3.5.2.0"
+          },
+          "lib/netstandard2.0/osr_csharp.dll": {
+            "assemblyVersion": "3.5.2.0",
+            "fileVersion": "3.5.2.0"
+          }
+        }
+      },
+      "GDAL.Native/3.5.2": {
+        "dependencies": {
+          "GDAL": "3.5.2"
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Text.Encoding.CodePages/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "gdalCS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GDAL/3.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z8IKmHGME/X3VcJVSF1CAxFo8irgKwLcLg6HOvIKEqOt+ytG6NtQrYdBrgNieraUn3xHfsPfvpf5Vv7/8rAK+A==",
+      "path": "gdal/3.5.2",
+      "hashPath": "gdal.3.5.2.nupkg.sha512"
+    },
+    "GDAL.Native/3.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Acz709AGUQnxw7dgVujtJBlIiziMJY02tmh+99fZmYkPyLajFo3lRFxH2i9DC19WLme0zoaEGig3D2pvHZgYmA==",
+      "path": "gdal.native/3.5.2",
+      "hashPath": "gdal.native.3.5.2.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZFCILZuOvtKPauZ/j/swhvw68ZRi9ATCfvGbk1QfydmcXBkIWecWKn/250UH7rahZ5OoDBaiAudJtPvLwzw85A==",
+      "path": "system.text.encoding.codepages/6.0.0",
+      "hashPath": "system.text.encoding.codepages.6.0.0.nupkg.sha512"
+    }
+  }
+}

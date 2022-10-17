@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "16915587-c5cb-497a-af51-44fc96ac1e5d": {
+      "ProjectGuid": "16915587-c5cb-497a-af51-44fc96ac1e5d",
+      "DisplayName": "高斯平均引数法",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

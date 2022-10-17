@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f6b6e3b5-c480-486d-b5d7-234d940bd3ae": {
+      "ProjectGuid": "f6b6e3b5-c480-486d-b5d7-234d940bd3ae",
+      "DisplayName": "间接平差程序",
+      "ColorIndex": 0
+    },
+    "11cb0d7d-4e6b-4aa3-9ca4-1f86a28a3f3d": {
+      "ProjectGuid": "11cb0d7d-4e6b-4aa3-9ca4-1f86a28a3f3d",
+      "DisplayName": "间接平差控制台",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

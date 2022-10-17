@@ -1,0 +1,13 @@
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\obj\Debug\ThreeLayer.BLL.csproj.AssemblyReference.cache
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\obj\Debug\ThreeLayer.BLL.csproj.CoreCompileInputs.cache
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.BLL.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.BLL.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.Common.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.DAL.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.Model.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.Common.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.DAL.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\bin\Debug\ThreeLayer.Model.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\obj\Debug\ThreeLayer.BLL.csproj.CopyComplete
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\obj\Debug\ThreeLayer.BLL.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.BLL\obj\Debug\ThreeLayer.BLL.pdb

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "e0bef7c6-5ed6-41ee-8fac-09a7477e824b": {
+      "ProjectGuid": "e0bef7c6-5ed6-41ee-8fac-09a7477e824b",
+      "DisplayName": "测编GUI编程",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

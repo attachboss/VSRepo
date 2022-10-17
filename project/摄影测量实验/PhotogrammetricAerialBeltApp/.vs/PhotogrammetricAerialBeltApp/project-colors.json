@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ae3d9ff6-faab-4997-b8b7-e9d66e963799": {
+      "ProjectGuid": "ae3d9ff6-faab-4997-b8b7-e9d66e963799",
+      "DisplayName": "PhotogrammetricAerialBeltApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

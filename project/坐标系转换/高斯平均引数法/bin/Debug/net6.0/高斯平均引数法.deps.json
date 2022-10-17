@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "高斯平均引数法/1.0.0": {
+        "runtime": {
+          "高斯平均引数法.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "高斯平均引数法/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

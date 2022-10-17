@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        span {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            setInterval(function () {
+                var time = parseInt($("span").text());
+                time--;
+                if (time < 1) {
+                    location.href = "UserInfoUI.html";
+                }
+                else {
+                    $("span").text(time);
+                }
+            }, 1000);
+
+        })
+
+    </script>
+</head>
+<body>
+    <h3>服务器忙!<span>5</span>秒后将自动跳转到<a href="UserInfoUI.html">首页</a></h3>
+</body>
+</html>
