@@ -9,23 +9,89 @@
         Title="MainMapView" Height="450" Width="800" Icon="/Resources/Suggestion_32x32.png">
     <Window.Resources>
         <local:MapViewModel x:Key="MapViewModel" />
+        <Style x:Key="default" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Wheat"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="AliceBlue"/>
+                    <Setter Property="FontSize" Value="12"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <TextBox x:Key="text1">111</TextBox>
+
+
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="10">
+                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
-        <esri:MapView x:Name="MainMapView" Map="{Binding Map, Source={StaticResource MapViewModel}}"/>
         <!--<Border>
             <Grid>
                 <Label x:Name="InstructionsLabel" Content="Click a feature to display its popup." />
-                --><!--<esri:PopupViewer x:Name="MyPopupViewer" Width="400" />--><!--
+                -->
+        <!--<esri:PopupViewer x:Name="MyPopupViewer" Width="400" />-->
+        <!--
             </Grid>
         </Border>-->
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <TabControl Grid.Column="1">
+                <TabItem Header="SceneView">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <esri:SceneView Grid.Column="1"/>
+                        <Button Template="{DynamicResource ButtonTemplate1}"  Style="{StaticResource default}" Content="Button" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Height="90" Width="90" Grid.Column="2"/>
+                        <StackPanel>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="MapView">
+                    <Grid Background="#FFE5E5E5">
+                        <esri:MapView x:Name="MainMapView" Map="{Binding Map, Source={StaticResource MapViewModel}}"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+
         </Grid>
     </Grid>
 </Window>

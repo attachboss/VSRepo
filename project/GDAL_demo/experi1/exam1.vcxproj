@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\cpp1\match_ncc.cpp" />
     <ClCompile Include="experi1.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,13 @@ namespace gdalCS
             {
                 Console.WriteLine("{0:f6}", geotrans[i]);
             }
+
+
+            //逐波段读取数据
+            byte[] buffer = new byte[ds.RasterXSize * ds.RasterYSize];
+            dsBand1.ReadRaster(0, 0, ds.RasterXSize, ds.RasterYSize, buffer, ds.RasterXSize, ds.RasterYSize, 0, 0);
+
+
             //创建驱动
             OSGeo.GDAL.Driver driver = Gdal.GetDriverByName("GTiff");
             //driver.CreateCopy("D://testImgCS.tif", ds, 1, null, null, null);
@@ -57,15 +64,15 @@ namespace gdalCS
             Dataset dsNew = driver.Create("D://testImgCS.tif", ds.RasterXSize, ds.RasterYSize, 1, dsBand1.DataType, null);
             dsNew.SetGeoTransform(geotrans);
             dsNew.SetProjection(projRef);
-            //读取数据
-            byte[] buffer = new byte[ds.RasterXSize * ds.RasterYSize];
-            dsBand1.ReadRaster(0, 0, ds.RasterXSize, ds.RasterYSize, buffer, ds.RasterXSize, ds.RasterYSize, 0, 0);
 
-
+            //逐波段写入数据
+            dsNew.GetRasterBand(1).WriteRaster(0, 0, ds.RasterXSize, ds.RasterYSize, buffer, ds.RasterXSize, ds.RasterYSize, 0, 0);
 
 
             ds.FlushCache();
             ds.Dispose();
+            dsNew.FlushCache();
+            dsNew.Dispose();
             sw.Stop();
             Console.WriteLine($"*******耗时：{sw.ElapsedMilliseconds}ms");
             Console.ReadKey();

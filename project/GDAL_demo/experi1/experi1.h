@@ -1,3 +1,4 @@
 #pragma once
 
-void NewFunction(int winSize, int& index, int* window, int xSize, int ySize, int* result, unsigned char* imgData, int& sum);
+
+int* match_ncc(unsigned char* imgData, unsigned char* imgDataTem, int xSizeImg, int ySizeImg, int xSizeTem, int ySizeTem);

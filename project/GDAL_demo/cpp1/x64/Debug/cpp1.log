@@ -27,6 +27,6 @@ D:\File\vs\project\GDAL_demo\cpp1\include\gdal_priv.h(941,33): warning C4251: �
 D:\File\vs\project\GDAL_demo\cpp1\include\gdal_priv.h(941): message : 参见“std::vector<GDALColorEntry,std::allocator<GDALColorEntry>>”的声明
 D:\File\vs\project\GDAL_demo\cpp1\include\gdal_priv.h(1519,38): warning C4251: “GDALDriverManager::oMapNameToDrivers”: class“std::map<CPLString,GDALDriver *,std::less<CPLString>,std::allocator<std::pair<const CPLString,GDALDriver *>>>”需要有 dll 接口由 class“GDALDriverManager”的客户端使用
 D:\File\vs\project\GDAL_demo\cpp1\include\gdal_priv.h(1519): message : 参见“std::map<CPLString,GDALDriver *,std::less<CPLString>,std::allocator<std::pair<const CPLString,GDALDriver *>>>”的声明
-D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(142,16): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-    正在创建库 D:\File\vs\project\GDAL_demo\x64\Debug\cpp1.lib 和对象 D:\File\vs\project\GDAL_demo\x64\Debug\cpp1.exp
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(75,16): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(194,63): warning C4244: “参数”: 从“double”转换到“const unsigned __int64”，可能丢失数据
   cpp1.vcxproj -> D:\File\vs\project\GDAL_demo\x64\Debug\cpp1.exe

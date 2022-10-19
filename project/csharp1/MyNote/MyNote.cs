@@ -1179,6 +1179,91 @@ namespace MyNote
             //  }))
             //}
             #endregion
+            #region	WPF
+            //容器：
+            //1、StackPanel
+            //默认垂直排列，通过修改orientation="Horizonal/Vertical"
+            //2、WrapPanel
+            //可以自动换行
+            //3、DockPanel
+            //控件设置DockPanel.Dock="Left/Top/Right/Bottom"
+            //默认最后一个元素会填充满 LastChildFill="false"
+            //4、Grid
+            //相当于表格
+            //先定义行列数
+            //<Gird.RowDefinition>
+            //	<RowDefinition Height="Auto"/>
+            //	...
+            //</Gird.RowDefinition>
+            //<Grid.ColumnDefinition>
+            //	<ColumnDefinition/>
+            //	...
+            //</Grid.ColumnDefinition>
+            //添加内容时，定义属性Grid.Row/Column="..."
+            //自适应宽高是以元素为准
+            //5、Canvas
+            //通过固定坐标设置元素位置(少用)
+
+
+
+            //样式
+            //全局样式，表示为所有【类型】的【名称】的控件添加了样式
+            //<Window.Resources>
+            //	<Style x:Key="名称" TargetType="类型">
+            //		<Setter Property="FontSize" Value="20"/>
+            //	</Style>
+            //</Window.Resources>
+            //给元素设置样式：
+            //<Button Style="{StaticResource 名称}"/>
+            //可以通过BasedOn="{SatticResource ...}"继承样式
+            //
+            //触发器：
+            //<Style.Trigger>
+            //	<Trigger Property="事件名" Value="True">
+            //		<Setter/>
+            //	</Trigger>
+            //</Style.Trigger>
+            //多条件：
+            //<Style.Trigger>
+            //	<MultiTrigger>
+            //		<MultiTrigger.Conditions>
+            //			<Condition Property="事件名1" value="True"/>
+            //			<Condition Property="事件名2" value="True"/>
+            //		</MultiTrigger.Conditions>
+            //		<MultiTrigger.Setters>
+            //			<Setter Property="" Value/>
+            //		</MultiTrigger.Setters>
+            //	</MultiTrigger>
+            //</Style.Trigger>
+            //事件触发器
+            //<EventTrigger RoutedEvent="Mouse.MouseDown">
+            //		<EventTrigger.Actions>
+            //			<BeginStoryBoard>
+            //				<StroyBoard>
+            //					<DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Foreground" To="Red">
+            //				</StroyBoard>
+            //			</BeginStoryBoard>
+            //		<EventTrigger.Actions>
+            //</EventTrigger>
+
+
+
+            //模板
+            //没有在模板中定义的原有属性会失效
+
+
+
+            //绑定
+            //通过元素名
+            // 		<Slider x:Name="Slider"/>
+            // 		<TextBox Text="{Binding ElementName=Slider, Path=Value, Mode=Default}"/>
+            //绑定到非元素上
+            //Source指向一个数据源
+            //		<TextBox Text="{Binding Source={StaticResource text1}, Path=Text}"/>
+            //使用RelativeSource对象 查找源对象
+            //<TextBox Text="{Binding Path=属性名, RelativeSource={RelativeSourceMode=FindAncestor, AncestorType={x:Type 控件名}}}">
+            //DataContext
+            #endregion
             #region GDI绘图
             //基本流程：
             //using(BitMap map = new BitMap(300, 400))
@@ -1448,6 +1533,10 @@ namespace MyNote
             //枚举类型的SocketFlags
             #endregion
             #region Ado.Net数据库连接
+            //三大范式
+            //原子性
+            //一张表只描述一个对象
+            //每一列和主键直接相关
 
             #region 数据库连接过程
             /***********************************************************
@@ -2476,6 +2565,8 @@ namespace MyNote
             //Console.WriteLine("爬取完成！");
             #endregion
             #region Crawler
+            //HtmlAgilityPack
+
             //robots协定(君子协定)
             //模拟请求检测Header
             //
@@ -2491,7 +2582,19 @@ namespace MyNote
             //用户控件
 
             //下载图片时防盗链 => 设置Referer请求头
-            //HttpHelper.DownLoadHtml("https://www.bilibili.com", Encoding.UTF8).Wait();
+            HttpHelper.Crawler("https://www.metalkingdom.net/top-albums", Encoding.UTF8).Wait();
+
+            //懒(惰性)加载：
+            //url绑定到其他属性，需要时加载
+            //data-lazy-img
+
+            //深层抓取：
+            //分析分页的规律，自动拼装url，递归下载
+            //与前一页数据相同时停止
+
+            //Ajax请求
+            //JSP
+            //找出URL再次请求
 
             #endregion
             #region html+css
@@ -5101,174 +5204,176 @@ namespace MyNote
 
 
             #endregion
-			#region PostGIS
-			//postgis
-			//安装插件
-			//CREATE EXTENSION postgis;
-			//检查版本
-			//postgis_full_version();
-			
-			
-			//Postgre基本类型转换
-			//type::newtype
-			
-			//使用Bundle3转换shp时注意不能使用中文路径
-			
-			//返回几何类型
-			//SELECT ST_GeometryType(列名) from 表;
-			//维度
-			//ST_NDims();
-			//空间参照
-			//ST_SRID();
-			//返回几何的文本字符串
-			//（默认查询几何对象返回十六进制的坐标表示）
-			//ST_AsText()
-			
-			
-			//1、点Point
-			//	ST_X	ST_Y	ST_Z	ST_M
-			//2、线串Linestring
-			//	是否闭合
-			//	ST_IsClosed()
-			//	是否简单(不与自身交叉或接触)
-			//	ST_IsSimple()
-			//	长度
-			//	ST_Length()
-			//	起始/终止点坐标
-			//	ST_StartPoint()	/	ST_EndPoint()
-			//	构成坐标数
-			//	ST_NPoints()
-			//3、多边形Polygon
-			//	面积
-			//	ST_Area()
-			//	环数
-			//	ST_NRings()
-			//	返回最外部环Linestring
-			//	ST_ExteriorRing()
-			//	返回指定内环
-			//	ST_InteriorRingN(列名, n)
-			//	返回所有环周长
-			//	ST_Perimeter()
-			//4、图形集合Collection
-			//	集合中组成部分的数量
-			//	ST_NumGeometries()
-			//	返回指定几何部分
-			//	ST_GeometryN(geom, n)
-			
-			
-			//几何类型序列化和反序列化
-			//由于SFSQL定义的WKT和WKB不支持高维，postgis定义了EWKT和EWKB	text示例：LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)
-			//1、WKT
-			//	ST_GeomFromText(text, srid)
-			//	ST_AsEWKT(geom)
-			//2、WKB
-			//	ST_GeomFromWKB(bytea)
-			//	ST_AsBinary(geom)
-			//	ST_AsEWKB(geom)
-			//3、GML
-			//	ST_AsGML()
-			//4、KML
-			//	ST_AsKML()
-			//5、GeoJson
-			//	ST_AsGeoJson(geom)		返回text
-			//6、SVG
-			//	ST_AsSVG()				返回text
-			
-			
-			//空间关系
-			//1、相交
-			//	根据x、y坐标值判断两个几何对象是否相等
-			//	ST_Equals(geom, geom)
-			//	判断是否相交
-			//	ST_Intersect()			会自动使用空间索引
-			//	ST_Disjoint()
-			//	ST_Crosses()			相交生成的维度小于源几何对象的最大维度，且交集位于两个源的内部
-			//	判断是否叠置
-			//	（结果集与两个源都不同但具有相同维度）
-			//	ST_Overlaps()
-			//2、边界相交
-			//	边界接触，但内部不相交
-			//	ST_Touches()
-			//3、包含
-			//	互逆函数
-			//	ST_Within()	/	ST_Contains()
-			//4、相距
-			//	返回浮点距离
-			//	ST_Distance()
-			//	测试是否在某个范围之内(缓冲)，基于索引加速
-			//	ST_DWithin(geom, geom, distance)
-			
-			#endregion
+            #region PostGIS
+            //安装插件
+            //CREATE EXTENSION postgis;
+            //检查版本
+            //postgis_full_version();
 
-			        // void MapBtnClick(object sender, EventArgs e)
-        // {
+
+            //Postgre基本类型转换
+            //type::newtype
+
+            //使用Bundle3转换shp时注意不能使用中文路径
+
+
+			//基本函数:
+            //返回几何类型
+            //SELECT ST_GeometryType(列名) from 表;
+            //维度
+            //ST_NDims();
+            //空间参照
+            //ST_SRID();
+            //返回几何的文本字符串
+            //（默认查询几何对象返回十六进制的坐标表示）
+            //ST_AsText()
+
+
+			//基本几何对象:
+            //1、点Point
+            //	ST_X	ST_Y	ST_Z	ST_M
+            //2、线串Linestring
+            //	是否闭合
+            //	ST_IsClosed()
+            //	是否简单(不与自身交叉或接触)
+            //	ST_IsSimple()
+            //	长度
+            //	ST_Length()
+            //	起始/终止点坐标
+            //	ST_StartPoint()	/	ST_EndPoint()
+            //	构成坐标数
+            //	ST_NPoints()
+            //3、多边形Polygon
+            //	面积
+            //	ST_Area()
+            //	环数
+            //	ST_NRings()
+            //	返回最外部环Linestring
+            //	ST_ExteriorRing()
+            //	返回指定内环
+            //	ST_InteriorRingN(列名, n)
+            //	返回所有环周长
+            //	ST_Perimeter()
+            //4、图形集合Collection
+            //	集合中组成部分的数量
+            //	ST_NumGeometries()
+            //	返回指定几何部分
+            //	ST_GeometryN(geom, n)
+
+
+            //几何类型序列化和反序列化:
+            //由于SFSQL定义的WKT和WKB不支持高维，postgis定义了EWKT和EWKB	text示例：LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)
+            //1、WKT
+            //	ST_GeomFromText(text, srid)
+            //	ST_AsEWKT(geom)
+            //2、WKB
+            //	ST_GeomFromWKB(bytea)
+            //	ST_AsBinary(geom)
+            //	ST_AsEWKB(geom)
+            //3、GML
+            //	ST_AsGML()
+            //4、KML
+            //	ST_AsKML()
+            //5、GeoJson
+            //	ST_AsGeoJson(geom)		返回text
+            //6、SVG
+            //	ST_AsSVG()				返回text
+
+
+            //空间关系:
+            //1、相交
+            //	根据x、y坐标值判断两个几何对象是否相等
+            //	ST_Equals(geom, geom)
+            //	判断是否相交
+            //	ST_Intersect()			会自动使用空间索引
+            //	ST_Disjoint()
+            //	ST_Crosses()			相交生成的维度小于源几何对象的最大维度，且交集位于两个源的内部
+            //	判断是否叠置
+            //	（结果集与两个源都不同但具有相同维度）
+            //	ST_Overlaps()
+            //2、边界相交
+            //	边界接触，但内部不相交
+            //	ST_Touches()
+            //3、包含
+            //	互逆函数
+            //	ST_Within()	/	ST_Contains()
+            //4、相距
+            //	返回浮点距离
+            //	ST_Distance()
+            //	测试是否在某个范围之内(缓冲)，基于索引加速
+            //	ST_DWithin(geom, geom, distance)
+
+            #endregion
+			#region AO
+            // void MapBtnClick(object sender, EventArgs e)
+            // {
             // mapDoc = new MapDocumentClass();
             // OpenFileDialog ofg = new OpenFileDialog();
             // ofg.Filter = "所有文件|*.*|地图文件|*.mxd";
             // if (ofg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             // {
-                // string mapPath = ofg.FileName;
-                // try
-                // {
-                    // mapDoc.Open(mapPath, null);
-                    // IDocumentInfo info = mapDoc as IDocumentInfo;
-                    // //输出地图文件信息...
-                    // Console.WriteLine($"************输出**************{info.DocumentTitle}");
-                    // if (mapDoc.MapCount != 0)
-                    // {
-                        // map = mapDoc.Map[0];
-                        // if (map.LayerCount != 0)
-                        // {
-                            // for (int i = 0; i < map.LayerCount; i++)
-                            // {
-                                // ILayer layer = map.Layer[i];
-                                // Console.WriteLine($"************输出**************{layer.Name}");
-                            // }
-                        // }
-                        // mapCtrl.Map = map;
-                    // }
-                    // mapDoc.Close();
-                // }
-                // catch (Exception)
-                // {
-
-                    // throw;
-                // }
+            // string mapPath = ofg.FileName;
+            // try
+            // {
+            // mapDoc.Open(mapPath, null);
+            // IDocumentInfo info = mapDoc as IDocumentInfo;
+            // //输出地图文件信息...
+            // Console.WriteLine($"************输出**************{info.DocumentTitle}");
+            // if (mapDoc.MapCount != 0)
+            // {
+            // map = mapDoc.Map[0];
+            // if (map.LayerCount != 0)
+            // {
+            // for (int i = 0; i < map.LayerCount; i++)
+            // {
+            // ILayer layer = map.Layer[i];
+            // Console.WriteLine($"************输出**************{layer.Name}");
             // }
-        // }
+            // }
+            // mapCtrl.Map = map;
+            // }
+            // mapDoc.Close();
+            // }
+            // catch (Exception)
+            // {
 
-        // void TableBtnClick(object sender, EventArgs e)
-        // {
+            // throw;
+            // }
+            // }
+            // }
+
+            // void TableBtnClick(object sender, EventArgs e)
+            // {
             // ITableCollection tables = map as ITableCollection;
             // OpenFileDialog ofg = new OpenFileDialog();
             // ofg.Filter = "所有文件|*.*|属性表文件|*.dbf";
             // if (ofg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             // {
-                // string pathName = System.IO.Path.GetDirectoryName(ofg.FileName);
-                // string tableName = System.IO.Path.GetFileName(ofg.FileName);
-                // try
-                // {
-                    // //封装打开流程
-                    // ITable table = OpenTable(pathName, tableName);
-                    // if (table != null)
-                    // {
-                        // tables.AddTable(table);
-                        // for (int i = 0; i < table.Fields.FieldCount; i++)
-                        // {
-                            // Console.WriteLine($"************输出**************{table.Fields.Field[i].Name}");
-                        // }
-                    // }
-                // }
-                // catch (Exception)
-                // {
-
-                    // throw;
-                // }
+            // string pathName = System.IO.Path.GetDirectoryName(ofg.FileName);
+            // string tableName = System.IO.Path.GetFileName(ofg.FileName);
+            // try
+            // {
+            // //封装打开流程
+            // ITable table = OpenTable(pathName, tableName);
+            // if (table != null)
+            // {
+            // tables.AddTable(table);
+            // for (int i = 0; i < table.Fields.FieldCount; i++)
+            // {
+            // Console.WriteLine($"************输出**************{table.Fields.Field[i].Name}");
             // }
-        // }
+            // }
+            // }
+            // catch (Exception)
+            // {
 
-       // public ITable OpenTable(string pathName, string tableName)
-        // {
+            // throw;
+            // }
+            // }
+            // }
+
+            // public ITable OpenTable(string pathName, string tableName)
+            // {
             // //创建工作空间对象
             // IWorkspaceName spcName = new WorkspaceNameClass();
             // spcName.PathName = pathName;
@@ -5283,8 +5388,8 @@ namespace MyNote
             // IName name = dsName as IName;
             // ITable table = name.Open() as ITable;
             // return table;
-        // }
-
+            // }
+			#endregion
 
 
 
