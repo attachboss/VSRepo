@@ -92,6 +92,7 @@ namespace WpfMapApp1
             //new Action(async () => { await CreateDB(); }).Invoke();
             //注册地图点击事件
             MainMapView.GeoViewTapped += IdentifyEvent;
+            //MainMapView.GeoViewTapped += AddPointEvent;
 
             //语音播报
             SpeechSynthesizer synthesiser = new SpeechSynthesizer();
@@ -109,17 +110,6 @@ namespace WpfMapApp1
         {
             Basemap basemap = new Basemap();
             int SRID = 4490;
-            MainMapView.GeoViewTapped += AddPointEvent;
-
-            SpeechSynthesizer synthesiser = new SpeechSynthesizer();
-            synthesiser.SelectVoice("Microsoft Zira Desktop");
-            synthesiser.SpeakAsync("fuck track number 6");
-        }
-
-        private Basemap TianDiTu(TDTLayerType layerType, bool label)
-        {
-            Basemap basemap = new Basemap();
-            SpatialReference spatialReference = SpatialReference.Create(4490);
             string layer = "";
             string tilematrixset = "";
             switch (layerType)
@@ -156,8 +146,6 @@ namespace WpfMapApp1
                     break;
             }
             SpatialReference spatialReference = SpatialReference.Create(SRID);
-                    break;
-            }
             string uriTDT_map = $"http://{{subDomain}}.tianditu.gov.cn/{layer}_{tilematrixset}/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER={layer}&STYLE=default&TILEMATRIXSET={tilematrixset}&FORMAT=tiles&TILEMATRIX={{level}}&TILEROW={{row}}&TILECOL={{col}}&tk=8959c2fd78399b107a6486ee26910098";
             List<LevelOfDetail> lods = new List<LevelOfDetail> {
                 new LevelOfDetail(1, 0.703125, 295497593.05875003),
@@ -251,7 +239,7 @@ namespace WpfMapApp1
             {
                 CalloutDefinition callout = new CalloutDefinition("title", "details");
                 MainMapView.ShowCalloutAt(e.Location, callout);
-            	//IdentifyLayerResult result = await MainMapView.IdentifyLayerAsync(_featureLayer, e.Position, 10d, false);
+                //IdentifyLayerResult result = await MainMapView.IdentifyLayerAsync(_featureLayer, e.Position, 10d, false);
                 //MessageBox.Show(result.GeoElements[0].Attributes["key"].ToString());
             }
         }

@@ -7,22 +7,15 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Attac\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-<<<<<<< HEAD
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
-=======
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.3.0</NuGetToolVersion>
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\Attac\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-<<<<<<< HEAD
     <PkgShowMeTheXAML_MSBuild Condition=" '$(PkgShowMeTheXAML_MSBuild)' == '' ">C:\Users\Attac\.nuget\packages\showmethexaml.msbuild\2.0.0</PkgShowMeTheXAML_MSBuild>
     <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\Attac\.nuget\packages\materialdesignthemes\4.6.1</PkgMaterialDesignThemes>
-=======
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     <PkgEsri_ArcGISRuntime_WPF Condition=" '$(PkgEsri_ArcGISRuntime_WPF)' == '' ">C:\Users\Attac\.nuget\packages\esri.arcgisruntime.wpf\100.15.0</PkgEsri_ArcGISRuntime_WPF>
   </PropertyGroup>
 </Project>

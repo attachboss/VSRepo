@@ -44,12 +44,6 @@ namespace ArcObjectsDemo
         IMapDocument mapDoc;
         IToolbarMenu menuMap;
         IToolbarMenu menuLayer;
-
-        IActiveView pActiveView;
-        AxMapControl mapCtrl;
-        AxToolbarControl toolbarCtrl;
-        AxTOCControl tocCtrl;
-        IMapDocument mapDoc;
         public MainWindow()
         {
             InitializeComponent();
@@ -538,14 +532,6 @@ namespace ArcObjectsDemo
 
  
 
-        void MapCtrl_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
-        {
-            mapCtrl.MousePointer = esriControlsMousePointer.esriPointerArrow;
-            IEnvelope pEnvelope = mapCtrl.TrackRectangle();
-            pActiveView.Extent = pEnvelope;
-            pActiveView.Refresh();
-            mapCtrl.MousePointer = esriControlsMousePointer.esriPointerDefault;
-        }
 
 
         private void OpenDefaultMapDoc()
@@ -663,22 +649,6 @@ namespace ArcObjectsDemo
             DrawEnvelopeElement(mapCtrl.ActiveView.Extent, engerEyeCtrl.Map as IGraphicsContainer);
 
 
-        }
-
-
-        /// <summary>
-        /// 窗体关闭时事件
-            //给工具栏控件添加项目
-            toolbarCtrl.AddItem("esriControls.ControlsOpenDocCommand");
-            toolbarCtrl.AddItem("esriControls.ControlsAddDataCommand");
-            toolbarCtrl.AddItem("esriControls.ControlsSaveAsDocCommand");
-            toolbarCtrl.AddItem("esriControls.ControlsMapNavigationToolbar");
-            toolbarCtrl.AddItem("esriControls.ControlsMapIdentifyTool");
-            toolbarCtrl.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            //打开默认地图文档
-            OpenDefaultMapDoc();
-            //添加自定义命令
-            toolbarCtrl.AddItem(new ZoomToLayer(), -1, -1, true, 20, esriCommandStyles.esriCommandStyleIconOnly);
         }
 
         /// <summary>

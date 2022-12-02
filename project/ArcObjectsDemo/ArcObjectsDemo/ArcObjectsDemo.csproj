@@ -41,11 +41,7 @@
     </Reference>
     <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-<<<<<<< HEAD
       <EmbedInteropTypes>False</EmbedInteropTypes>
-=======
-      <EmbedInteropTypes>True</EmbedInteropTypes>
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       <HintPath>Esri\DotNet\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.AxControls, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
@@ -63,17 +59,15 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>Esri\DotNet\ESRI.ArcGIS.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.Display, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
-<<<<<<< HEAD
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Display.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.DisplayUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\DeveloperKit10.7\DotNet\ESRI.ArcGIS.DisplayUI.dll</HintPath>
-=======
-      <EmbedInteropTypes>True</EmbedInteropTypes>
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.DisplayUI.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Framework, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -142,7 +136,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
     <Compile Include="ContextMenu\LayerSelectable.cs" />
     <Compile Include="ContextMenu\OpenAttributeTable.cs" />
     <Compile Include="ContextMenu\RemoveLayer.cs" />
@@ -150,8 +143,6 @@
     <Compile Include="AttributeTableForm.xaml.cs">
       <DependentUpon>AttributeTableForm.xaml</DependentUpon>
     </Compile>
-=======
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -160,22 +151,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="ContextMenu\LayerVisibility.cs" />
     <Compile Include="ContextMenu\ZoomToLayer.cs" />
-=======
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Page Include="AttributeTableForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-=======
->>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

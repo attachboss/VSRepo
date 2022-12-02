@@ -10,133 +10,94 @@
 #include "../cpp1/include/gdalwarper.h"
 using namespace std;
 
-vector<unsigned short> calcCVA(GDALDataset* DsBefore, GDALDataset* DsAfter)
+
+/// <summary>
+/// K均值聚类
+/// </summary>
+/// <param name="xSize"></param>
+/// <param name="ySize"></param>
+/// <param name="imgData"></param>
+/// <param name="resClass"></param>
+/// <returns></returns>
+vector<int> KMeans(int xSize, int ySize, unsigned char* imgData, int* resClass)
 {
-	vector<unsigned short> v;
+	const int n = 3;
+	const int maxLoopNum = 6;
 
-	int xSize = DsBefore->GetRasterXSize();
-	int ySize = DsBefore->GetRasterYSize();
+	vector<int> z0;
+	vector<int> z0_x;
+	vector<int> z0_y;
 
-	GDALRasterBand* bandBefore1 = DsBefore->GetRasterBand(1);
-	GDALRasterBand* bandBefore2 = DsBefore->GetRasterBand(2);
-	GDALRasterBand* bandBefore3 = DsBefore->GetRasterBand(3);
-	GDALRasterBand* bandBefore4 = DsBefore->GetRasterBand(4);
-	GDALRasterBand* bandAfter1 = DsAfter->GetRasterBand(1);
-	GDALRasterBand* bandAfter2 = DsAfter->GetRasterBand(2);
-	GDALRasterBand* bandAfter3 = DsAfter->GetRasterBand(3);
-	GDALRasterBand* bandAfter4 = DsAfter->GetRasterBand(4);
-	GDALDataType type = bandBefore1->GetRasterDataType();
+	int* sum = new int[n]();;
+	int* num = new int[n]();;
+	int* euclidean = new int[n]();
 
-	unsigned short* B1 = new unsigned short[xSize * ySize]();
-	unsigned short* B2 = new unsigned short[xSize * ySize]();
-	unsigned short* B3 = new unsigned short[xSize * ySize]();
-	unsigned short* B4 = new unsigned short[xSize * ySize]();
-	unsigned short* A1 = new unsigned short[xSize * ySize]();
-	unsigned short* A2 = new unsigned short[xSize * ySize]();
-	unsigned short* A3 = new unsigned short[xSize * ySize]();
-	unsigned short* A4 = new unsigned short[xSize * ySize]();
-
-	bandBefore1->RasterIO(GF_Read, 0, 0, xSize, ySize, B1, xSize, ySize, type, 0, 0);
-	bandBefore2->RasterIO(GF_Read, 0, 0, xSize, ySize, B2, xSize, ySize, type, 0, 0);
-	bandBefore3->RasterIO(GF_Read, 0, 0, xSize, ySize, B3, xSize, ySize, type, 0, 0);
-	bandBefore4->RasterIO(GF_Read, 0, 0, xSize, ySize, B4, xSize, ySize, type, 0, 0);
-	bandAfter1->RasterIO(GF_Read, 0, 0, xSize, ySize, A1, xSize, ySize, type, 0, 0);
-	bandAfter2->RasterIO(GF_Read, 0, 0, xSize, ySize, A2, xSize, ySize, type, 0, 0);
-	bandAfter3->RasterIO(GF_Read, 0, 0, xSize, ySize, A3, xSize, ySize, type, 0, 0);
-	bandAfter4->RasterIO(GF_Read, 0, 0, xSize, ySize, A4, xSize, ySize, type, 0, 0);
-
-	for (int j = 0; j < ySize; j++)
+	for (int k = 0; k < n; k++)
 	{
+		//随机聚类中心坐标
+		// x/y = [0,512)
+		z0_x.push_back(rand() % (xSize));
+		z0_y.push_back(rand() % (ySize));
+		int index;
 		for (int i = 0; i < xSize; i++)
 		{
-			int index = j * xSize + i;
-			double dv = sqrt(pow(B1[index] - A1[index], 2) + pow(B2[index] - A2[index], 2) + pow(B3[index] - A3[index], 2) + pow(B4[index] - A4[index], 2));
-			if (dv > 255)
+			for (int j = 0; j < ySize; j++)
 			{
-				v.push_back(255);
-			}
-			else
-			{
-				v.push_back((unsigned short)round(dv));
+				if (i == z0_x[k] && j == z0_y[k])
+				{
+					index = i * xSize + j;
+					z0.push_back(imgData[index]);
+				}
 			}
 		}
-	}
-	delete[] B1;
-	delete[] B2;
-	delete[] B3;
-	delete[] B4;
-	delete[] A1;
-	delete[] A2;
-	delete[] A3;
-	delete[] A4;
+	};
 
-	return v;
-};
-
-unsigned short calcThreshold(int ySizeImg, int xSizeImg, std::vector<unsigned short> v)
-{
-	//确定阈值
-	int bin[256];
-	for (int c = 0; c < 256; c++)
+	//进行循环
+	for (int i = 0; i < maxLoopNum; i++)
 	{
-		int count = 0;
-		for (int j = 0; j < ySizeImg; j++)
+		for (int j = 0; j < ySize; j++)
 		{
-			for (int i = 0; i < xSizeImg; i++)
+			for (int k = 0; k < xSize; k++)
 			{
-				int index = j * xSizeImg + i;
-				if (v[index] == c)
+				int index = xSize * j + k;
+				int temp = 256;
+				int nNum;
+				for (int ii = 0; ii < n; ii++)
 				{
-					//直方图计数
-					count++;
+					euclidean[ii] = abs(imgData[index] - z0[ii]);
+					if (euclidean[ii] <= temp)
+					{
+						temp = euclidean[ii];
+						nNum = ii;
+					}
 				}
+				sum[nNum] += imgData[index];
+				num[nNum] ++;
+				resClass[index] = nNum;
 			}
-		}
-		bin[c] = count;
-	}
-	//求最大类间方差
-	int total = xSizeImg * ySizeImg;
-	double max = 0;
-	unsigned short threshold;
-	for (int c = 0; c < 256; c++)
-	{
-		int sumB = 0, sumF = 0, countB = 0, countF = 0;
-		double avgB, avgF;
-		for (int j = 0; j < ySizeImg; j++)
-		{
-			for (int i = 0; i < xSizeImg; i++)
-			{
-				int index = j * xSizeImg + i;
-				if (v[index] < c)
-				{
-					sumB += v[index];
-					countB++;
-				}
-				else
-				{
-					sumF += v[index];
-					countF++;
-				}
-			}
-		}
-		if (countB == 0 || countF == 0)
-		{
-			continue;
-		}
-		avgB = (double)(sumB / countB);
-		avgF = (double)(sumF / countF);
-		double s = ((double)countB / total) * ((double)countF / total) * pow(avgB - avgF, 2);
-		if (s > max)
-		{
-			max = s;
-			threshold = c;
-		}
-	}
+		};
 
-	return threshold;
+		//判断是否满足跳出条件
+		int flag = 0;
+		for (int j = 0; j < n; j++)
+		{
+			int temp;
+			temp = (int)round((float)sum[j] / num[j]);
+			if (z0[j] == temp)
+			{
+				flag++;
+				if (flag == n)
+				{
+					return z0;
+				}
+			}
+			//清空变量
+			z0[j] = temp;
+			sum[j] = 0;
+			num[j] = 0;
+		};
+	};
 }
-
-
 
 int main()
 {
@@ -145,148 +106,80 @@ int main()
 	//注册驱动
 	GDALAllRegister();
 	//路径支持中文
-<<<<<<< HEAD
 	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
-	GDALDataset* gdalDsRef = (GDALDataset*)GDALOpen(".//Resources//reference.tif", GA_ReadOnly);
-	if (gdalDsRef == NULL)
-	{
-		return 0;
-	}
-	GDALDataset* gdalDsBefore = (GDALDataset*)GDALOpen(".//Resources//tsunami_before.tif", GA_ReadOnly);
-	if (gdalDsBefore == NULL)
-	{
-		return 0;
-	}
-	GDALDataset* gdalDsAfter = (GDALDataset*)GDALOpen(".//Resources//tsunami_after.tif", GA_ReadOnly);
-	if (gdalDsAfter == NULL)
+	GDALDataset* gdalDsImg = (GDALDataset*)GDALOpen(".//Resources//testImg.tif", GA_ReadOnly);
+	if (gdalDsImg == NULL)
 	{
 		return 0;
 	}
 	//读取列宽以及行高
-	int xSizeRef = gdalDsRef->GetRasterXSize();
-	std::cout << "ref列宽：" << xSizeRef << std::endl;
-	int ySizeRef = gdalDsRef->GetRasterYSize();
-	std::cout << "ref行高：" << ySizeRef << std::endl;
-	int xSizeImg = gdalDsBefore->GetRasterXSize();
-	std::cout << "img列宽：" << xSizeImg << std::endl;
-	int ySizeImg = gdalDsBefore->GetRasterYSize();
-	std::cout << "img行高：" << ySizeImg << std::endl;
+	int xSize = gdalDsImg->GetRasterXSize();
+	std::cout << "img列宽：" << xSize << std::endl;
+	int ySize = gdalDsImg->GetRasterYSize();
+	std::cout << "img行高：" << ySize << std::endl;
 	//波段数
-	std::cout << "ref波段数：" << gdalDsRef->GetRasterCount() << std::endl;
-	std::cout << "img波段数：" << gdalDsBefore->GetRasterCount() << std::endl;
+	std::cout << "img波段数：" << gdalDsImg->GetRasterCount() << std::endl;
 	//地理参考变换信息
 	double geotrans[6];
-	gdalDsRef->GetGeoTransform(geotrans);
+	gdalDsImg->GetGeoTransform(geotrans);
 	//投影信息
-	const char* projectRef = gdalDsRef->GetProjectionRef();
+	const char* projectRef = gdalDsImg->GetProjectionRef();
 	//读取波段
-	GDALRasterBand* dsBandRef = gdalDsRef->GetRasterBand(1);
-	GDALRasterBand* dsBandBefore = gdalDsBefore->GetRasterBand(1);
-	GDALRasterBand* dsBandAfter = gdalDsBefore->GetRasterBand(1);
+	GDALRasterBand* dsBandImg = gdalDsImg->GetRasterBand(1);
 	//读取变量类型
-	GDALDataType typeRef = dsBandRef->GetRasterDataType();
-	std::cout << "ref数据类型：" << typeRef << std::endl;
-	GDALDataType typeImg = dsBandBefore->GetRasterDataType();
+	GDALDataType typeImg = dsBandImg->GetRasterDataType();
 	std::cout << "img数据类型：" << typeImg << std::endl;
 	//读取数据
-	unsigned char* imgDataRef = new unsigned char[xSizeRef * ySizeRef];
-	dsBandRef->RasterIO(GF_Read, 0, 0, xSizeRef, ySizeRef, imgDataRef, xSizeRef, ySizeRef, typeRef, 0, 0);
+	unsigned char* imgData = new unsigned char[xSize * ySize];
+	dsBandImg->RasterIO(GF_Read, 0, 0, xSize, ySize, imgData, xSize, ySize, typeImg, 0, 0);
 
-	//组成像元光谱向量
-	vector<unsigned short> v = calcCVA(gdalDsBefore, gdalDsAfter);
-	//显示光谱变化向量
-	unsigned char* dv = new unsigned char[xSizeImg*ySizeImg]();
-	for (int j = 0; j < ySizeImg; j++)
-	{
-		for (int i = 0; i < xSizeImg; i++)
-		{
-			int index = j * xSizeImg + i;
-			dv[index] = (unsigned char)v[index];
-		}
-	}
+	int* resClass = new int[xSize * ySize];
+	//K均值聚类
+	vector<int> z0 = KMeans(xSize, ySize, imgData, resClass);
 
-	//计算阈值
-	unsigned short threshold = calcThreshold(ySizeImg, xSizeImg, v);
-	//输出变化检测结果
-	unsigned char* result = new unsigned char[xSizeImg * ySizeImg]();
-	for (int j = 0; j < ySizeImg; j++)
+	//每一类灰度值用聚类中心灰度代替
+	unsigned char* result = new unsigned char[xSize * ySize]();
+	for (size_t j = 0; j < ySize; j++)
 	{
-		for (int i = 0; i < xSizeImg; i++)
+		for (size_t i = 0; i < xSize; i++)
 		{
-			int index = j * xSizeImg + i;
-			if (v[index] < threshold)
+			int index = j * xSize + i;
+			for (size_t c = 0; c < z0.size(); c++)
 			{
-				result[index] = 0;
-			}
-			else
-			{
-				result[index] = 255;
+				if (resClass[index] == c)
+				{
+					result[index] = (unsigned char)z0[c];
+				}
+
 			}
 		}
 	}
-
 
 	GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
-	GDALDataset* res = driver->Create(".//Resources//result.tif", xSizeRef, ySizeRef, 1, GDT_Byte, NULL);
-	res->GetRasterBand(1)->RasterIO(GF_Write, 0, 0, xSizeImg, ySizeImg, result, xSizeImg, ySizeImg, GDT_Byte, 0, 0, NULL);
+	GDALDataset* res = driver->Create(".//Resources//result.tif", xSize, ySize, 1, GDT_Byte, NULL);
+	res->GetRasterBand(1)->RasterIO(GF_Write, 0, 0, xSize, ySize, result, xSize, ySize, GDT_Byte, 0, 0, NULL);
 
-	GDALDataset* dsDv = driver->Create(".//Resources//ds.tif", xSizeRef, ySizeRef, 1, GDT_Byte, NULL);
-	dsDv->GetRasterBand(1)->RasterIO(GF_Write, 0, 0, xSizeImg, ySizeImg, dv, xSizeImg, ySizeImg, GDT_Byte, 0, 0, NULL);
+
 
 
 	//设置地理参考变换及投影信息
 	res->SetGeoTransform(geotrans);
 	res->SetProjection(projectRef);
 	//释放内存
-	delete[] imgDataRef;
-	delete[] dv;
+	delete[] imgData;
 	delete[] result;
-	GDALClose(gdalDsRef);
-	GDALClose(gdalDsBefore);
-	GDALClose(gdalDsAfter);
-
-	int xSizeImg = gdalDsImg->GetRasterXSize();
-	std::cout << "img列宽：" << xSizeImg << std::endl;
-	int ySizeImg = gdalDsImg->GetRasterYSize();
-	std::cout << "img行高：" << ySizeImg << std::endl;
-	int xSizeTem = gdalDsTemplate->GetRasterXSize();
-	std::cout << "template列宽：" << xSizeTem << std::endl;
-	int ySizeTem = gdalDsTemplate->GetRasterYSize();
-	std::cout << "template行高：" << ySizeTem << std::endl;
-	//地理参考变换信息
-	//double geotrans[6];
-	//gdalDs->GetGeoTransform(geotrans);
-	//投影信息
-	//const char* projectRef = gdalDs->GetProjectionRef();
-	//读取波段
-	GDALRasterBand* dsBand1 = gdalDsImg->GetRasterBand(1);
-	GDALRasterBand* dsBand2 = gdalDsTemplate->GetRasterBand(1);
-	//读取变量类型
-	GDALDataType type1 = dsBand1->GetRasterDataType();
-	std::cout << "波段输入数据类型：" << type1 << std::endl;
-	GDALDataType type2 = dsBand2->GetRasterDataType();
-	std::cout << "波段输入数据类型：" << type2 << std::endl;
-	//读取数据
-	unsigned char* imgData = new unsigned char[xSizeImg * ySizeImg];
-	dsBand1->RasterIO(GF_Read, 0, 0, xSizeImg, ySizeImg, imgData, xSizeImg, ySizeImg, type1, 0, 0);
-
-	unsigned char* imgDataTem = new unsigned char[xSizeTem * ySizeTem];
-	dsBand2->RasterIO(GF_Read, 0, 0, xSizeTem, ySizeTem, imgDataTem, xSizeTem, ySizeTem, type2, 0, 0);
-	//计算NCC
-	int* pos = match_ncc(imgData, imgDataTem, xSizeImg, ySizeImg, xSizeTem, ySizeTem);
-	cout << "匹配点坐标：" << pos[0] << "，" << pos[1] << endl;
-
-
-
-	//释放内存
+	delete[] resClass;
 	GDALClose(gdalDsImg);
-	GDALClose(gdalDsTemplate);
 	GDALDestroyDriverManager();
 
 	end = clock();
 	std::cout << "计时：*******" << double(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
-
 	std::system("pause");
 	return 0;
 }
+
+
+
+
+
 
