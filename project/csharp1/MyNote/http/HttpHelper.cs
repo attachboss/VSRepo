@@ -1,6 +1,9 @@
 ﻿using HtmlAgilityPack;
 using MyNote.Common;
 using MyNote.Model;
+using MyNote;
+using System.Net.Http.Headers;
+using System.Security.Policy;
 using System.Text;
 
 namespace Common.http

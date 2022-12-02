@@ -59,6 +59,7 @@ namespace gdalCS
 
             //创建驱动
             OSGeo.GDAL.Driver driver = Gdal.GetDriverByName("GTiff");
+            //driver.CreateCopy("D://testImgCS.tif", ds, 1, null, null, null);
             //创建新Dataset
             Dataset dsNew = driver.Create("D://testImgCS.tif", ds.RasterXSize, ds.RasterYSize, 1, dsBand1.DataType, null);
             dsNew.SetGeoTransform(geotrans);
@@ -72,7 +73,6 @@ namespace gdalCS
             ds.Dispose();
             dsNew.FlushCache();
             dsNew.Dispose();
-
             sw.Stop();
             Console.WriteLine($"*******耗时：{sw.ElapsedMilliseconds}ms");
             Console.ReadKey();

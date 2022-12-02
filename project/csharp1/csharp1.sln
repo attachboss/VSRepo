@@ -30,12 +30,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite1(1)", "WebSite1\", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNote", "MyNote\MyNote.csproj", "{113A521E-9CFF-45AF-A1DA-AF0E2CB82D2D}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigServices", "ConfigServices\ConfigServices.csproj", "{BC5F29FA-48CC-457F-940B-4703B7A4948F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogServices", "LogServices\LogServices.csproj", "{526F6FA9-59B0-44B2-A148-E095CD985768}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailServices", "MailServices\MailServices.csproj", "{4AB4FCFD-6959-44D1-96CB-20A6D9F34DE1}"
 EndProject
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +71,7 @@ Global
 		{113A521E-9CFF-45AF-A1DA-AF0E2CB82D2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{113A521E-9CFF-45AF-A1DA-AF0E2CB82D2D}.Release|x86.ActiveCfg = Release|Any CPU
 		{113A521E-9CFF-45AF-A1DA-AF0E2CB82D2D}.Release|x86.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{BC5F29FA-48CC-457F-940B-4703B7A4948F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC5F29FA-48CC-457F-940B-4703B7A4948F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC5F29FA-48CC-457F-940B-4703B7A4948F}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -92,6 +96,8 @@ Global
 		{4AB4FCFD-6959-44D1-96CB-20A6D9F34DE1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4AB4FCFD-6959-44D1-96CB-20A6D9F34DE1}.Release|x86.ActiveCfg = Release|Any CPU
 		{4AB4FCFD-6959-44D1-96CB-20A6D9F34DE1}.Release|x86.Build.0 = Release|Any CPU
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

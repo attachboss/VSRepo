@@ -10,6 +10,7 @@ none
 false
 DEBUG;TRACE
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\App.xaml
+<<<<<<< HEAD
 21506330069
 130-1049626398
 13238333882
@@ -17,4 +18,13 @@ D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\App.xaml
 MainWindow.xaml;AttributeTableForm.xaml;
 
 False
+=======
+1219584333
+130-1049626398
+6-793535042
+33-1231980805
+MainWindow.xaml;
+
+True
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
 

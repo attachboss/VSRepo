@@ -199,6 +199,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "MaterialDesignColors/2.0.9": {
         "runtime": {
           "lib/net6.0/MaterialDesignColors.dll": {
@@ -231,6 +232,8 @@
           "ShowMeTheXAML": "2.0.0"
         }
       },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       "System.Speech/6.0.0": {
         "runtime": {
           "lib/net6.0/System.Speech.dll": {
@@ -271,6 +274,7 @@
       "path": "esri.arcgisruntime.wpf/100.15.0",
       "hashPath": "esri.arcgisruntime.wpf.100.15.0.nupkg.sha512"
     },
+<<<<<<< HEAD
     "MaterialDesignColors/2.0.9": {
       "type": "package",
       "serviceable": true,
@@ -299,6 +303,8 @@
       "path": "showmethexaml.msbuild/2.0.0",
       "hashPath": "showmethexaml.msbuild.2.0.0.nupkg.sha512"
     },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     "System.Speech/6.0.0": {
       "type": "package",
       "serviceable": true,

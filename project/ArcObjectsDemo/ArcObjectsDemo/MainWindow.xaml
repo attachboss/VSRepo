@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:ArcObjectsDemo"
         xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
         mc:Ignorable="d"
-        Title="MainWindow" 
-        Width="1280" Height="720"
+        Title="MainWindow" Height="450" Width="800"
         Closing="MainWindowClosing"
         Loaded="MainWindowLoaded"
         >
@@ -25,4 +24,9 @@
         <Label Name="Label1" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20" Padding="0,0,0,0"/>
     </Grid>
 
+
+        <my:WindowsFormsHost Name="TocContainer" Margin="0, 30, 0, 20" Width="200" HorizontalAlignment="Left"/>
+        <my:WindowsFormsHost Name="MapViewContainer" Margin="200, 30, 0, 20"/>
+        <my:WindowsFormsHost Name="ToolBarContainer" Margin="0, 0, 30, 10" VerticalAlignment="Top"/>
+    </Grid>
 </Window>

@@ -15,6 +15,7 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Noto/#NotoSans"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}">
+
     <Window.Resources>
         <local:MapViewModel x:Key="MapViewModel" />
         <Style x:Key="default" TargetType="Button">
@@ -91,12 +92,17 @@
                         </ToggleButton>
 
 
+                        <esri:SceneView Grid.Column="1"/>
+                        <Button Template="{DynamicResource ButtonTemplate1}"  Style="{StaticResource default}" Content="Button" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Height="90" Width="90" Grid.Column="2"/>
+                        <StackPanel>
+                        </StackPanel>
 
                     </Grid>
                 </TabItem>
                 <TabItem Header="MapView">
                     <Grid Background="#FFE5E5E5">
                         <esri:MapView x:Name="MainMapView" Map="{Binding Map, Source={StaticResource MapViewModel}}"/>
+
                         <Button Style="{DynamicResource MaterialDesignRaisedButton}"
                                 Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top">
                             <materialDesign:PackIcon Kind="About"/>

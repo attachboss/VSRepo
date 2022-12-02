@@ -570,6 +570,66 @@ void main()
 
 
 
+
+#define BYTE float
+int main()
+{
+	clock_t start, end;
+	start = clock();
+	//注册驱动
+	GDALAllRegister();
+	//路径支持中文
+	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "YES");
+	GDALDataset* gdalDs = (GDALDataset*)GDALOpen("D://testImg.tif", GA_ReadOnly);
+	if (gdalDs == NULL)
+	{
+		return 0;
+	}
+	std::cout << "图像信息：" << gdalDs->GetDescription() << std::endl;
+	char** str = gdalDs->GetMetadataDomainList();
+	std::cout << "元数据信息：" << str << std::endl;
+	int xSize = gdalDs->GetRasterXSize();
+	std::cout << "列宽：" << xSize << std::endl;
+	int ySize = gdalDs->GetRasterYSize();
+	std::cout << "行高：" << ySize << std::endl;
+	//波段起始值为1
+	GDALRasterBand* dsBand1 = gdalDs->GetRasterBand(1);
+	std::cout << "第一波段信息：" << dsBand1 << std::endl;
+	GDALDataType type = dsBand1->GetRasterDataType();
+	std::cout << "数据类型：" << type << std::endl;
+	//std::cout << "波段数：" << gdalDs->GetRasterCount() << std::endl;
+	std::cout << "最小灰度值：" << dsBand1->GetMinimum() << std::endl;
+	std::cout << "最大灰度值：" << dsBand1->GetMaximum() << std::endl;
+	if (gdalDs->GetProjectionRef() != NULL)
+	{
+		std::cout << "投影信息：" << gdalDs->GetProjectionRef() << std::endl;
+	}
+	std::cout << "地理参考变换信息：" << std::endl;
+	//	GetGeoTransform[0] /* 左上角X坐标 */
+	//	GetGeoTransform[1] /* 西-东 方向像素分辨率 */
+	//	GetGeoTransform[2] /* 0 无关*/
+	//	GetGeoTransform[3] /* 左上角Y坐标 */
+	//	GetGeoTransform[4] /* 0 无关*/
+	//	GetGeoTransform[5] /* 北-南 方向像素分辨率(前面加负号) */
+	//建立影像与地理坐标之间的关系
+	double geotrans[6];
+	gdalDs->GetGeoTransform(geotrans);
+	for (int i = 0; i < 6; i++)
+	{
+		printf("%.6f\n", geotrans[i]);
+	};
+
+	unsigned char* imgData = new unsigned char[xSize * ySize * 1];
+	dsBand1->RasterIO(GF_Read, 0, 0, xSize, ySize, imgData, xSize, ySize, type, 0, 0);
+	//KMeans(xSize, ySize, imgData);
+
+
+
+	GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
+	/*driver->CreateCopy("D://testImgCPP.tif", gdalDs, 1, NULL, NULL, NULL);*/
+	GDALClose(gdalDs);
+	GDALDestroyDriverManager();
+	delete[] imgData;
 	//结束计时
 	end = clock();
 	std::cout << "计时：*******" << double(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;

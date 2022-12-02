@@ -76,7 +76,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>.\lib;$(LibraryPath)</LibraryPath>
+<<<<<<< HEAD
     <IncludePath>.\include;.\include\opencv2;$(IncludePath)</IncludePath>
+=======
+    <IncludePath>.\include;$(IncludePath)</IncludePath>
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -119,7 +123,11 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+<<<<<<< HEAD
       <AdditionalDependencies>.\lib\gdal_i.lib;.\lib\opencv_world460d.lib</AdditionalDependencies>
+=======
+      <AdditionalDependencies>gdal_i.lib;%(AdditionalDependencies)</AdditionalDependencies>
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

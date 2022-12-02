@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "MqDN8TUoHt+qejFLQxxRvnqOqNY5nrkRpCLIkwza9ckLT0Tsoe6G6BeWimOfGuTgNAzBjX5migaM/gh1VJ7PzA==",
+=======
+  "dgSpecHash": "f4ErTYseJM15LQxNfwlESX+dLBX+RMmAfMcAqILeApA0MFzNXNgZgNljblCw/4qvHLfMRhmGDw8EzU9r/uXfzQ==",
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
   "success": true,
   "projectFilePath": "D:\\File\\vs\\project\\GDAL_demo\\gdalCS\\gdalCS.csproj",
   "expectedPackageFiles": [

@@ -36,6 +36,10 @@ D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.GeoDatabas
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.csproj.CopyComplete
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.pdb
+<<<<<<< HEAD
+=======
+D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ZoomToLayer.png
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Controls.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.NetworkAnalyst.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Controls.xml
@@ -47,8 +51,11 @@ D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Carto.xml
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Geometry.xml
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.GeoDatabaseExtensions.xml
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ExtentCommand.tlb
+<<<<<<< HEAD
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ZoomTriple.png
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Display.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Display.xml
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\TagDate.bmp
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\TagDate.cur
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a

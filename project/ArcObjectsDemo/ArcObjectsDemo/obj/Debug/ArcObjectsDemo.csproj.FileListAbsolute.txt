@@ -64,6 +64,7 @@ D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.System.dl
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.System.xml
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ExtentCommand.dll
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ExtentCommand.pdb
+<<<<<<< HEAD
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.Display.dll
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.Display.xml
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.DisplayUI.dll
@@ -84,3 +85,6 @@ D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.CartoUI.x
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ESRI.ArcGIS.Catalog.xml
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\TagDate.bmp
 D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\TagDate.cur
+=======
+D:\File\vs\project\ArcObjectsDemo\ArcObjectsDemo\bin\Debug\ZoomToLayer.png
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a

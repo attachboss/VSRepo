@@ -15,10 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="..\..\..\..\专业课\数字图像处理\实验\实验三-图像匹配\match_ncc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="experi1.cpp">
+=======
+    <ClCompile Include="experi1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cpp1\match_ncc.cpp">
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -223,7 +223,10 @@ D:\File\vs\project\WpfMapApp1\WpfMapApp1\obj\Debug\net6.0-windows10.0.19041.0\Wp
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\obj\Debug\net6.0-windows10.0.19041.0\ref\WpfMapApp1.dll
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\bin\Debug\net6.0-windows10.0.19041.0\System.Speech.dll
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\bin\Debug\net6.0-windows10.0.19041.0\runtimes\win\lib\net6.0\System.Speech.dll
+<<<<<<< HEAD
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\bin\Debug\net6.0-windows10.0.19041.0\MaterialDesignColors.dll
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\bin\Debug\net6.0-windows10.0.19041.0\MaterialDesignThemes.Wpf.dll
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\bin\Debug\net6.0-windows10.0.19041.0\ShowMeTheXAML.dll
 D:\File\vs\project\WpfMapApp1\WpfMapApp1\obj\Debug\net6.0-windows10.0.19041.0\App.baml
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a

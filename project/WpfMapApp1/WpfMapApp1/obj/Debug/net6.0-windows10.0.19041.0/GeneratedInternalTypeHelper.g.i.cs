@@ -15,7 +15,11 @@ namespace XamlGeneratedNamespace {
     /// GeneratedInternalTypeHelper
     /// </summary>
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.0.0")]
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.9.0")]
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
     public sealed class GeneratedInternalTypeHelper : System.Windows.Markup.InternalTypeHelper {
         

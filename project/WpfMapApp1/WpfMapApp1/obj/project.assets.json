@@ -210,6 +210,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "MaterialDesignColors/2.0.9": {
         "type": "package",
         "compile": {
@@ -269,6 +270,8 @@
           "build/netstandard2.0/ShowMeTheXAML.MSBuild.targets": {}
         }
       },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       "System.Speech/6.0.0": {
         "type": "package",
         "compile": {
@@ -878,6 +881,7 @@
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
+<<<<<<< HEAD
     "MaterialDesignColors/2.0.9": {
       "sha512": "b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
       "type": "package",
@@ -989,6 +993,8 @@
         "tools/netframework/ShowMeTheXAML.MSBuild.pdb"
       ]
     },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
     "System.Speech/6.0.0": {
       "sha512": "GQovERMrNP0Vbtgk8LzH4PlFS6lqHgsL9WkUmv8Kkxa0m0vNakitytpHZlfJ9WR7n9WKLXh68nn2kyL9mflnLg==",
       "type": "package",
@@ -1020,10 +1026,14 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.19041": [
+<<<<<<< HEAD
       "Esri.ArcGISRuntime >= 100.15.0",
       "Esri.ArcGISRuntime.WPF >= 100.15.0",
       "MaterialDesignThemes >= 4.6.1",
       "ShowMeTheXAML.MSBuild >= 2.0.0",
+=======
+      "Esri.ArcGISRuntime.WPF >= 100.15.0",
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       "System.Speech >= 6.0.0"
     ]
   },
@@ -1073,14 +1083,18 @@
       "net6.0-windows10.0.19041": {
         "targetAlias": "net6.0-windows10.0.19041.0",
         "dependencies": {
+<<<<<<< HEAD
           "Esri.ArcGISRuntime": {
             "target": "Package",
             "version": "[100.15.0, )"
           },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
           "Esri.ArcGISRuntime.WPF": {
             "target": "Package",
             "version": "[100.15.0, )"
           },
+<<<<<<< HEAD
           "MaterialDesignThemes": {
             "target": "Package",
             "version": "[4.6.1, )"
@@ -1089,6 +1103,8 @@
             "target": "Package",
             "version": "[2.0.0, )"
           },
+=======
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
           "System.Speech": {
             "target": "Package",
             "version": "[6.0.0, )"
@@ -1122,7 +1138,11 @@
             "privateAssets": "none"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> 95d2688a9ae109e1027674c2b069f8acc37d776a
       }
     }
   }

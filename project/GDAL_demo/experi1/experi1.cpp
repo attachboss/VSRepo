@@ -145,6 +145,7 @@ int main()
 	//注册驱动
 	GDALAllRegister();
 	//路径支持中文
+<<<<<<< HEAD
 	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
 	GDALDataset* gdalDsRef = (GDALDataset*)GDALOpen(".//Resources//reference.tif", GA_ReadOnly);
 	if (gdalDsRef == NULL)
@@ -243,16 +244,49 @@ int main()
 	GDALClose(gdalDsRef);
 	GDALClose(gdalDsBefore);
 	GDALClose(gdalDsAfter);
+
+	int xSizeImg = gdalDsImg->GetRasterXSize();
+	std::cout << "img列宽：" << xSizeImg << std::endl;
+	int ySizeImg = gdalDsImg->GetRasterYSize();
+	std::cout << "img行高：" << ySizeImg << std::endl;
+	int xSizeTem = gdalDsTemplate->GetRasterXSize();
+	std::cout << "template列宽：" << xSizeTem << std::endl;
+	int ySizeTem = gdalDsTemplate->GetRasterYSize();
+	std::cout << "template行高：" << ySizeTem << std::endl;
+	//地理参考变换信息
+	//double geotrans[6];
+	//gdalDs->GetGeoTransform(geotrans);
+	//投影信息
+	//const char* projectRef = gdalDs->GetProjectionRef();
+	//读取波段
+	GDALRasterBand* dsBand1 = gdalDsImg->GetRasterBand(1);
+	GDALRasterBand* dsBand2 = gdalDsTemplate->GetRasterBand(1);
+	//读取变量类型
+	GDALDataType type1 = dsBand1->GetRasterDataType();
+	std::cout << "波段输入数据类型：" << type1 << std::endl;
+	GDALDataType type2 = dsBand2->GetRasterDataType();
+	std::cout << "波段输入数据类型：" << type2 << std::endl;
+	//读取数据
+	unsigned char* imgData = new unsigned char[xSizeImg * ySizeImg];
+	dsBand1->RasterIO(GF_Read, 0, 0, xSizeImg, ySizeImg, imgData, xSizeImg, ySizeImg, type1, 0, 0);
+
+	unsigned char* imgDataTem = new unsigned char[xSizeTem * ySizeTem];
+	dsBand2->RasterIO(GF_Read, 0, 0, xSizeTem, ySizeTem, imgDataTem, xSizeTem, ySizeTem, type2, 0, 0);
+	//计算NCC
+	int* pos = match_ncc(imgData, imgDataTem, xSizeImg, ySizeImg, xSizeTem, ySizeTem);
+	cout << "匹配点坐标：" << pos[0] << "，" << pos[1] << endl;
+
+
+
+	//释放内存
+	GDALClose(gdalDsImg);
+	GDALClose(gdalDsTemplate);
 	GDALDestroyDriverManager();
 
 	end = clock();
 	std::cout << "计时：*******" << double(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
+
 	std::system("pause");
 	return 0;
 }
-
-
-
-
-
 
