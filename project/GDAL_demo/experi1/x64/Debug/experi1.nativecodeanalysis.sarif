@@ -1,0 +1,835 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 42,
+                  "endLine": 30,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 42,
+                  "endLine": 30,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 42,
+                  "endLine": 31,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 42,
+                  "endLine": 31,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 42,
+                  "endLine": 32,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 42,
+                  "endLine": 32,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 42,
+                  "endLine": 33,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 42,
+                  "endLine": 33,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 42,
+                  "endLine": 34,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 42,
+                  "endLine": 34,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 42,
+                  "endLine": 35,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 42,
+                  "endLine": 35,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 42,
+                  "endLine": 36,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 42,
+                  "endLine": 36,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 42,
+                  "endLine": 37,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 42,
+                  "endLine": 37,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "calcCVA",
+                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 57
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 203,
+                  "startColumn": 44,
+                  "endLine": 203,
+                  "endColumn": 55
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 203,
+                  "startColumn": 44,
+                  "endLine": 203,
+                  "endColumn": 55
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 - ，然后将结果转换到 8 字节值。在调用运算符 - 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 238,
+                  "startColumn": 44,
+                  "endLine": 238,
+                  "endColumn": 50
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.34.31933.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "59efcbc7d8e271805557cb1de29b951c0afa4e2a8f7063d5803160554f436ed6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/experi1.h"
+          },
+          "hashes": {
+            "sha-256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/gdal_priv.h"
+          },
+          "hashes": {
+            "sha-256": "aa3678c0d3f3939108136c8874d1668f87660eb8dc30990805534fa9c8bf3217"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/gdal.h"
+          },
+          "hashes": {
+            "sha-256": "abdc1c9df7a17426376924e10f89a2991c3e2635fe71eb3f20b98909f1473cb0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/gdal_version.h"
+          },
+          "hashes": {
+            "sha-256": "de76abfc74782f6d16b6e326ed0acc9fbb70848002fba0ac7a5335b939857ce1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_port.h"
+          },
+          "hashes": {
+            "sha-256": "7075fcf55eee931ded6a31615c6212e8adff4e647e1f4a1e2f73c53ded375dfd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_config.h"
+          },
+          "hashes": {
+            "sha-256": "6f7d4254271a700851c376ec8dcc31afd5fbad2f052360837f331318ce9e3976"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_error.h"
+          },
+          "hashes": {
+            "sha-256": "99ee1fb8d905cce7dea6c2403efcf1d720a520a471423e1f6718d50869b2363c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_progress.h"
+          },
+          "hashes": {
+            "sha-256": "c116728509a89509c0ce4767c92e44b37bca9f74d16ae1f788f8335f2cf00a6c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_virtualmem.h"
+          },
+          "hashes": {
+            "sha-256": "a59b7e56462af2d6947f14a31d4ab27ecd61885f42b9796c9c72a426afcb5625"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_vsi.h"
+          },
+          "hashes": {
+            "sha-256": "f507057ce7904c7b80bccd1b3c5fdeeb23dd49d12148a0e2c0145de703b4555e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_minixml.h"
+          },
+          "hashes": {
+            "sha-256": "0d090bbd5f91e92a9b7277330d68f011a8cbdaf5b31a35236fd95e51ed2d2d50"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_api.h"
+          },
+          "hashes": {
+            "sha-256": "b3a7cedda3fe95ac8abc640aca2462d875788b48e9335df015c0c7241bbdf049"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_core.h"
+          },
+          "hashes": {
+            "sha-256": "74a555a1037188ca73e74803f0b8f0d2699b9d691bdb9751c4f013f26dc33940"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/gdal_frmts.h"
+          },
+          "hashes": {
+            "sha-256": "3e74ac8d0ccb31cfdc4e8a987ceeb22a0d6f36eade41df60daf9764a546c0e9a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_conv.h"
+          },
+          "hashes": {
+            "sha-256": "d0dfd3cf56fdd865153b74c526569d72d6d73eaf66bca684aad02ab0653512cd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_string.h"
+          },
+          "hashes": {
+            "sha-256": "446d93359cd47ab2ff1151414f9f7e03cb458a11da6a4e751b4d94a2b581d581"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_multiproc.h"
+          },
+          "hashes": {
+            "sha-256": "567a4c8f44f0c60f528bd03e8b04aab898a9e09d8c7d92d8d1d535fabfac6cc4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_atomic_ops.h"
+          },
+          "hashes": {
+            "sha-256": "e177fd505b42b260ae2aa6a07e5f5fb61b23c05d80736c497840362397212ebd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_feature.h"
+          },
+          "hashes": {
+            "sha-256": "c770a3efda912a968f95113de886611bd1d758e7df9f13a22f8823ceedb5272a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_featurestyle.h"
+          },
+          "hashes": {
+            "sha-256": "489fef3317d7e54cc90457818630bd5326a8956af1f3b45d573899dfae2f1efe"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_geometry.h"
+          },
+          "hashes": {
+            "sha-256": "6b0c04a2a7548325d60d8de941ce73fc7958278a5a2b8dda592a12720858ccad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/cpl_json.h"
+          },
+          "hashes": {
+            "sha-256": "bed75e959ed19cb8d6031d5900463ad4104670219437293768d4b84c6f572918"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_spatialref.h"
+          },
+          "hashes": {
+            "sha-256": "35178c9ee328525016b37fd064325295b462f0eb0030369e3da7b76ad0e77b03"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/include/ogr_srs_api.h"
+          },
+          "hashes": {
+            "sha-256": "fded15b6369bd05cb44d584f07d115277aaf48f1de1d1b393b4d6d03e8500fad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/gdalwarper.h"
+          },
+          "hashes": {
+            "sha-256": "8d8eaeee8a9f0034aad025f5cdd7abf5f4e815bd430f778b9f2a8c0cdffa2ffd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/gdal_alg.h"
+          },
+          "hashes": {
+            "sha-256": "e4667620a353e71a4018e0adb5cb0ef64b940bb651b76a5f2f8a9ba8153af6f2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/gdal.h"
+          },
+          "hashes": {
+            "sha-256": "abdc1c9df7a17426376924e10f89a2991c3e2635fe71eb3f20b98909f1473cb0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/cpl_minixml.h"
+          },
+          "hashes": {
+            "sha-256": "0d090bbd5f91e92a9b7277330d68f011a8cbdaf5b31a35236fd95e51ed2d2d50"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/ogr_api.h"
+          },
+          "hashes": {
+            "sha-256": "b3a7cedda3fe95ac8abc640aca2462d875788b48e9335df015c0c7241bbdf049"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/cpp1/include/cpl_multiproc.h"
+          },
+          "hashes": {
+            "sha-256": "567a4c8f44f0c60f528bd03e8b04aab898a9e09d8c7d92d8d1d535fabfac6cc4"
+          }
+        }
+      ]
+    }
+  ]
+}

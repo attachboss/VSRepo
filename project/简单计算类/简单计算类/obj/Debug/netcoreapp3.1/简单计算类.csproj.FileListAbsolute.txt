@@ -1,0 +1,14 @@
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.exe
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.deps.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.runtimeconfig.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.runtimeconfig.dev.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.dll
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\bin\Debug\netcoreapp3.1\简单计算类.pdb
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.csproj.AssemblyReference.cache
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.AssemblyInfoInputs.cache
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.AssemblyInfo.cs
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.csproj.CoreCompileInputs.cache
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.dll
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.pdb
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\简单计算类\obj\Debug\netcoreapp3.1\简单计算类.genruntimeconfig.cache

@@ -1,0 +1,345 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "WpfMapApp1/1.0.0": {
+        "dependencies": {
+          "Esri.ArcGISRuntime": "100.15.0",
+          "Esri.ArcGISRuntime.WPF": "100.15.0",
+          "MaterialDesignThemes": "4.6.1",
+          "ShowMeTheXAML.MSBuild": "2.0.0",
+          "System.Speech": "6.0.0",
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.27"
+        },
+        "runtime": {
+          "WpfMapApp1.dll": {}
+        }
+      },
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.27": {
+        "runtime": {
+          "Microsoft.Windows.SDK.NET.dll": {
+            "assemblyVersion": "10.0.19041.24",
+            "fileVersion": "10.0.19041.27"
+          },
+          "WinRT.Runtime.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.39961"
+          }
+        }
+      },
+      "Esri.ArcGISRuntime/100.15.0": {
+        "dependencies": {
+          "Esri.ArcGISRuntime.runtimes.win": "100.15.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362/Esri.ArcGISRuntime.dll": {
+            "assemblyVersion": "100.15.0.0",
+            "fileVersion": "100.15.0.3604"
+          }
+        },
+        "resources": {
+          "lib/net6.0-windows10.0.18362/ar/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net6.0-windows10.0.18362/bg/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/net6.0-windows10.0.18362/bs/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "bs"
+          },
+          "lib/net6.0-windows10.0.18362/ca/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ca"
+          },
+          "lib/net6.0-windows10.0.18362/cs/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0-windows10.0.18362/da/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net6.0-windows10.0.18362/de/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0-windows10.0.18362/el/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "el"
+          },
+          "lib/net6.0-windows10.0.18362/es/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0-windows10.0.18362/et/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "et"
+          },
+          "lib/net6.0-windows10.0.18362/fi/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net6.0-windows10.0.18362/fr/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0-windows10.0.18362/he/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "he"
+          },
+          "lib/net6.0-windows10.0.18362/hr/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net6.0-windows10.0.18362/hu/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net6.0-windows10.0.18362/id/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "id"
+          },
+          "lib/net6.0-windows10.0.18362/it/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0-windows10.0.18362/ja/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0-windows10.0.18362/ko/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0-windows10.0.18362/lt/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "lt"
+          },
+          "lib/net6.0-windows10.0.18362/lv/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net6.0-windows10.0.18362/nb-NO/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/net6.0-windows10.0.18362/nl/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net6.0-windows10.0.18362/no/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "no"
+          },
+          "lib/net6.0-windows10.0.18362/pl/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0-windows10.0.18362/pt-BR/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0-windows10.0.18362/pt-PT/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "pt-PT"
+          },
+          "lib/net6.0-windows10.0.18362/ro/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net6.0-windows10.0.18362/ru/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0-windows10.0.18362/sk/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net6.0-windows10.0.18362/sl/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/net6.0-windows10.0.18362/sr/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/net6.0-windows10.0.18362/sv/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net6.0-windows10.0.18362/th/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net6.0-windows10.0.18362/tr/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0-windows10.0.18362/uk/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net6.0-windows10.0.18362/vi/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/net6.0-windows10.0.18362/zh-CN/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net6.0-windows10.0.18362/zh-HK/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "zh-HK"
+          },
+          "lib/net6.0-windows10.0.18362/zh-Hans/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0-windows10.0.18362/zh-TW/Esri.ArcGISRuntime.resources.dll": {
+            "locale": "zh-TW"
+          }
+        }
+      },
+      "Esri.ArcGISRuntime.runtimes.win/100.15.0": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/RuntimeCoreNet100_15.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          },
+          "runtimes/win-x64/native/runtimecore.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          },
+          "runtimes/win-x64/native/runtimecoreAssembly.manifest": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/RuntimeCoreNet100_15.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          },
+          "runtimes/win-x86/native/runtimecore.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          },
+          "runtimes/win-x86/native/runtimecoreAssembly.manifest": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Esri.ArcGISRuntime.WPF/100.15.0": {
+        "dependencies": {
+          "Esri.ArcGISRuntime": "100.15.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362/Esri.ArcGISRuntime.WPF.dll": {
+            "assemblyVersion": "100.15.0.0",
+            "fileVersion": "100.15.0.3604"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/RuntimeCoreNet100_15.WPF.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          },
+          "runtimes/win-x86/native/RuntimeCoreNet100_15.WPF.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "100.15.0.3604"
+          }
+        }
+      },
+      "MaterialDesignColors/2.0.9": {
+        "runtime": {
+          "lib/net6.0/MaterialDesignColors.dll": {
+            "assemblyVersion": "2.0.9.0",
+            "fileVersion": "2.0.9.0"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.6.1": {
+        "dependencies": {
+          "MaterialDesignColors": "2.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
+          }
+        }
+      },
+      "ShowMeTheXAML/2.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/ShowMeTheXAML.dll": {
+            "assemblyVersion": "2.0.0.62",
+            "fileVersion": "2.0.0.62"
+          }
+        }
+      },
+      "ShowMeTheXAML.MSBuild/2.0.0": {
+        "dependencies": {
+          "ShowMeTheXAML": "2.0.0"
+        }
+      },
+      "System.Speech/6.0.0": {
+        "runtime": {
+          "lib/net6.0/System.Speech.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Speech.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WpfMapApp1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.27": {
+      "type": "runtimepack",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Esri.ArcGISRuntime/100.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c2EVrqdU0JRgKAlyYbMDG5VWKw17M6CSJz4HFqppFZ37LYbDa2EIa4Hz79AVmBXVe+d9QIGXcLuFxoBhdigzYA==",
+      "path": "esri.arcgisruntime/100.15.0",
+      "hashPath": "esri.arcgisruntime.100.15.0.nupkg.sha512"
+    },
+    "Esri.ArcGISRuntime.runtimes.win/100.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NMp1+kgpuqEPVOLMZ7ny02yZkloH1IpkjJ3Qbiflh72YvWApjpBIi86cHN2adWtcGl5ivZxgFsBahWgQUpBXsQ==",
+      "path": "esri.arcgisruntime.runtimes.win/100.15.0",
+      "hashPath": "esri.arcgisruntime.runtimes.win.100.15.0.nupkg.sha512"
+    },
+    "Esri.ArcGISRuntime.WPF/100.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b3NxZfpgPEoE3zBEzQxlUPWnDJpOqbpSCzOwiVkL+MW3G7scpnQ1yaXTU5rOw6Kfcm+V1c63VuvVPk2kQiDdBQ==",
+      "path": "esri.arcgisruntime.wpf/100.15.0",
+      "hashPath": "esri.arcgisruntime.wpf.100.15.0.nupkg.sha512"
+    },
+    "MaterialDesignColors/2.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
+      "path": "materialdesigncolors/2.0.9",
+      "hashPath": "materialdesigncolors.2.0.9.nupkg.sha512"
+    },
+    "MaterialDesignThemes/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
+      "path": "materialdesignthemes/4.6.1",
+      "hashPath": "materialdesignthemes.4.6.1.nupkg.sha512"
+    },
+    "ShowMeTheXAML/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ljDrkSyGhx3EKIq73c9317m7NsvTjCKVdO0vnqzjwdWAgFkpdfrEd3Nn6uF/Mc+QUTSUfFfjmONJDfYSPwCB3g==",
+      "path": "showmethexaml/2.0.0",
+      "hashPath": "showmethexaml.2.0.0.nupkg.sha512"
+    },
+    "ShowMeTheXAML.MSBuild/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EilS9tMJdusWau9tFMmvPOX+uO8eUGy7I4UHIar+g2xkRgRlT/F3yDJY5jq2jDmzwzx4DUsZo48r37Y3R/R78A==",
+      "path": "showmethexaml.msbuild/2.0.0",
+      "hashPath": "showmethexaml.msbuild.2.0.0.nupkg.sha512"
+    },
+    "System.Speech/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GQovERMrNP0Vbtgk8LzH4PlFS6lqHgsL9WkUmv8Kkxa0m0vNakitytpHZlfJ9WR7n9WKLXh68nn2kyL9mflnLg==",
+      "path": "system.speech/6.0.0",
+      "hashPath": "system.speech.6.0.0.nupkg.sha512"
+    }
+  }
+}

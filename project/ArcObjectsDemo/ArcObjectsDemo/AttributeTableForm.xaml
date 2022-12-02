@@ -1,0 +1,33 @@
+﻿<Window x:Class="ArcObjectsDemo.AttributeTableForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArcObjectsDemo"
+        xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        mc:Ignorable="d"
+        Title="AttributeTableForm" Height="450" Width="800"
+        Loaded="AttributeTableFormLoaded"
+        >
+    <Grid>
+        <my:WindowsFormsHost Name="AttributeTableContainer"/>
+        <DataGrid Name="DataGridView1" d:ItemsSource="{d:SampleData ItemCount=2}" Margin="0, 0, 0, 20" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" SelectionChanged="DataGridView1_SelectionChanged">
+
+            <DataGrid.ContextMenu>
+                <ContextMenu Name="DataGridMenu">
+                    <MenuItem Header="闪烁该要素" Click="FlashToSelected"/>
+                    <MenuItem Header="缩放到该要素" Click="ZoomToSelected"/>
+                    <MenuItem Header="平移到该要素" Click="MoveToSelected"/>
+                    <MenuItem Header="缩放到当前图层" Click="ZoomToThisLayer"/>
+                    <MenuItem Header="缩放到所有选择要素" Click="ZoomToAllSelected"/>
+                    <MenuItem Header="清除所有选择要素" Click="CancelSelectAll"/>
+                    <MenuItem Header="删除所有选择要素" Click="DeleteAllSelected"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Label Name="Label1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20" Padding="0,0,0,0"/>
+        <Label Name="Label2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Padding="0,0,0,0"/>
+
+    </Grid>
+
+</Window>

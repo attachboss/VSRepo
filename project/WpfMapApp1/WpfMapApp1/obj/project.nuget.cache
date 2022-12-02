@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "vRJo9BC+Vg+r7VwQIutVXCs5GfZ1q3kS8/fFkuSKJZpuP8tKJVN5k8zba1bDIgfFQBEh7TrKDpavzQPgudWMYw==",
+  "success": true,
+  "projectFilePath": "D:\\File\\vs\\project\\WpfMapApp1\\WpfMapApp1\\WpfMapApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime\\100.15.0\\esri.arcgisruntime.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime.runtimes.win\\100.15.0\\esri.arcgisruntime.runtimes.win.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\esri.arcgisruntime.wpf\\100.15.0\\esri.arcgisruntime.wpf.100.15.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\showmethexaml\\2.0.0\\showmethexaml.2.0.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\showmethexaml.msbuild\\2.0.0\\showmethexaml.msbuild.2.0.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\system.speech\\6.0.0\\system.speech.6.0.0.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.27\\microsoft.windows.sdk.net.ref.10.0.19041.27.nupkg.sha512"
+  ],
+  "logs": []
+}

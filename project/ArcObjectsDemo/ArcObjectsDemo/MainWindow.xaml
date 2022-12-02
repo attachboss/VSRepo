@@ -1,0 +1,28 @@
+﻿<Window x:Class="ArcObjectsDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArcObjectsDemo"
+        xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Width="1280" Height="720"
+        Closing="MainWindowClosing"
+        Loaded="MainWindowLoaded"
+        >
+    <Grid>
+        <Grid Width="200" HorizontalAlignment="Left" Margin="0, 30, 0, 20" >
+            <my:WindowsFormsHost Name="EngerEyeContainer" Height="200" VerticalAlignment="Bottom"/>
+            <my:WindowsFormsHost Name="TocContainer" Margin="0, 0, 0 ,200" />
+        </Grid>
+        <TabControl Margin="200, 30, 0, 20" >
+            <TabItem Header="地图视图">
+                <my:WindowsFormsHost Name="MapViewContainer"/>
+            </TabItem>
+        </TabControl>
+        <my:WindowsFormsHost Name="ToolBarContainer" Margin="0, 0, 0, 10" Height="30" VerticalAlignment="Top"/>
+        <Label Name="Label1" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20" Padding="0,0,0,0"/>
+    </Grid>
+
+</Window>

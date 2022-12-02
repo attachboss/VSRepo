@@ -1,0 +1,8 @@
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\bin\Debug\SpaceForwardIntersection.exe.config
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\bin\Debug\SpaceForwardIntersection.exe
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\bin\Debug\SpaceForwardIntersection.pdb
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\obj\Debug\SpaceForwardIntersection.csproj.AssemblyReference.cache
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\obj\Debug\SpaceForwardIntersection.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\obj\Debug\SpaceForwardIntersection.csproj.CoreCompileInputs.cache
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\obj\Debug\SpaceForwardIntersection.exe
+D:\File\vs\project\SpaceForwardIntersection\SpaceForwardIntersection\obj\Debug\SpaceForwardIntersection.pdb

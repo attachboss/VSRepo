@@ -1,0 +1,11 @@
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\obj\Debug\ThreeLayer.DAL.csproj.AssemblyReference.cache
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\obj\Debug\ThreeLayer.DAL.csproj.CoreCompileInputs.cache
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.DAL.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.DAL.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.Common.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.Model.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.Common.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\bin\Debug\ThreeLayer.Model.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\obj\Debug\ThreeLayer.DAL.csproj.CopyComplete
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\obj\Debug\ThreeLayer.DAL.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.DAL\obj\Debug\ThreeLayer.DAL.pdb

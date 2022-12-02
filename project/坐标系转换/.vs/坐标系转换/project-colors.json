@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "eefa3f9f-cfb9-42a6-a037-9127a6e1e057": {
+      "ProjectGuid": "eefa3f9f-cfb9-42a6-a037-9127a6e1e057",
+      "DisplayName": "坐标系转换",
+      "ColorIndex": 0
+    },
+    "7cfbc2cd-bdcb-4dd6-8b06-693c639ec160": {
+      "ProjectGuid": "7cfbc2cd-bdcb-4dd6-8b06-693c639ec160",
+      "DisplayName": "白塞尔大地问题正解",
+      "ColorIndex": 1
+    },
+    "8f043297-2ce4-4592-a572-d0ee95958b0a": {
+      "ProjectGuid": "8f043297-2ce4-4592-a572-d0ee95958b0a",
+      "DisplayName": "高斯平均引数法",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "4af2c94f-08a5-420a-b455-89a20e7c0156": {
+      "ProjectGuid": "4af2c94f-08a5-420a-b455-89a20e7c0156",
+      "DisplayName": "高斯平均引数法",
+      "ColorIndex": 3
+    },
+    "6b5217b4-d3e1-4f4b-bbd0-542f58b84cc1": {
+      "ProjectGuid": "6b5217b4-d3e1-4f4b-bbd0-542f58b84cc1",
+      "DisplayName": "白塞尔大地主题解算",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

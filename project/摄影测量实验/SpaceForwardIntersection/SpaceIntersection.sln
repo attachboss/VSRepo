@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceForwardIntersection", "SpaceForwardIntersection\SpaceForwardIntersection.csproj", "{BE963723-2F38-4DFA-9909-F1F39BB73625}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExactSolutionOfCollinearEquation", "ExactSolutionOfCollinearEquation\ExactSolutionOfCollinearEquation.csproj", "{94DCD252-14F4-4248-8ABD-D45FA534C202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelativeOrientationElementSolution", "RelativeOrientationElementSolution\RelativeOrientationElementSolution.csproj", "{6C1EB6C8-F707-410F-A239-3247BE1CA682}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE963723-2F38-4DFA-9909-F1F39BB73625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE963723-2F38-4DFA-9909-F1F39BB73625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE963723-2F38-4DFA-9909-F1F39BB73625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE963723-2F38-4DFA-9909-F1F39BB73625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DCD252-14F4-4248-8ABD-D45FA534C202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DCD252-14F4-4248-8ABD-D45FA534C202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DCD252-14F4-4248-8ABD-D45FA534C202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DCD252-14F4-4248-8ABD-D45FA534C202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C1EB6C8-F707-410F-A239-3247BE1CA682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1EB6C8-F707-410F-A239-3247BE1CA682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1EB6C8-F707-410F-A239-3247BE1CA682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1EB6C8-F707-410F-A239-3247BE1CA682}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {183639A4-B1C0-4EFD-B0E2-BB83BF577CBF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+C:\Users\Attac\source\repos\测编实验2\测编实验2\bin\Debug\测编实验2.exe.config
+C:\Users\Attac\source\repos\测编实验2\测编实验2\bin\Debug\测编实验2.exe
+C:\Users\Attac\source\repos\测编实验2\测编实验2\bin\Debug\测编实验2.pdb
+C:\Users\Attac\source\repos\测编实验2\测编实验2\obj\Debug\测编实验2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Attac\source\repos\测编实验2\测编实验2\obj\Debug\测编实验2.csproj.CoreCompileInputs.cache
+C:\Users\Attac\source\repos\测编实验2\测编实验2\obj\Debug\测编实验2.exe
+C:\Users\Attac\source\repos\测编实验2\测编实验2\obj\Debug\测编实验2.pdb
+C:\Users\Attac\source\repos\测编实验2\测编实验2\obj\Debug\测编实验2.csproj.AssemblyReference.cache

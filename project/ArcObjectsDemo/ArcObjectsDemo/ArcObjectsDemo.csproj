@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE395F4B-F759-4BBE-89E8-D2760A0F7C43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ArcObjectsDemo</RootNamespace>
+    <AssemblyName>ArcObjectsDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.ADF.Local.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.ArcMapUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.AxControls, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.AxControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Carto.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Controls, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DisplayUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\DeveloperKit10.7\DotNet\ESRI.ArcGIS.DisplayUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Geodatabase.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.System.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Version, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.Version.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ImageServer.Mml2, Version=10.0.0.0, Culture=neutral, PublicKeyToken=1fe19dd100662792, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ImageServer.Mml2.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Snowball.Net, Version=2.0.0.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\Snowball.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SynExpand, Version=2.0.0.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Esri\DotNet\SynExpand.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ContextMenu\LayerSelectable.cs" />
+    <Compile Include="ContextMenu\OpenAttributeTable.cs" />
+    <Compile Include="ContextMenu\RemoveLayer.cs" />
+    <Compile Include="ContextMenu\ScaleThresholds.cs" />
+    <Compile Include="AttributeTableForm.xaml.cs">
+      <DependentUpon>AttributeTableForm.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ContextMenu\LayerVisibility.cs" />
+    <Compile Include="ContextMenu\ZoomToLayer.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="AttributeTableForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.AnalysisTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Analyst3DTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CartographyTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ConversionTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CoverageTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataInteroperabilityTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataManagementTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.EditingTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeocodingTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeostatisticalAnalystTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.LinearReferencingTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.MultidimensionTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.NetworkAnalystTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ParcelFabricTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SampleTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SchematicsTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ServerTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialAnalystTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialStatisticsTools.dll.config" />
+    <None Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.TrackingAnalystTools.dll.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.3DAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.3DAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.3DAnalystUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.3DAnalystUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.Connection.Core.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.Connection.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.Connection.Local.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ADF.Connection.Local.XML" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ADF.Connection.XML" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.Core.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ADF.Local.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ADF.Local.XML" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ADF.XML" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Animation.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Animation.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.AnimationUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.AnimationUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcCatalog.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcCatalog.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcCatalogUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcCatalogUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcGlobe.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcGlobe.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcMap.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcMap.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcMapUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcMapUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcScan.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcScan.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.ArcScene.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.ArcScene.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.AxControls.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.AxPublisherControls.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Cadastral.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Cadastral.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.CadastralUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.CadastralUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Carto.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Carto.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.CartoUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.CartoUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.CartoX.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.CartoXUI.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Catalog.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Catalog.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.CatalogUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.CatalogUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Controls.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Controls.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataInterop.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataInterop.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataInteropUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataInteropUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesFile.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesFile.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesGDB.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesGDB.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesNetCDF.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesNetCDF.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesOleDB.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesOleDB.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesRaster.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesRaster.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesRasterUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DataSourcesRasterUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Display.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Display.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.DisplayUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.DisplayUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Editor.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Editor.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.EditorExt.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.EditorExt.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.EngineCore.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Framework.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Framework.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Geodatabase.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Geodatabase.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseDistributed.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseDistributed.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseDistributedUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseDistributedUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseExtensions.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseExtensions.xml" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabasePS.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoDatabaseUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Geometry.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Geometry.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Geoprocessing.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Geoprocessing.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoprocessingUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoprocessingUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Geoprocessor.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Geoprocessor.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoReferenceUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoReferenceUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoStatisticalAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoStatisticalAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoStatisticalAnalystUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoStatisticalAnalystUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GeoSurvey.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GeoSurvey.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GISClient.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GISClient.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GlobeCore.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GlobeCore.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GlobeCoreUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.GlobeCoreUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GraphicsCore.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.GraphicsSymbols.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Location.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Location.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.LocationUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.LocationUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Maplex.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Maplex.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalysis.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalysis.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalystUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.NetworkAnalystUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Output.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Output.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.OutputExtensions.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.OutputExtensions.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.OutputExtensionsUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.OutputExtensionsUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.OutputUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.OutputUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Publisher.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Publisher.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.PublisherControls.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.PublisherControls.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.PublisherUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.PublisherUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Schematic.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Schematic.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SchematicControls.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SchematicUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.SchematicUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Search.dll" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Server.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.Server.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SpatialAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.SpatialAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SpatialAnalystUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.SpatialAnalystUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.System.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.System.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SystemUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.SystemUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.SystemUtility.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.SystemUtility.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.TrackingAnalyst.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.TrackingAnalyst.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.TrackingAnalystUI.dll" />
+    <Resource Include="Esri\DotNet\ESRI.ArcGIS.TrackingAnalystUI.xml" />
+    <Content Include="Esri\DotNet\ESRI.ArcGIS.Version.dll" />
+    <Content Include="Esri\DotNet\ESRI.ImageServer.Mml2.dll" />
+    <Content Include="Esri\DotNet\Lucene.Net.dll" />
+    <Content Include="Esri\DotNet\Snowball.Net.dll" />
+    <Content Include="Esri\DotNet\SynExpand.exe" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.AnalysisTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.AnalysisTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Analyst3DTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Analyst3DTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Carto.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CartographyTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CartographyTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ConversionTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ConversionTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CoverageTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.CoverageTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataInteroperabilityTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataInteroperabilityTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataManagementTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataManagementTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataSourcesFile.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataSourcesNetCDF.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.DataSourcesRaster.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Display.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.EditingTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.EditingTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeoAnalyst.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeocodingTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeocodingTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Geodatabase.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeoDatabaseDistributed.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeoDatabaseExtensions.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Geometry.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Geoprocessing.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Geoprocessor.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Geoprocessor.xml" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeostatisticalAnalystTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GeostatisticalAnalystTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.GISClient.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.LinearReferencingTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.LinearReferencingTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.MultidimensionTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.MultidimensionTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.NetworkAnalystTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.NetworkAnalystTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Output.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ParcelFabricTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ParcelFabricTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SampleTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SampleTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SchematicsTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SchematicsTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Server.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ServerTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.ServerTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialAnalystTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialAnalystTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialStatisticsTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SpatialStatisticsTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.System.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.SystemUI.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.TrackingAnalystTools.dll" />
+    <Resource Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.TrackingAnalystTools.XML" />
+    <Content Include="Esri\DotNet\Toolboxes\ESRI.ArcGIS.Version.dll" />
+    <Content Include="Esri\DotNet\Toolboxes\stdole.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtentCommand\ExtentCommand.csproj">
+      <Project>{1e4222ee-ab5b-47a5-b2fc-d6b85d5e2b51}</Project>
+      <Name>ExtentCommand</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

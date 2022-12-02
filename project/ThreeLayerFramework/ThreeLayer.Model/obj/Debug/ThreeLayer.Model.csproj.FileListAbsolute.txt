@@ -1,0 +1,6 @@
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\bin\Debug\ThreeLayer.Model.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\bin\Debug\ThreeLayer.Model.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\obj\Debug\ThreeLayer.Model.csproj.CoreCompileInputs.cache
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\obj\Debug\ThreeLayer.Model.dll
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\obj\Debug\ThreeLayer.Model.pdb
+D:\File\vs\project\ThreeLayerFramework\ThreeLayer.Model\obj\Debug\ThreeLayer.Model.csproj.AssemblyReference.cache

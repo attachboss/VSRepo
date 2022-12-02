@@ -1,0 +1,13 @@
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.exe
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.deps.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.runtimeconfig.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.runtimeconfig.dev.json
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.dll
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\bin\Debug\netcoreapp3.1\lby.pdb
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.AssemblyInfoInputs.cache
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.AssemblyInfo.cs
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.csproj.CoreCompileInputs.cache
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.dll
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.pdb
+C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs\project\简单计算类\lby\obj\Debug\netcoreapp3.1\lby.genruntimeconfig.cache

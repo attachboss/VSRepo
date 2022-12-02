@@ -1,0 +1,8 @@
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\bin\Debug\ExactSolutionOfCollinearEquation.exe.config
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\bin\Debug\ExactSolutionOfCollinearEquation.exe
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\bin\Debug\ExactSolutionOfCollinearEquation.pdb
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\obj\Debug\ExactSolutionOfCollinearEquation.csproj.AssemblyReference.cache
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\obj\Debug\ExactSolutionOfCollinearEquation.csproj.SuggestedBindingRedirects.cache
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\obj\Debug\ExactSolutionOfCollinearEquation.csproj.CoreCompileInputs.cache
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\obj\Debug\ExactSolutionOfCollinearEquation.exe
+D:\File\vs\project\SpaceForwardIntersection\ExactSolutionOfCollinearEquation\obj\Debug\ExactSolutionOfCollinearEquation.pdb

@@ -1,0 +1,93 @@
+﻿生成启动时间为 2021/5/30 22:24:05。
+     1>项目“C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs2010\数据结构\jsq\jsq\jsq.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Release\jsq.lastbuildstate”。
+       InitializeBuildStatus:
+         正在对“Release\jsq.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\jsq.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\jsq.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt jsq.cpp jsqDlg.cpp
+         jsq.cpp
+         jsqDlg.cpp
+     1>jsqDlg.cpp(143): warning C4018: “<”: 有符号/无符号不匹配
+     1>jsqDlg.cpp(188): warning C4018: “<”: 有符号/无符号不匹配
+     1>jsqDlg.cpp(220): warning C4018: “<”: 有符号/无符号不匹配
+     1>jsqDlg.cpp(322): error C2664: “void ATL::CStringT<BaseType,StringTraits>::Format(const wchar_t *,...)”: 不能将参数 1 从“const char [3]”转换为“const wchar_t *”
+                 with
+                 [
+                     BaseType=wchar_t,
+                     StringTraits=StrTraitMFC<wchar_t>
+                 ]
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>jsqDlg.cpp(493): error C2665: “strcpy_s”: 2 个重载中没有一个可以转换所有参数类型
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(104): 可能是“errno_t strcpy_s<100>(char (&)[100],const char *) throw()”
+                 尝试匹配参数列表“(char [100], CString)”时
+     1>jsqDlg.cpp(494): error C2679: 二进制“=”: 没有找到接受“wchar_t *”类型的右操作数的运算符(或没有可接受的转换)
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(707): 可能是“std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(std::basic_string<_Elem,_Traits,_Ax> &&)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(762): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(const std::basic_string<_Elem,_Traits,_Ax> &)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(767): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(const _Elem *)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(772): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(_Elem)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 尝试匹配参数列表“(std::string, wchar_t *)”时
+     1>jsqDlg.cpp(513): error C2665: “strcpy_s”: 2 个重载中没有一个可以转换所有参数类型
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(104): 可能是“errno_t strcpy_s<100>(char (&)[100],const char *) throw()”
+                 尝试匹配参数列表“(char [100], CString)”时
+     1>jsqDlg.cpp(514): error C2679: 二进制“=”: 没有找到接受“wchar_t *”类型的右操作数的运算符(或没有可接受的转换)
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(707): 可能是“std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(std::basic_string<_Elem,_Traits,_Ax> &&)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(762): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(const std::basic_string<_Elem,_Traits,_Ax> &)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(767): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(const _Elem *)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xstring(772): 或       “std::basic_string<_Elem,_Traits,_Ax> &std::basic_string<_Elem,_Traits,_Ax>::operator =(_Elem)”
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 尝试匹配参数列表“(std::string, wchar_t *)”时
+     1>已完成生成项目“C:\Users\14345\Documents\Tencent Files\1434557509\FileRecv\vs2010\数据结构\jsq\jsq\jsq.vcxproj”(rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:02.35

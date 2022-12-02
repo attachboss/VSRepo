@@ -1,0 +1,34 @@
+﻿  PCL1.cpp
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\point_traits.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\visualization\interactor_style.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\visualization\pcl_visualizer.h(1610,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+vtkCommonCore-8.1-gd.lib(vtkDebugLeaksManager.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkDebugLeaksManager.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkObjectFactory.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkObjectFactory.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkDebugLeaks.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkDebugLeaks.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkOStreamWrapper.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkOStreamWrapper.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkOStrStreamWrapper.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkOStrStreamWrapper.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkIndent.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkIndent.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkObjectBase.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkObjectBase.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkOutputWindow.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkOutputWindow.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkObject.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkObject.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkDynamicLoader.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkDynamicLoader.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkCollection.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkCollection.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkObjectFactoryCollection.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkObjectFactoryCollection.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkOverrideInformation.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkOverrideInformation.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkLargeInteger.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkLargeInteger.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkStdString.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkStdString.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkAtomic.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkAtomic.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkGarbageCollectorManager.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkGarbageCollectorManager.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkGarbageCollector.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkGarbageCollector.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkWin32OutputWindow.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkWin32OutputWindow.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkTimeStamp.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkTimeStamp.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkCommand.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkCommand.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkCollectionIterator.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkCollectionIterator.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkMultiThreader.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkMultiThreader.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtkCommonCore-8.1-gd.lib(vtkMutexLock.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkMutexLock.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtksys-8.1-gd.lib(Directory.obj) : warning LNK4099: 未找到 PDB“”(使用“vtksys-8.1-gd.lib(Directory.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtksys-8.1-gd.lib(DynamicLoader.obj) : warning LNK4099: 未找到 PDB“”(使用“vtksys-8.1-gd.lib(DynamicLoader.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtksys-8.1-gd.lib(EncodingCXX.obj) : warning LNK4099: 未找到 PDB“”(使用“vtksys-8.1-gd.lib(EncodingCXX.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+vtksys-8.1-gd.lib(EncodingC.obj) : warning LNK4099: 未找到 PDB“”(使用“vtksys-8.1-gd.lib(EncodingC.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+  PCL1.vcxproj -> D:\File\vs\project\GDAL_demo\x64\Debug\PCL1.exe
