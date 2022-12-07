@@ -7,9 +7,8 @@
 #include <vector>
 #include <cmath>
 
-#include <gdal.h>
-#include <gdal_priv.h>
-#include "cpp1.h"
+//#include <gdal.h>
+//#include <gdal_priv.h>
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
@@ -25,20 +24,25 @@ using namespace cv;
 /// <param name="xSize"></param>
 /// <param name="ySize"></param>
 /// <param name="imgData"></param>
-void KMeans(int xSize, int ySize, unsigned char* imgData)
+/// <param name="resClass"></param>
+/// <returns></returns>
+vector<int> KMeans(int xSize, int ySize, unsigned char* imgData, int* resClass)
 {
 	const int n = 3;
-	const int loopNum = 6;
+	const int maxLoopNum = 6;
+
 	vector<int> z0;
 	vector<int> z0_x;
 	vector<int> z0_y;
+
 	int* sum = new int[n]();;
 	int* num = new int[n]();;
 	int* euclidean = new int[n]();
-	int* result = new int[xSize * ySize]();
+
 	for (int k = 0; k < n; k++)
 	{
-		//[0,512)
+		//随机聚类中心坐标
+		// x/y = [0,512)
 		z0_x.push_back(rand() % (xSize));
 		z0_y.push_back(rand() % (ySize));
 		int index;
@@ -54,14 +58,16 @@ void KMeans(int xSize, int ySize, unsigned char* imgData)
 			}
 		}
 	};
-	for (int i = 0; i < loopNum; i++)
+
+	//进行循环
+	for (int i = 0; i < maxLoopNum; i++)
 	{
-		for (int j = 0; j < xSize; j++)
+		for (int j = 0; j < ySize; j++)
 		{
-			for (int k = 0; k < ySize; k++)
+			for (int k = 0; k < xSize; k++)
 			{
 				int index = xSize * j + k;
-				int temp = INT32_MAX;
+				int temp = 256;
 				int nNum;
 				for (int ii = 0; ii < n; ii++)
 				{
@@ -70,22 +76,29 @@ void KMeans(int xSize, int ySize, unsigned char* imgData)
 					{
 						temp = euclidean[ii];
 						nNum = ii;
-						result[index] = temp;
 					}
 				}
-				sum[nNum] += temp;
-				num[nNum] += 1;
+				sum[nNum] += imgData[index];
+				num[nNum] ++;
+				resClass[index] = nNum;
 			}
 		};
+
+		//判断是否满足跳出条件
+		int flag = 0;
 		for (int j = 0; j < n; j++)
 		{
 			int temp;
-			temp = round(sum[j] / num[j]);
+			temp = (int)round((float)sum[j] / num[j]);
 			if (z0[j] == temp)
 			{
-				return;
+				flag++;
+				if (flag == n)
+				{
+					return z0;
+				}
 			}
-			//
+			//清空变量
 			z0[j] = temp;
 			sum[j] = 0;
 			num[j] = 0;
@@ -323,169 +336,6 @@ vector<float> Split(string str, char sig)
 };
 
 
-#pragma region GDAL
-//int main()
-//{
-//	//注册驱动
-//	GDALAllRegister();
-//	//路径支持中文
-//	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "YES");
-//	GDALDataset* gdalDs = (GDALDataset*)GDALOpen("D://testImg.tif", GA_ReadOnly);
-//	if (gdalDs == NULL)
-//	{
-//		return 0;
-//	}
-//	std::cout << "图像信息：" << gdalDs->GetDescription() << std::endl;
-//	char** str = gdalDs->GetMetadataDomainList();
-//	std::cout << "元数据信息：" << str << std::endl;
-//	int xSize = gdalDs->GetRasterXSize();
-//	std::cout << "列宽：" << xSize << std::endl;
-//	int ySize = gdalDs->GetRasterYSize();
-//	std::cout << "行高：" << ySize << std::endl;
-//	//波段起始值为1
-//	GDALRasterBand* dsBand1 = gdalDs->GetRasterBand(1);
-//	std::cout << "第一波段信息：" << dsBand1 << std::endl;
-//	GDALDataType type = dsBand1->GetRasterDataType();
-//	std::cout << "数据类型：" << type << std::endl;
-//	//std::cout << "波段数：" << gdalDs->GetRasterCount() << std::endl;
-//	std::cout << "最小灰度值：" << dsBand1->GetMinimum() << std::endl;
-//	std::cout << "最大灰度值：" << dsBand1->GetMaximum() << std::endl;
-//	if (gdalDs->GetProjectionRef() != NULL)
-//	{
-//		std::cout << "投影信息：" << gdalDs->GetProjectionRef() << std::endl;
-//	}
-//	std::cout << "地理参考变换信息：" << std::endl;
-//	//	GetGeoTransform[0] /* 左上角X坐标 */
-//	//	GetGeoTransform[1] /* 西-东 方向像素分辨率 */
-//	//	GetGeoTransform[2] /* 0 无关*/
-//	//	GetGeoTransform[3] /* 左上角Y坐标 */
-//	//	GetGeoTransform[4] /* 0 无关*/
-//	//	GetGeoTransform[5] /* 北-南 方向像素分辨率(前面加负号) */
-//	//建立影像与地理坐标之间的关系
-//	double geotrans[6];
-//	gdalDs->GetGeoTransform(geotrans);
-//	for (int i = 0; i < 6; i++)
-//	{
-//		printf("%.6f\n", geotrans[i]);
-//	};
-//
-//	unsigned char* imgData = new unsigned char[xSize * ySize * 1];
-//	dsBand1->RasterIO(GF_Read, 0, 0, xSize, ySize, imgData, xSize, ySize, type, 0, 0);
-//	//KMeans(xSize, ySize, imgData);
-//
-//
-//
-//	GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
-//	/*driver->CreateCopy("D://testImgCPP.tif", gdalDs, 1, NULL, NULL, NULL);*/
-//	GDALClose(gdalDs);
-//	GDALDestroyDriverManager();
-//	delete[] imgData;
-//	system("pause");
-//	return 0;
-//}
-#pragma endregion
-#pragma region 几何校正
-	////计算NCC
-////将图像分割为九宫格
-//vector<float>split;
-//for (int j = ySizeTem / 6; j < ySizeTem; j += ySizeTem / 3)
-//{
-//	for (int i = xSizeTem / 6; i < xSizeTem; i += xSizeTem / 3)
-//	{
-//		int* pos = match_ncc(gdalDsTemplate, gdalDsImg, j, i, 30);
-//			cout << "待匹配点" << j << "，" << i << "--";
-   //		cout << "匹配点坐标：" << pos[0] << "，" << pos[1] << endl;
-   //		split.push_back(j);
-   //		split.push_back(i);
-   //		split.push_back(pos[0]);
-   //		split.push_back(pos[1]);
-   //	}
-   //}
-
-
-   ////读取同名点文件
-   //ifstream fs;
-   //string str, tem;
-   //fs.open(".//Resources//同名点.txt");
-   //while (getline(fs, tem))
-   //{
-   //	str.append(tem);
-   //};
-   //fs.close();
-   ////分割字符
-   //vector<float>split = Split(str, ' ');
-
-   ////构造矩阵
-   //Mat A, B;
-   //Mat b(1, 3, CV_32F);
-   //Mat a(1, 3, CV_32F);
-   //for (int i = 0; i < split.size(); i++)
-   //{
-   //	switch (i % 4)
-   //	{
-   //	case 0:
-   //		b.at<float>(0, 0) = (float)1;
-   //		b.at<float>(0, 1) = split[i];
-   //		break;
-   //	case 1:
-   //		b.at<float>(0, 2) = split[i];
-   //		B.push_back(b);
-   //		b.empty();
-   //		break;
-   //	case 2:
-   //		a.at<float>(0, 0) = (float)1;
-   //		a.at<float>(0, 1) = split[i];
-   //		break;
-   //	case 3:
-   //		a.at<float>(0, 2) = split[i];
-   //		A.push_back(a);
-   //		b.empty();
-   //		break;
-   //	}
-   //}
-   //Mat A1 = A.col(1).clone();
-   //Mat A2 = A.col(2).clone();
-   //Mat B1 = B.col(1).clone();
-   //Mat B2 = B.col(2).clone();
-   ////F2
-   ////Mat X = (B.t() * B).inv() * B.t() * A1;
-   ////Mat Y = (B.t() * B).inv() * B.t() * A2;
-   ////F1
-   //Mat x = (A.t() * A).inv() * A.t() * B1;
-   //Mat y = (A.t() * A).inv() * A.t() * B2;
-   ////打印参数
-   //for (int i = 0; i < x.total(); i++)
-   //{
-   //	cout << x.at<float>(i, 0) << endl;
-   //}
-   //for (int i = 0; i < y.total(); i++)
-   //{
-   //	cout << y.at<float>(i, 0) << endl;
-   //}
-   ////双线性内插
-   //unsigned char* result = new unsigned char[xSizeImg * ySizeImg]();
-   //for (int j = 0; j < ySizeImg; j++)
-   //{
-   //	for (int i = 0; i < xSizeImg; i++)
-   //	{
-   //		float srcx = x.at<float>(0, 0) + x.at<float>(1, 0) * i + x.at<float>(2, 0) * j;
-   //		float srcy = y.at<float>(0, 0) + y.at<float>(1, 0) * i + y.at<float>(2, 0) * j;
-
-   //		int x0 = (int)floor(srcx);
-   //		int y0 = (int)floor(srcy);
-
-   //		int x1 = (int)ceil(srcx);
-   //		int y1 = (int)ceil(srcy);
-
-   //		float dx = (srcx - (int)srcx);
-   //		float dy = (srcy - (int)srcy);
-
-   //		float value = (1 - dx) * (1 - dy) * imgDataTem[exam(y0 * xSizeTem + x0)] + (1 - dx) * dy * imgDataTem[exam(y0 * xSizeTem + x1)] + dx * (1 - dy) * imgDataTem[exam(y1 * xSizeTem + x0)] + dx * dy * imgDataTem[exam(y1 * xSizeTem + x1)];
-   //		result[j * xSizeImg + i] = round(value);
-   //	}
-
-   //}  
-#pragma endregion
 
 void main()
 {
@@ -516,31 +366,31 @@ void main()
 
 
 
-	//得到的特征点个数：
-	//500 => 500
-	//1000 => (627, 128)(645, 128)
+	/*得到的特征点个数：
+	500 => 500
+	1000 => (627, 128)(645, 128)
+	*/
 
 	//KNN-NNDR特征匹配
-	//Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::BRUTEFORCE);
-	//vector<vector<DMatch> > knn_matches;
-	//const float ratio_thresh = 0.7f;
-	//vector<DMatch> matches;
-	//matcher->knnMatch(dsc1, dsc2, knn_matches, 2);
-	//for (auto& knn_matche : knn_matches) {
-	//	if (knn_matche[0].distance < ratio_thresh * knn_matche[1].distance) {
-	//		matches.push_back(knn_matche[0]);
-	//	}
-	//}
-
-
-	//BFMatch匹配
-	BFMatcher matcher(NORM_L2);
-	//定义匹配结果变量
+	Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::BRUTEFORCE);
+	vector<vector<DMatch> > knn_matches;
+	const float ratio_thresh = 0.7f;
 	vector<DMatch> matches;
-	//实现描述符之间的匹配
-	matcher.match(dsc1, dsc2, matches);
+	matcher->knnMatch(dsc1, dsc2, knn_matches, 2);
+	for (auto& knn_matche : knn_matches) {
+		if (knn_matche[0].distance < ratio_thresh * knn_matche[1].distance) {
+			matches.push_back(knn_matche[0]);
+		}
+	}
 
 
+	////BFMatch匹配
+	//BFMatcher matcher(NORM_L2);
+	////定义匹配结果变量
+	//vector<DMatch> matches;
+	////实现描述符之间的匹配
+	//matcher.match(dsc1, dsc2, matches);
+	//
 	////定义向量距离的最大值与最小值
 	//double max_dist = 0;
 	//double min_dist = 1000;
@@ -567,76 +417,5 @@ void main()
 	Mat result;
 	drawMatches(img1, kp1, img2, kp2, matches, result, Scalar(0, 255, 255), Scalar::all(-1));
 	imshow("Result", result);
-
-
-
-
-#define BYTE float
-int main()
-{
-	clock_t start, end;
-	start = clock();
-	//注册驱动
-	GDALAllRegister();
-	//路径支持中文
-	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "YES");
-	GDALDataset* gdalDs = (GDALDataset*)GDALOpen("D://testImg.tif", GA_ReadOnly);
-	if (gdalDs == NULL)
-	{
-		return 0;
-	}
-	std::cout << "图像信息：" << gdalDs->GetDescription() << std::endl;
-	char** str = gdalDs->GetMetadataDomainList();
-	std::cout << "元数据信息：" << str << std::endl;
-	int xSize = gdalDs->GetRasterXSize();
-	std::cout << "列宽：" << xSize << std::endl;
-	int ySize = gdalDs->GetRasterYSize();
-	std::cout << "行高：" << ySize << std::endl;
-	//波段起始值为1
-	GDALRasterBand* dsBand1 = gdalDs->GetRasterBand(1);
-	std::cout << "第一波段信息：" << dsBand1 << std::endl;
-	GDALDataType type = dsBand1->GetRasterDataType();
-	std::cout << "数据类型：" << type << std::endl;
-	//std::cout << "波段数：" << gdalDs->GetRasterCount() << std::endl;
-	std::cout << "最小灰度值：" << dsBand1->GetMinimum() << std::endl;
-	std::cout << "最大灰度值：" << dsBand1->GetMaximum() << std::endl;
-	if (gdalDs->GetProjectionRef() != NULL)
-	{
-		std::cout << "投影信息：" << gdalDs->GetProjectionRef() << std::endl;
-	}
-	std::cout << "地理参考变换信息：" << std::endl;
-	//	GetGeoTransform[0] /* 左上角X坐标 */
-	//	GetGeoTransform[1] /* 西-东 方向像素分辨率 */
-	//	GetGeoTransform[2] /* 0 无关*/
-	//	GetGeoTransform[3] /* 左上角Y坐标 */
-	//	GetGeoTransform[4] /* 0 无关*/
-	//	GetGeoTransform[5] /* 北-南 方向像素分辨率(前面加负号) */
-	//建立影像与地理坐标之间的关系
-	double geotrans[6];
-	gdalDs->GetGeoTransform(geotrans);
-	for (int i = 0; i < 6; i++)
-	{
-		printf("%.6f\n", geotrans[i]);
-	};
-
-	unsigned char* imgData = new unsigned char[xSize * ySize * 1];
-	dsBand1->RasterIO(GF_Read, 0, 0, xSize, ySize, imgData, xSize, ySize, type, 0, 0);
-	//KMeans(xSize, ySize, imgData);
-
-
-
-	GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
-	/*driver->CreateCopy("D://testImgCPP.tif", gdalDs, 1, NULL, NULL, NULL);*/
-	GDALClose(gdalDs);
-	GDALDestroyDriverManager();
-	delete[] imgData;
-	//结束计时
-	end = clock();
-	std::cout << "计时：*******" << double(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
-
-	waitKey(0);
-	destroyAllWindows();
-	system("pause");
-	return;
 }
 

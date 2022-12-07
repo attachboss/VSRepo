@@ -54,6 +54,11 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>Esri\DotNet\ESRI.ArcGIS.Carto.dll</HintPath>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.CartoUI, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Esri\DotNet\ESRI.ArcGIS.CartoUI.dll</HintPath>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Controls, Version=10.7.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>

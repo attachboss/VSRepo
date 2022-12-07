@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using ArcObjectsDemo.ContextMenu;
 using ESRI.ArcGIS.ArcMapUI;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.CartoUI;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.DisplayUI;
@@ -38,7 +39,7 @@ namespace ArcObjectsDemo
         AxMapControl mapCtrl;
         AxToolbarControl toolbarCtrl;
         AxTOCControl tocCtrl;
-        AxMapControl engerEyeCtrl;
+        AxMapControl eagerEyeCtrl;
         string MxFilePath;
         IActiveView pActiveView;
         IMapDocument mapDoc;
@@ -62,8 +63,8 @@ namespace ArcObjectsDemo
             ToolBarContainer.Child = toolbarCtrl;
             tocCtrl = new AxTOCControl();
             TocContainer.Child = tocCtrl;
-            engerEyeCtrl = new AxMapControl();
-            EngerEyeContainer.Child = engerEyeCtrl;
+            eagerEyeCtrl = new AxMapControl();
+            EngerEyeContainer.Child = eagerEyeCtrl;
 
 
         }
@@ -89,8 +90,30 @@ namespace ArcObjectsDemo
             //SQL选择
             //SelectFeauresBySQL("NAME = 'Beijing'");
 
+            IRandomColorRamp pColorRamp = new RandomColorRampClass();
+            pColorRamp.StartHue = 20;
+            pColorRamp.EndHue = 30;
+            pColorRamp.MinSaturation = 15;
+            pColorRamp.MaxSaturation = 30;
+            pColorRamp.MinValue = 99;
+            pColorRamp.MaxValue = 100;
+            pColorRamp.Size = 5;
+            pColorRamp.CreateRamp(out bool ok);
+            if (!ok) return;
+            IEnumColors colors = pColorRamp.Colors;
+            colors.Reset();
+
+
+            //Hue颜色范围
+            //Orange:   0-22
+            //Yellow:   22-38
+            //Green:    38-75
+            //Blue:     75-130
+            //Violet:   130-160
+            //Red:      160-179
 
         }
+
 
         /// <summary>
         /// 地图鼠标移动事件
@@ -196,6 +219,7 @@ namespace ArcObjectsDemo
                     }
                     //刷新地图和TOC
                     mapCtrl.ActiveView.Refresh();
+                    TransmitToEagerEyeCtrl();
                     tocCtrl.Refresh();
                 }
 
@@ -257,7 +281,7 @@ namespace ArcObjectsDemo
         {
 
             IEnvelope envelope = e.newEnvelope as IEnvelope;
-            IGraphicsContainer graphicContainer = engerEyeCtrl.Map as IGraphicsContainer;
+            IGraphicsContainer graphicContainer = eagerEyeCtrl.Map as IGraphicsContainer;
 
             DrawEnvelopeElement(envelope, graphicContainer);
         }
@@ -269,17 +293,7 @@ namespace ArcObjectsDemo
         /// <param name="e"></param>
         private void MapCtrl_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
         {
-            //两个控件之间传值
-            engerEyeCtrl.ClearLayers();
-            IMap pMap;
-            pMap = mapCtrl.Map;
-            for (int i = 0; i < pMap.LayerCount; i++)
-            {
-                engerEyeCtrl.Map.AddLayer(pMap.Layer[i]);
-            }
-            engerEyeCtrl.Map.SpatialReference = pMap.SpatialReference;
-            engerEyeCtrl.Extent = mapCtrl.FullExtent;
-
+            TransmitToEagerEyeCtrl();
         }
 
         /// <summary>
@@ -295,8 +309,6 @@ namespace ArcObjectsDemo
             point.Y = e.mapY;
             mapCtrl.CenterAt(point);
         }
-
-
 
         #endregion
 
@@ -362,6 +374,7 @@ namespace ArcObjectsDemo
             {
                 mapCtrl.Map.SelectByShape(geom, pse, false);
                 pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+
                 DrawMapShape(geom);
             }
         }
@@ -475,6 +488,53 @@ namespace ArcObjectsDemo
             activeView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
         }
 
+
+        /// <summary>
+        /// 将主控件中的所有图层赋值到鹰眼窗口
+        /// </summary>
+        private void TransmitToEagerEyeCtrl()
+        {
+
+            //两个控件之间传值
+            eagerEyeCtrl.ClearLayers();
+            IMap pMap;
+            pMap = mapCtrl.Map;
+            for (int i = 0; i < pMap.LayerCount; i++)
+            {
+                eagerEyeCtrl.Map.AddLayer(pMap.Layer[i]);
+            }
+            eagerEyeCtrl.Map.SpatialReference = pMap.SpatialReference;
+            eagerEyeCtrl.Extent = mapCtrl.FullExtent;
+        }
+
+
+        /// <summary>
+        /// 生成图表
+        /// </summary>
+        private void GenerateTableGraph()
+        {
+            ITableCollection tables = mapCtrl.Map as ITableCollection;
+            Console.WriteLine(tables.TableCount);
+            if (tables.TableCount == 0)
+                return;
+            ITable table = tables.Table[0];
+
+            IDataGraphT dataGraph = new DataGraphTClass();
+
+            ISeriesProperties seriesProperties = dataGraph.AddSeries("bar:vertical");
+            seriesProperties.SourceData = table;
+            seriesProperties.SetField(0, "Shape");
+            seriesProperties.PenProperties.Visible = true;
+
+            IBarSeriesProperties barSeriesProperties = (IBarSeriesProperties)seriesProperties;
+            barSeriesProperties.MultipleBarType = esriMultiBarType.esriStacked100MultiBar;
+            barSeriesProperties.BarStyle = esriBarStyle.esriArrowBar;
+            barSeriesProperties.BarSize = 30;
+
+            dataGraph.Update(null);
+            dataGraph.ExportToFile(AppDomain.CurrentDomain.BaseDirectory + @"res.bmp");
+        }
+
         #endregion
 
 
@@ -488,6 +548,7 @@ namespace ArcObjectsDemo
             {
                 //地图更换事件要求使用控件方式打开mxd地图文档
                 mapCtrl.LoadMxFile(path, 0, Type.Missing);
+                pActiveView = mapCtrl.ActiveView;
                 //layoutCtrl.LoadMxFile(path, Type.Missing);
                 //mapDoc.Open(path, null);
                 //if (mapDoc.MapCount != 0)
@@ -516,11 +577,12 @@ namespace ArcObjectsDemo
             mapCtrl.OnMouseMove += new IMapControlEvents2_Ax_OnMouseMoveEventHandler(MapCtrl_OnMouseMove);
             //注册地图视图变化事件
             mapCtrl.OnExtentUpdated += new IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(MapCtrl_OnExtentUpdated);
+            //注册地图替换事件
             mapCtrl.OnMapReplaced += new IMapControlEvents2_Ax_OnMapReplacedEventHandler(MapCtrl_OnMapReplaced);
             //注册TOC点击事件
             tocCtrl.OnMouseDown += new ITOCControlEvents_Ax_OnMouseDownEventHandler(TOCCtrl_OnMouseDown);
             //注册鹰眼地图点击事件
-            engerEyeCtrl.OnMouseDown += new IMapControlEvents2_Ax_OnMouseDownEventHandler(EngerEyeCtrl_OnMouseDown);
+            eagerEyeCtrl.OnMouseDown += new IMapControlEvents2_Ax_OnMouseDownEventHandler(EngerEyeCtrl_OnMouseDown);
         }
 
 
@@ -530,25 +592,11 @@ namespace ArcObjectsDemo
 
 
 
- 
 
 
 
-        private void OpenDefaultMapDoc()
-        {
-            string path = "D://File//专业课//地图制图//150投影.mxd";
-            mapDoc = new MapDocumentClass();
-            mapDoc.Open(path, null);
-            if (mapDoc.MapCount != 0)
-            {
-                mapCtrl.Map = mapDoc.Map[0];
-                pActiveView = mapDoc.Map[0] as IActiveView;
-                pActiveView.Extent = mapCtrl.FullExtent;
-                pActiveView.Refresh();
-            }
-            //注册MouseDown事件
-            //mapCtrl.OnMouseDown += new IMapControlEvents2_Ax_OnMouseDownEventHandler(this.MapCtrl_OnMouseDown);
-        }
+
+
 
         /// <summary>
         /// 窗体加载后事件
@@ -646,28 +694,12 @@ namespace ArcObjectsDemo
             OpenDefaultMapDoc(MxFilePath);
 
             //首次运行时添加鹰眼窗口
-            DrawEnvelopeElement(mapCtrl.ActiveView.Extent, engerEyeCtrl.Map as IGraphicsContainer);
+            DrawEnvelopeElement(mapCtrl.ActiveView.Extent, eagerEyeCtrl.Map as IGraphicsContainer);
 
-
+            //禁用鼠标滚轮
+            eagerEyeCtrl.AutoMouseWheel = false;
         }
 
-        /// <summary>
-        /// 获取TOC控件选中的图层
-        /// </summary>
-        /// <returns></returns>
-        object GetSeletedIndex()
-        {
-            IBasicMap map = null;
-            ILayer layer = null;
-            object other = null;
-            object index = null;
-            esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
-
-            //对于没有确定返回值 因此使用此法
-            tocCtrl.GetSelectedItem(ref item, ref map, ref layer, ref other, ref index);
-
-            return index;
-        }
 
         /// <summary>
         /// 窗体关闭后事件
@@ -691,8 +723,6 @@ namespace ArcObjectsDemo
             }
             ESRI.ArcGIS.ADF.COMSupport.AOUninitialize.Shutdown();
         }
-
-
 
     }
 }

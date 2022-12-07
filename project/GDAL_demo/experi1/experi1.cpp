@@ -3,101 +3,128 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
-#include "experi1.h"
 
 #include "../experi1/include/gdal_priv.h"
 #include "../experi1/include/gdal.h"
 #include "../cpp1/include/gdalwarper.h"
 using namespace std;
 
-
-/// <summary>
-/// K均值聚类
-/// </summary>
-/// <param name="xSize"></param>
-/// <param name="ySize"></param>
-/// <param name="imgData"></param>
-/// <param name="resClass"></param>
-/// <returns></returns>
-vector<int> KMeans(int xSize, int ySize, unsigned char* imgData, int* resClass)
+vector<vector<int>> ClassMean(GDALDataset* dsImg, GDALDataset* dsLabel)
 {
-	const int n = 3;
-	const int maxLoopNum = 6;
+	//用一个多维数组存储多个波段的中心
+	vector<vector<int>> means(3);
+	int bandCount = dsImg->GetRasterCount();
+	int xSize = dsImg->GetRasterXSize();
+	int ySize = dsImg->GetRasterYSize();
 
-	vector<int> z0;
-	vector<int> z0_x;
-	vector<int> z0_y;
+	unsigned char* labelData = new unsigned char[xSize * ySize]();
+	dsLabel->GetRasterBand(1)->RasterIO(GF_Read, 0, 0, xSize, ySize, labelData, xSize, ySize, GDT_Byte, 0, 0, NULL);
 
-	int* sum = new int[n]();;
-	int* num = new int[n]();;
-	int* euclidean = new int[n]();
-
-	for (int k = 0; k < n; k++)
+	for (size_t b = 1; b <= bandCount; b++)
 	{
-		//随机聚类中心坐标
-		// x/y = [0,512)
-		z0_x.push_back(rand() % (xSize));
-		z0_y.push_back(rand() % (ySize));
-		int index;
-		for (int i = 0; i < xSize; i++)
+		GDALRasterBand* band = dsImg->GetRasterBand(b);
+		unsigned char* ImgData = new unsigned char[xSize * ySize]();
+		band->RasterIO(GF_Read, 0, 0, xSize, ySize, ImgData, xSize, ySize, GDT_Byte, 0, 0, NULL);
+
+		vector<int> num(5);
+		vector<int> sum(5);
+		for (size_t j = 0; j < ySize; j++)
 		{
-			for (int j = 0; j < ySize; j++)
+			for (size_t i = 0; i < xSize; i++)
 			{
-				if (i == z0_x[k] && j == z0_y[k])
+				int index = j * xSize + j;
+				switch ((unsigned short)labelData[index])
 				{
-					index = i * xSize + j;
-					z0.push_back(imgData[index]);
+				case 0:
+					sum.at(0) += ImgData[index];
+					num.at(0)++;
+					break;
+				case 50:
+					sum.at(1) += ImgData[index];
+					num.at(1)++;
+					break;
+				case 100:
+					sum.at(2) += ImgData[index];
+					num.at(2)++;
+					break;
+				case 150:
+					sum.at(3) += ImgData[index];
+					num.at(3)++;
+					break;
+				case 200:
+					sum.at(4) += ImgData[index];
+					num.at(4)++;
+					break;
+				default:
+					break;
 				}
 			}
 		}
-	};
-
-	//进行循环
-	for (int i = 0; i < maxLoopNum; i++)
-	{
-		for (int j = 0; j < ySize; j++)
+		//遍历完一个波段后计算其均值
+		for (size_t i = 0; i < num.size(); i++)
 		{
-			for (int k = 0; k < xSize; k++)
+			if (num.at(i) != 0)
 			{
-				int index = xSize * j + k;
-				int temp = 256;
-				int nNum;
-				for (int ii = 0; ii < n; ii++)
-				{
-					euclidean[ii] = abs(imgData[index] - z0[ii]);
-					if (euclidean[ii] <= temp)
-					{
-						temp = euclidean[ii];
-						nNum = ii;
-					}
-				}
-				sum[nNum] += imgData[index];
-				num[nNum] ++;
-				resClass[index] = nNum;
+				means.at(b - 1).push_back((float)sum.at(i) / num.at(i));
 			}
-		};
-
-		//判断是否满足跳出条件
-		int flag = 0;
-		for (int j = 0; j < n; j++)
-		{
-			int temp;
-			temp = (int)round((float)sum[j] / num[j]);
-			if (z0[j] == temp)
+			else
 			{
-				flag++;
-				if (flag == n)
-				{
-					return z0;
-				}
+				throw "这个类没有任何像元";
 			}
-			//清空变量
-			z0[j] = temp;
-			sum[j] = 0;
-			num[j] = 0;
-		};
-	};
+		}
+		delete[] ImgData;
+	}
+	return means;
 }
+
+
+unsigned char* TestClassification(GDALDataset* dsSrc, vector<vector<int>> means)
+{
+	int xSize = dsSrc->GetRasterXSize();
+	int ySize = dsSrc->GetRasterYSize();
+
+	unsigned char* classNum = new unsigned char[xSize * ySize]();
+	unsigned char* ImgDataR = new unsigned char[xSize * ySize]();
+	unsigned char* ImgDataG = new unsigned char[xSize * ySize]();
+	unsigned char* ImgDataB = new unsigned char[xSize * ySize]();
+	dsSrc->GetRasterBand(1)->RasterIO(GF_Read, 0, 0, xSize, ySize, ImgDataR, xSize, ySize, GDT_Byte, 0, 0, NULL);
+	dsSrc->GetRasterBand(2)->RasterIO(GF_Read, 0, 0, xSize, ySize, ImgDataG, xSize, ySize, GDT_Byte, 0, 0, NULL);
+	dsSrc->GetRasterBand(3)->RasterIO(GF_Read, 0, 0, xSize, ySize, ImgDataB, xSize, ySize, GDT_Byte, 0, 0, NULL);
+
+
+	for (size_t j = 0; j < ySize; j++)
+	{
+		for (size_t i = 0; i < xSize; i++)
+		{
+			int index = j * xSize + i;
+			int num = 0;
+			float min = 256;
+			for (size_t n = 1; n <= means.at(0).size(); n++)
+			{
+				float eu = sqrt(pow((means.at(0).at(n - 1) - ImgDataR[index]), 2) + pow((means.at(1).at(n - 1) - ImgDataG[index]), 2) + pow((means.at(2).at(n - 1) - ImgDataB[index]), 2));
+				if (eu < min)
+				{
+					min = eu;
+					num = n;
+				}
+			}
+			try
+			{
+				classNum[index] = unsigned char(num * 50);
+				//cout << classNum[index] << endl;
+			}
+			catch (const std::exception&)
+			{
+				system("pause");
+			}
+		}
+	}
+	delete[] ImgDataR;
+	delete[] ImgDataG;
+	delete[] ImgDataB;
+	return classNum;
+}
+
 
 int main()
 {
@@ -107,8 +134,18 @@ int main()
 	GDALAllRegister();
 	//路径支持中文
 	CPLSetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
-	GDALDataset* gdalDsImg = (GDALDataset*)GDALOpen(".//Resources//testImg.tif", GA_ReadOnly);
+	GDALDataset* gdalDsImg = (GDALDataset*)GDALOpen(".//Resources//train.tiff", GA_ReadOnly);
 	if (gdalDsImg == NULL)
+	{
+		return 0;
+	}
+	GDALDataset* gdalDsLabel = (GDALDataset*)GDALOpen(".//Resources//train_label.tiff", GA_ReadOnly);
+	if (gdalDsLabel == NULL)
+	{
+		return 0;
+	}
+	GDALDataset* gdalDsSrc = (GDALDataset*)GDALOpen(".//Resources//test.tiff", GA_ReadOnly);
+	if (gdalDsLabel == NULL)
 	{
 		return 0;
 	}
@@ -133,31 +170,12 @@ int main()
 	unsigned char* imgData = new unsigned char[xSize * ySize];
 	dsBandImg->RasterIO(GF_Read, 0, 0, xSize, ySize, imgData, xSize, ySize, typeImg, 0, 0);
 
-	int* resClass = new int[xSize * ySize];
-	//K均值聚类
-	vector<int> z0 = KMeans(xSize, ySize, imgData, resClass);
-
-	//每一类灰度值用聚类中心灰度代替
-	unsigned char* result = new unsigned char[xSize * ySize]();
-	for (size_t j = 0; j < ySize; j++)
-	{
-		for (size_t i = 0; i < xSize; i++)
-		{
-			int index = j * xSize + i;
-			for (size_t c = 0; c < z0.size(); c++)
-			{
-				if (resClass[index] == c)
-				{
-					result[index] = (unsigned char)z0[c];
-				}
-
-			}
-		}
-	}
+	vector<vector<int>> means = ClassMean(gdalDsImg, gdalDsLabel);
+	unsigned char* classNum = TestClassification(gdalDsSrc, means);
 
 	GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
 	GDALDataset* res = driver->Create(".//Resources//result.tif", xSize, ySize, 1, GDT_Byte, NULL);
-	res->GetRasterBand(1)->RasterIO(GF_Write, 0, 0, xSize, ySize, result, xSize, ySize, GDT_Byte, 0, 0, NULL);
+	res->GetRasterBand(1)->RasterIO(GF_Write, 0, 0, xSize, ySize, classNum, xSize, ySize, GDT_Byte, 0, 0, NULL);
 
 
 
@@ -167,8 +185,7 @@ int main()
 	res->SetProjection(projectRef);
 	//释放内存
 	delete[] imgData;
-	delete[] result;
-	delete[] resClass;
+	delete[] classNum;
 	GDALClose(gdalDsImg);
 	GDALDestroyDriverManager();
 

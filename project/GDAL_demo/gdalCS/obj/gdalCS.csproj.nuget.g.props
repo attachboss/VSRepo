@@ -13,6 +13,9 @@
     <SourceRoot Include="C:\Users\Attac\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)opencvsharp4.runtime.win\4.6.0.20220608\build\net5.0\OpenCvSharp4.runtime.win.props" Condition="Exists('$(NuGetPackageRoot)opencvsharp4.runtime.win\4.6.0.20220608\build\net5.0\OpenCvSharp4.runtime.win.props')" />
+  </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgGDAL Condition=" '$(PkgGDAL)' == '' ">C:\Users\Attac\.nuget\packages\gdal\3.5.2</PkgGDAL>
   </PropertyGroup>

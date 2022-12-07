@@ -1,20 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "MqDN8TUoHt+qejFLQxxRvnqOqNY5nrkRpCLIkwza9ckLT0Tsoe6G6BeWimOfGuTgNAzBjX5migaM/gh1VJ7PzA==",
+  "dgSpecHash": "1g2a6pLKAqDF56DYX1o9YmNwO6mquNKdrRDibkKOnwqSL9oE87s06yh37oYZDPOEWEmaReB253rZwIz9j47GzQ==",
   "success": true,
   "projectFilePath": "D:\\File\\vs\\project\\GDAL_demo\\gdalCS\\gdalCS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Attac\\.nuget\\packages\\gdal\\3.5.2\\gdal.3.5.2.nupkg.sha512",
     "C:\\Users\\Attac\\.nuget\\packages\\gdal.native\\3.5.2\\gdal.native.3.5.2.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\opencvsharp4\\4.6.0.20220608\\opencvsharp4.4.6.0.20220608.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\opencvsharp4.runtime.win\\4.6.0.20220608\\opencvsharp4.runtime.win.4.6.0.20220608.nupkg.sha512",
+    "C:\\Users\\Attac\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Attac\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Attac\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 D:\\File\\vs\\project\\GDAL_demo\\gdalCS\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

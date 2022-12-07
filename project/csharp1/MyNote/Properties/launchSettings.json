@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MyNote": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "host": "192.168.31.208"
+      }
+    }
+  }
+}

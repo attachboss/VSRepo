@@ -10,16 +10,16 @@ namespace MyNote
     class ConfigController
     {
 
-        private readonly IOptionsSnapshot<Config> config;
+        private readonly IOptionsMonitor<Config> config;
 
-        public ConfigController(IOptionsSnapshot<Config> optionsSnapshot)
+        public ConfigController(IOptionsMonitor<Config> options)
         {
-            this.config = optionsSnapshot;
+            this.config = options;
         }
 
         public void TestConfiguration()
         {
-            Console.WriteLine(config.Value.Name);
+            Console.WriteLine(config.CurrentValue.Name);
         }
     }
 }
