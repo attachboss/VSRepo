@@ -959,7 +959,8 @@ yarn包管理器
 
 `pnpm create vite 项目名 --template vue`
 
-
+安装所有依赖后，通过`yarn dev`或`npx vite`命令运行项目
+也可以通过`package.json`文件自行配置命令
 </details>
 
 ##Net 6.0

@@ -5,6 +5,8 @@
 
 *.dll
 *.ipch
+*.pdb
+*.ilk
 /.vs/
 .vs/
 MauiArcGISApp1/
