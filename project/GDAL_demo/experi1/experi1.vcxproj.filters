@@ -18,6 +18,9 @@
     <ClCompile Include="experi1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\cpp1\match_ncc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="experi1.h">

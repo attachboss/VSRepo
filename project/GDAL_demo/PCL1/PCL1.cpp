@@ -68,6 +68,7 @@ int main(int argc, char** argv)
 	//
 	//error C4996: vtkMapper::ImmediateModeRenderingOff
 	//解决办法：将sdl选择否
+
 	PointCloud<PointXYZ>::Ptr cloud(new PointCloud<PointXYZ>);
 
 
@@ -234,8 +235,19 @@ int main(int argc, char** argv)
 	//writer.write<PointXYZ>("outputSOR.pcd", *cloudFiltered, false);
 #pragma endregion
 #pragma region ExtractIndices滤波
-	
+	//SAC平面参数模型提取符合几何模型的点云数据子集，利用分割算法提取符合几何平面的点云数据子集
+	//利用negative变量提取剩余数据
+	//剩余数据作为待处理点云循环提取
 
+	PCLPointCloud2::Ptr cloudBlob(new PCLPointCloud2);
+	PCLPointCloud2::Ptr cloudBlobFiltered(new PCLPointCloud2);
+	PCDReader reader;
+	reader.read("rs1.pcd", *cloudBlob);
+
+	VoxelGrid<PCLPointCloud2> sor;
+	sor.setInputCloud(cloudBlob);
+	sor.setLeafSize(0.01, 0.01, 0.01);
+	sor.filter(*cloudBlobFiltered);
 #pragma endregion
 
 
@@ -254,9 +266,9 @@ int main(int argc, char** argv)
 	viewer->initCameraParameters();
 
 	int v1(0);
-	viewer->createViewPort(0.0, 0.0, 0.5, 1.0, v1);
+	//viewer->createViewPort(0.0, 0.0, 0.5, 1.0, v1);
 	viewer->setBackgroundColor(0, 0, 0, v1);
-	visualization::PointCloudColorHandlerCustom<PointXYZ> singColor(cloud, 255, 0, 0);
+	visualization::PointCloudColorHandlerCustom<PointXYZ> singColor(cloud, 0, 255, 255);
 	viewer->addPointCloud<PointXYZ>(cloud, singColor, "pointCloud1", v1);
 	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud1");
 	viewer->addText("Before", 10, 10, "text1", v1);
@@ -265,7 +277,7 @@ int main(int argc, char** argv)
 	//int v2(0);
 	//viewer->createViewPort(0.5, 0.0, 1.0, 1.0, v2);
 	//viewer->setBackgroundColor(0, 0, 0, v2);
-	//visualization::PointCloudColorHandlerCustom<PointXYZ> singColor2(cloudFiltered, 0, 255, 255);
+	//visualization::PointCloudColorHandlerCustom<PointXYZ> singColor2(cloudFiltered, 255, 0, 0);
 	//viewer->addPointCloud<PointXYZ>(cloudFiltered, singColor2, "pointCloud2", v2);
 	//viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud2");
 	//viewer->addText("After", 10, 10, "text2", v2);

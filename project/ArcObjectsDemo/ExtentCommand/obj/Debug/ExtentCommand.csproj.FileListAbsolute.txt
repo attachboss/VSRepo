@@ -5,12 +5,9 @@ D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\TagDate.bmp
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ExtentCommand.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ExtentCommand.pdb
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ExtentCommand.tlb
-D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.ADF.Local.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Carto.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Controls.dll
-D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Display.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Geometry.dll
-D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\stdole.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.SystemUI.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Geodatabase.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.GlobeCore.dll
@@ -53,3 +50,6 @@ D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.csproj.C
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.csproj.CopyComplete
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.dll
 D:\File\vs\project\ArcObjectsDemo\ExtentCommand\obj\Debug\ExtentCommand.pdb
+D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.ADF.Local.dll
+D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\ESRI.ArcGIS.Display.dll
+D:\File\vs\project\ArcObjectsDemo\ExtentCommand\bin\Debug\stdole.dll

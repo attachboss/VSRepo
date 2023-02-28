@@ -929,6 +929,39 @@ CSS 样式属性
 <details>
 <summary><b></b></summary>
 </details>
+
+<details>
+<summary><b>yarn包管理器</b></summary>
+
+yarn包管理器
+安装yarn
+`npm install -g yarn`
+更新本体
+`yarn set version latest`
+
+安装所有依赖：
+`yarn`或`yarn install`
+添加依赖项
+`yarn add 包名@版本/标签 --dev/peer`
+更新依赖项
+`yarn up 包名`
+删除依赖
+`yarn remove 包名`
+</details>
+
+<details>
+<summary><b>Vite</b></summary>
+
+搭建第一个vite项目
+`npm create vite@latest 项目名 --template vue`
+
+`yarn create vite 项目名 --template vue`
+
+`pnpm create vite 项目名 --template vue`
+
+
+</details>
+
 ##Net 6.0
 
 <details>

@@ -1,10 +1,5 @@
 ﻿using OpenCvSharp;
-using OSGeo.GDAL;
-using OSGeo.OGR;
-using System.Data;
 using System.Diagnostics;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace gdalCS
 {
@@ -106,7 +101,7 @@ namespace gdalCS
 
             Mat img2 = Cv2.ImRead(@"D:\File\vs\project\GDAL_demo\gdalCS\Resources\1.38-地形图.png", ImreadModes.Unchanged);
             //Cv2.AddWeighted(img, 0.5, img2, 0.5, 0, img2);
-            Cv2.ImShow("track", img); 
+            Cv2.ImShow("track", img);
             #endregion
 
 

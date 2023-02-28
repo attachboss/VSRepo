@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vRJo9BC+Vg+r7VwQIutVXCs5GfZ1q3kS8/fFkuSKJZpuP8tKJVN5k8zba1bDIgfFQBEh7TrKDpavzQPgudWMYw==",
+  "dgSpecHash": "OKa46VoncujT3001oW++rblFK/mBgv9GZQjzDBA/WnbZjV5adccjDieakD6/dnJ0jnwC65zRLcjSbUpOh7wvwg==",
   "success": true,
   "projectFilePath": "D:\\File\\vs\\project\\WpfMapApp1\\WpfMapApp1\\WpfMapApp1.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,7 @@
     "C:\\Users\\Attac\\.nuget\\packages\\showmethexaml\\2.0.0\\showmethexaml.2.0.0.nupkg.sha512",
     "C:\\Users\\Attac\\.nuget\\packages\\showmethexaml.msbuild\\2.0.0\\showmethexaml.msbuild.2.0.0.nupkg.sha512",
     "C:\\Users\\Attac\\.nuget\\packages\\system.speech\\6.0.0\\system.speech.6.0.0.nupkg.sha512",
-    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.27\\microsoft.windows.sdk.net.ref.10.0.19041.27.nupkg.sha512"
+    "C:\\Users\\Attac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512"
   ],
   "logs": []
 }

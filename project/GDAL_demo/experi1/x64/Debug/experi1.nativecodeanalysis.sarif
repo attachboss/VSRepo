@@ -16,16 +16,14 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 30,
-                  "startColumn": 42,
-                  "endLine": 30,
-                  "endColumn": 50
+                  "startLine": 21,
+                  "startColumn": 48
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "initial",
+                  "decoratedName": "?initial@@YAPEAGPEAVGDALDataset@@@Z",
                   "kind": "function"
                 }
               ]
@@ -44,16 +42,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 30,
-                  "startColumn": 42,
-                  "endLine": 30,
-                  "endColumn": 50
+                  "startLine": 22,
+                  "startColumn": 41,
+                  "endLine": 22,
+                  "endColumn": 49
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "initial",
+                  "decoratedName": "?initial@@YAPEAGPEAVGDALDataset@@@Z",
                   "kind": "function"
                 }
               ]
@@ -72,16 +70,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 31,
-                  "startColumn": 42,
-                  "endLine": 31,
-                  "endColumn": 50
+                  "startLine": 22,
+                  "startColumn": 41,
+                  "endLine": 22,
+                  "endColumn": 49
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "initial",
+                  "decoratedName": "?initial@@YAPEAGPEAVGDALDataset@@@Z",
                   "kind": "function"
                 }
               ]
@@ -100,16 +98,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 31,
-                  "startColumn": 42,
-                  "endLine": 31,
-                  "endColumn": 50
+                  "startLine": 139,
+                  "startColumn": 27,
+                  "endLine": 139,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -128,16 +126,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 32,
-                  "startColumn": 42,
-                  "endLine": 32,
-                  "endColumn": 50
+                  "startLine": 139,
+                  "startColumn": 27,
+                  "endLine": 139,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -156,16 +154,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 32,
-                  "startColumn": 42,
-                  "endLine": 32,
-                  "endColumn": 50
+                  "startLine": 140,
+                  "startColumn": 27,
+                  "endLine": 140,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -184,16 +182,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 33,
-                  "startColumn": 42,
-                  "endLine": 33,
-                  "endColumn": 50
+                  "startLine": 140,
+                  "startColumn": 27,
+                  "endLine": 140,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -212,16 +210,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 33,
-                  "startColumn": 42,
-                  "endLine": 33,
-                  "endColumn": 50
+                  "startLine": 141,
+                  "startColumn": 27,
+                  "endLine": 141,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -240,16 +238,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 42,
-                  "endLine": 34,
-                  "endColumn": 50
+                  "startLine": 141,
+                  "startColumn": 27,
+                  "endLine": 141,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -268,16 +266,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 42,
-                  "endLine": 34,
-                  "endColumn": 50
+                  "startLine": 142,
+                  "startColumn": 27,
+                  "endLine": 142,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -296,16 +294,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 35,
-                  "startColumn": 42,
-                  "endLine": 35,
-                  "endColumn": 50
+                  "startLine": 142,
+                  "startColumn": 27,
+                  "endLine": 142,
+                  "endColumn": 35
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -324,16 +322,14 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 35,
-                  "startColumn": 42,
-                  "endLine": 35,
-                  "endColumn": 50
+                  "startLine": 145,
+                  "startColumn": 32
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "changfenbu",
+                  "decoratedName": "?changfenbu@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@PEAGPEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -352,16 +348,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 36,
-                  "startColumn": 42,
-                  "endLine": 36,
-                  "endColumn": 50
+                  "startLine": 212,
+                  "startColumn": 28,
+                  "endLine": 212,
+                  "endColumn": 36
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -380,16 +376,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 36,
-                  "startColumn": 42,
-                  "endLine": 36,
-                  "endColumn": 50
+                  "startLine": 212,
+                  "startColumn": 28,
+                  "endLine": 212,
+                  "endColumn": 36
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -408,16 +404,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 37,
-                  "startColumn": 42,
-                  "endLine": 37,
-                  "endColumn": 50
+                  "startLine": 213,
+                  "startColumn": 28,
+                  "endLine": 213,
+                  "endColumn": 36
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -436,16 +432,16 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 37,
-                  "startColumn": 42,
-                  "endLine": 37,
-                  "endColumn": 50
+                  "startLine": 213,
+                  "startColumn": 28,
+                  "endLine": 213,
+                  "endColumn": 36
                 }
               },
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "calcCVA",
-                  "decoratedName": "?calcCVA@@YA?AV?$vector@GV?$allocator@G@std@@@std@@PEAVGDALDataset@@0@Z",
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
                   "kind": "function"
                 }
               ]
@@ -464,8 +460,146 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 191,
-                  "startColumn": 57
+                  "startLine": 214,
+                  "startColumn": 28,
+                  "endLine": 214,
+                  "endColumn": 36
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 28,
+                  "endLine": 214,
+                  "endColumn": 36
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "qiujunzhifangcha",
+                  "decoratedName": "?qiujunzhifangcha@@YA?AV?$vector@PEAMV?$allocator@PEAM@std@@@std@@V?$vector@V?$vector@FV?$allocator@F@std@@@std@@V?$allocator@V?$vector@FV?$allocator@F@std@@@std@@@2@@2@PEAEHH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 43,
+                  "endLine": 239,
+                  "endColumn": 51
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "classification",
+                  "decoratedName": "?classification@@YAPEAGHHV?$vector@PEAMV?$allocator@PEAM@std@@@std@@0PEAG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 43,
+                  "endLine": 239,
+                  "endColumn": 51
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "classification",
+                  "decoratedName": "?classification@@YAPEAGHHV?$vector@PEAMV?$allocator@PEAM@std@@@std@@0PEAG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 240,
+                  "startColumn": 42
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "classification",
+                  "decoratedName": "?classification@@YAPEAGHHV?$vector@PEAMV?$allocator@PEAM@std@@@std@@0PEAG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "算术溢出: 使用 4 字节值上的运算符 * ，然后将结果转换到 8 字节值。在调用运算符 * 之前将值强制转换为宽类型可避免溢出(io.2)。"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
+                },
+                "region": {
+                  "startLine": 307,
+                  "startColumn": 51
                 }
               },
               "logicalLocations": [
@@ -490,10 +624,10 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 203,
-                  "startColumn": 44,
-                  "endLine": 203,
-                  "endColumn": 55
+                  "startLine": 310,
+                  "startColumn": 42,
+                  "endLine": 310,
+                  "endColumn": 50
                 }
               },
               "logicalLocations": [
@@ -518,10 +652,10 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 203,
-                  "startColumn": 44,
-                  "endLine": 203,
-                  "endColumn": 55
+                  "startLine": 310,
+                  "startColumn": 42,
+                  "endLine": 310,
+                  "endColumn": 50
                 }
               },
               "logicalLocations": [
@@ -546,9 +680,9 @@
                   "uri": "file:///D:/File/vs/project/GDAL_demo/experi1/experi1.cpp"
                 },
                 "region": {
-                  "startLine": 238,
+                  "startLine": 356,
                   "startColumn": 44,
-                  "endLine": 238,
+                  "endLine": 356,
                   "endColumn": 50
                 }
               },
@@ -567,7 +701,7 @@
         "driver": {
           "name": "PREfast",
           "fullName": "PREfast Code Analysis",
-          "version": "14.34.31933.0",
+          "version": "14.34.31935.0",
           "informationUri": "https://aka.ms/cpp/ca"
         }
       },
@@ -586,15 +720,7 @@
             "resultFile"
           ],
           "hashes": {
-            "sha-256": "59efcbc7d8e271805557cb1de29b951c0afa4e2a8f7063d5803160554f436ed6"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/experi1.h"
-          },
-          "hashes": {
-            "sha-256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+            "sha-256": "0929c0038322b25d17f4117b9beb1be2ad2093afa0e29eac88e41fcb8ac7dcc5"
           }
         },
         {
@@ -827,6 +953,14 @@
           },
           "hashes": {
             "sha-256": "567a4c8f44f0c60f528bd03e8b04aab898a9e09d8c7d92d8d1d535fabfac6cc4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/file/vs/project/gdal_demo/experi1/experi1.h"
+          },
+          "hashes": {
+            "sha-256": "cd7e768d9aaaaf31837ba1b2870fbba1dac206241914df5bd740940bfe6ee55c"
           }
         }
       ]
