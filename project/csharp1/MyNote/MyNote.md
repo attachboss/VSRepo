@@ -934,17 +934,22 @@ CSS 样式属性
 <summary><b>yarn包管理器</b></summary>
 
 yarn包管理器
+
 安装yarn
 `npm install -g yarn`
+
 更新本体
 `yarn set version latest`
 
 安装所有依赖：
 `yarn`或`yarn install`
+
 添加依赖项
 `yarn add 包名@版本/标签 --dev/peer`
+
 更新依赖项
 `yarn up 包名`
+
 删除依赖
 `yarn remove 包名`
 </details>

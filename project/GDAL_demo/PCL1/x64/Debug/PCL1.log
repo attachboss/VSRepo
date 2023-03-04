@@ -1,4 +1,9 @@
-﻿vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+﻿  PCL1.cpp
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\point_traits.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\visualization\interactor_style.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files (x86)\PCL 1.9.1\include\pcl-1.9\pcl\visualization\pcl_visualizer.h(1610,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\File\vs\project\GDAL_demo\PCL1\PCL1.cpp(258,50): warning C4930: “boost::shared_ptr<pcl::visualization::PCLVisualizer> customVis(boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZ>>)”: 未调用原型函数(是否是有意用变量定义的?)
+vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkSmartPointerBase.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
 vtkCommonCore-8.1-gd.lib(vtkDebugLeaksManager.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkDebugLeaksManager.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
 vtkCommonCore-8.1-gd.lib(vtkObjectFactory.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkObjectFactory.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
 vtkCommonCore-8.1-gd.lib(vtkUnsignedCharArray.obj) : warning LNK4099: 未找到 PDB“”(使用“vtkCommonCore-8.1-gd.lib(vtkUnsignedCharArray.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
