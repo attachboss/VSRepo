@@ -1980,23 +1980,6 @@ namespace MyNote
             //备份
             //创建删除触发器，在进行删除操作的时候将数据添加到备份表当中去
 
-
-
-            //事务锁
-            //  begin trans
-            //  update [表1] set = ;
-            //  wait delay '0:0:5'
-            //  update [表2] set = ;
-            //  commit trans
-            //在另一个进程：
-            //  begin trans
-            //  update [表2] set = ;
-            //  wait delay '0:0:5'
-            //  update [表1] set = ;
-            //  commit trans
-            //报错：事务(进程ID 54)与另一个进程被死锁在 锁 资源上，并且已被选作死锁牺牲品。请重新运行该事务。
-            #endregion
-            #endregion
             #region 触发器对表进行备份
 
             #region 对表进行备份，直接用
@@ -2077,6 +2060,23 @@ namespace MyNote
             #endregion
 
 
+            #endregion
+
+
+            //事务锁
+            //  begin trans
+            //  update [表1] set = ;
+            //  wait delay '0:0:5'
+            //  update [表2] set = ;
+            //  commit trans
+            //在另一个进程：
+            //  begin trans
+            //  update [表2] set = ;
+            //  wait delay '0:0:5'
+            //  update [表1] set = ;
+            //  commit trans
+            //报错：事务(进程ID 54)与另一个进程被死锁在 锁 资源上，并且已被选作死锁牺牲品。请重新运行该事务。
+            #endregion
             #endregion
             #region 事件与委托
             //委托
@@ -3885,47 +3885,6 @@ namespace MyNote
             //  data:{}
             //}, success:function(){})
             #endregion
-            #region SQLite
-            //SQLite数据库
-            //是一种轻量级的数据库完全配置时小于 400k，省略可选功能配置时小于250k，
-            //不同于SQlserver的服务型数据库，而是一种文档型，可以在本机离线情况下使用
-            //允许从多个进程或线程安全访问
-
-            //注释：
-            //      /*   */或    --
-            //
-            //数据类型
-            //INTEGER                                   带符号的整数
-            //REAL                                      8字节的浮点数字
-            //TEXT                                      文本字符串，使用编码（UTF-8、UTF-16BE 或 UTF-16LE）存储
-            //BLOB                                      根据输入储存
-            //亲和(Affinity)类型:
-            //任何列仍然可以存储任何类型的数据，当数据插入时，该字段的数据将会优先采用亲缘类型作为该值的存储方式
-            //TEXT、(NUMERIC、INTEGER、REAL)(基本等同)、NONE(不做任何类型转换)
-
-            //链接字符串：
-            //@"Data Sourse = C:\SQLite\DATA\student.db3; Version = 3;"
-
-            //ANALYZE语句
-            //  收集有关表和索引的统计信息，并将收集的信息存储在数据库的内部表中，查询优化器可以访问信息并使用它来帮助做出更好的查询计划选择。
-            //  如果没有给出参数，则分析所有附加的数据库。如果模式名称作为参数给出，则分析该数据库中的所有表和索引。
-            //  如果参数是一个表名，那么只分析该表和与该表相关的索引。如果参数是索引名称，那么只分析那一个索引
-            //ATTACH DATABASE
-            //  附加数据库
-            //ALTER TABLE
-            //  给指定表改名
-            //EXPLAIN
-            //  对指定SQl语句进行解释
-            //GLOB
-            //  用来匹配通配符指定模式的文本值。如果搜索表达式与模式表达式匹配，GLOB 运算符将返回真（true），也就是 1
-            //  星号（*）代表零个、一个或多个数字或字符。问号（?）代表一个单一的数字或字符。这些符号可以被组合使用
-            //LIMIT
-            //  用于限制由 SELECT 语句返回的数据数量
-            //  SELECT * FROM COMPANY LIMIT 6;
-
-            //PRAGMA
-            //  用在 SQLite 环境内控制各种环境变量和状态标志
-            #endregion
             #region 三层
             // 版本控制器
             //解决多人同时开发项目时的冲突问题
@@ -4734,7 +4693,7 @@ namespace MyNote
             //v-else-if=""
             //v-show="变量名"           是否展示(通过控制样式display=none/block)，效果同if
             //v-for="item in array"     绑定一个数组的元素来渲染一个项目列表
-            //      tasks:[{value: "1"},{value: "2"},{value: "3"]
+            //      tasks:[{value: "1"},{value: "2"},{value: "3"}]
             //      <li v-for="task in tasks">{{task.value}}</li>
             //      <p v-for="(item, index) in array">{{index}}, {{item.字段}}</p>
             //      <p v-for="(value, key, index) in obj">{{key}}{{value}}</p>
@@ -5210,6 +5169,7 @@ namespace MyNote
             //      var clickEvent = view.on("", func)-------------clickEvent.remove()
             //.watch(event, callback)            监听view属性的变化，用法同on
             #endregion
+            #region Layer
 
             //Layers
             //添加Layer                           map.add()
@@ -5221,6 +5181,9 @@ namespace MyNote
             //  ElevationLayer                   用来加载DEM数据
             //  PointCloudLayer                  加载点云数据
             //
+            //VectorTileLayer矢量切片图层
+            //view-----layers: [vtLayer]
+            //
             //用于查询、可视化、分析数据的图层:
             //  MapImageLayer                    加载动态地图服务，根据请求回来的数据在前端进行动态输出(请求一张图)，对应MapServer服务，没有编辑支持
             //      portalItem:当要加载的图层比较多时通过id以包的形式加载
@@ -5230,41 +5193,6 @@ namespace MyNote
             //      要素不能被单独符号化，需要使用renderer属性，指定到图层
             //  CSVLayer                         数据源为CSV文件
 
-            #region Graphics
-            //Graphics操作
-            //  const graphicLayer = new GraphicLayer();
-            //  map.add(graphicLayer);
-            // //创建Geometry
-            // var point = {
-            //     type: "point",
-            //     longitude: ,
-            //     latitude:
-            // };
-            // //添加样式
-            // var simpleMarkerSymbol = {
-            //     type: "simple-marker",
-            //     color: [0,0,0],
-            //     outline: {
-            //         color: [255,255,255],
-            //         width: 1
-            //     }
-            // };
-            // //添加属性
-            // var attributes = {
-            //     name: "NewPoint",
-            //     description: "This is a new created point"
-            // };
-            // //添加要素
-            // var pointGraphic = new Graphic({
-            //     geometry: point,
-            //     symbol: simpleMarkerSymbol,
-            //     attributes: attributes,
-            //     popupTemplate: {
-            //         title: attributes.name,
-            //         content: attributes.description
-            //     }
-            // });
-            // graphicLayer.add(pointGraphic);
             #endregion
             #region FeatureLayer
             //FeatureLayer
@@ -5369,9 +5297,43 @@ namespace MyNote
             // });
             // map.add(openspaces, 0);
             #endregion
+            #region Graphics
+            //Graphics操作
+            //  const graphicLayer = new GraphicLayer();
+            //  map.add(graphicLayer);
+            // //创建Geometry
+            // var point = {
+            //     type: "point",
+            //     longitude: ,
+            //     latitude:
+            // };
+            // //添加样式
+            // var simpleMarkerSymbol = {
+            //     type: "simple-marker",
+            //     color: [0,0,0],
+            //     outline: {
+            //         color: [255,255,255],
+            //         width: 1
+            //     }
+            // };
+            // //添加属性
+            // var attributes = {
+            //     name: "NewPoint",
+            //     description: "This is a new created point"
+            // };
+            // //添加要素
+            // var pointGraphic = new Graphic({
+            //     geometry: point,
+            //     symbol: simpleMarkerSymbol,
+            //     attributes: attributes,
+            //     popupTemplate: {
+            //         title: attributes.name,
+            //         content: attributes.description
+            //     }
+            // });
+            // graphicLayer.add(pointGraphic);
+            #endregion
 
-            //VectorTileLayer矢量切片图层
-            //view-----layers: [vtLayer]
 
             //WebMap
             //包含所有地图的配置设置(底图、数据图层、弹出窗口)
@@ -5588,687 +5550,6 @@ namespace MyNote
             // //打开数据
             // IName name = dsName as IName;
             // ITable table = name.Open() as ITable;
-            #endregion
-            #region Vue3
-            //Vue3
-            //使用命令安装vue 以及vue cli
-            //cnpm install vue@next
-            //cnpm install @vue/cli
-            //引入script    src="https://unpkg.com/vue@next"
-            //插值表达式{{}}用于输出对象属性和函数返回值        支持js表达式，例如三目运算符
-            //Vue3直接面向数据
-            //Vue的设计模式：MVVM(Model-View-ViewModel)
-
-            //在vue3项目中使用element-plus:
-            //  引入npm i element-plus --save
-            //  在main.js中import导入ElementPlus和样式文件
-            //  .use(ElementPlus)
-
-
-            //命令创建Vue项目
-            //      vue create 项目名
-            //命令启动
-            //      npm run serve
-            //命令打开GUI
-            //      vue ui
-
-
-            //Vue.createApp({}).mount("#app")
-            //1、data选项是一个函数，Vue在创建新项目的时候调用，vue通过响应性系统将其包裹起来并以$data的形式保存在组件实例中
-            //  var app = Vue.createApp({
-            //     data(){
-            //         return{
-            //          }----Model
-            //     },
-            //      template:""----View
-            //  });
-            //  const vm = app.mount("#app")----vm挂在到DOM上
-            //  通过app.$data.item或者app.item可以访问到item，同时更新item的值也可以更新$data.item
-            //2、可以在组件中添加方法，在createApp函数中添加method:{fun1, fun2}
-            //  使用app.方法名来调用函数
-
-            //<template></template>
-            //不在页面中显示，用来控制业务逻辑
-
-            //指令：
-            //指令是带有v-前缀的特殊属性，用于在表达式的值改变时将某些行为应用到DOM当中
-            //可以在指令后加上:来指明参数
-            //修饰符.        v-on:submit.prevent="onSubmit"
-            //v-once指令                只进行一次插值，当数据改变时，插值处的内容不会更新              <script v-once></script>
-            //v-html指令                用于输出html代码                                             <span v-html="变量名"></span>
-            //v-bind:属性名=""          如果属性值为null或者undefined，那么该属性不会显示出来           <div v-bind:class="div1"></div>
-            //                          v-bind="$attrs" 将所有父组件中的属性复制到自身(子组件)
-            //v-if=""                   根据变量的值(true/false)判断是否插入该元素                     <p v-if="view"></p>
-            //v-else                    在v-if后使用
-            //v-else-if=""
-            //v-show="变量名"           是否展示(通过控制样式display=none/block)，效果同if
-            //v-for="item in array"     绑定一个数组的元素来渲染一个项目列表
-            //      tasks:[{value: "1"},{value: "2"},{value: "3"]
-            //      <li v-for="task in tasks">{{task.value}}</li>
-            //      <p v-for="(item, index) in array">{{index}}, {{item.字段}}</p>
-            //      <p v-for="(value, key, index) in obj">{{key}}{{value}}</p>
-            //在v-for标签中添加属性     :key="index+item"    可以在数据量较大时只更新数据而不是重新渲染整个页面
-            //v-on                      用于监听DOM事件                                             v-on:click="event1"
-            //v-model                   在表单元素控件上创建双向数据绑定(根据表单的值自动更新数据)
-            //缩写：
-            //v-bind:属性名=""          :属性名=""
-            //v-on:click=""             @click=""
-            //
-            //注册自定义指令
-            //  定义一个v-focus指令
-            // app.directive("focus", {
-            //     mounted(el){
-            //         el.focus()
-            //     }
-            // })
-            //  也可以通过directives注册局部指令
-
-
-
-            //组件
-            //  用标签<组件名/>实现组件内容
-            //  降低程序的耦合性
-            //1、全局组件
-            // app.component("组件名", {
-            //     template: ""
-            // })
-            //2、动态组件
-            //  使用<component/>
-            //  <component :is="变量名"/>
-            //  动态组件中需要保留用户输入的内容        <keep-alive><component/></keep-alive>
-            //  在父组件中通过绑定data传递动态值，如果写死的话只能传递string类型
-            //  可以给子组件传递箭头函数，在子组件中也可以声明函数
-            // app.component("组件名", {
-            //     props: ["index", "item"],
-            //     methods: 方法(){},
-            //     template: `<li>{{index}}--{{item}}</li>`
-            // })
-            //3、局部组件
-            //  只能在这个实例中使用
-            //  const component1 = {template: ``};
-            //  var app = Vue.createApp({
-            //         components: {
-            //             "component": component1
-            //         }
-            // })
-            //4、组件验证
-            // props:{
-            //     prop1: Number,
-            //     prop2: [Number, String],
-            //     prop3: {
-            //         type: String,
-            //         require: true
-            //     }
-            //     prop4: {
-            //         type: Number,
-            //         default: 100
-            //         //default: fun(){}
-            //     }
-            //     prop5: {
-            //         validator: function(value){
-            //             return value.search("") !== -1
-            //         }
-            //     }
-            // }
-            //5、单项数据流
-            //  数据只能单向绑定，子组件内部不能修改由父组件传递的数据
-            //  在子组件中通过data(){return{ 变量名}}改变
-            //6、Non-props
-            //  子组件没有接受父组件传递过来的参数，而完全不变的复制了属性到自己的标签上
-            //  不用props接收
-            //  inheritAttrs: true
-            //7、调用父组件中的方法
-            //  给子组件传递事件(@add="func")
-            //  在子组件中声明emit: ["add"]
-            //  写子组件的函数fun(){  this.$emit("add", [params])  }
-            //8、插槽
-            //  <slot></slot>
-            //  使用组件时可以在标签(成对)内插入文本、html
-            //  可以为插槽设置默认值
-            //  具名插槽：
-            //  <slot name="one"></slot>          需要使用多个插槽时
-            //  调用    <template v-slot:one></template>
-            //              简写<template #one></template>
-            //  作用域插槽:
-            //      将子组件中的变量传递给父组件使用
-            //      子组件 <slot :item="变量名">
-            //      使用时<组件名 v-slot=""/>
-            //
-            //9、作用域
-            //  父模板里调用的是父模板里的元素
-            //  子模板里调用的是子模板里的元素
-            //10、异步组件
-            //promise
-            //需要花费时间加载时使用
-            // app.component("", Vue.defineAsyncComponent(() => {
-            //     return new Promise((resolve, reject) => {
-            //         resolve({
-            //             template: ``
-            //         })
-            //     })
-            // }))
-            //11、多级组件传值
-            //provide和inject
-            //  在父组件中声明provide
-            //  在子组件中可以通过inject: ["变量名"]的方法接受而不需要通过属性传值
-            //  中间可以越过多级进行
-
-            //1、使用import引入子组件
-            //  import 组件名 from "相对路径"
-            //2、在子组件中export default{ 注册组件
-            //     name: "",
-            //     component: {}
-            // }
-            //3、通过标签在父组件中使用标签
-            //  三个步骤缺一不可
-
-
-            //生命周期函数(钩子函数)
-            //在某时刻会自动执行的函数
-            //beforeCreate()                    在实例生成之前自动执行的函数
-            //created()                         在实例生成之后自动执行
-            //beforeMount()                     在挂载之前(模板渲染完成之前)
-            //mounted()                         挂载以后
-            //beforeUpdate()                    data数据更改之前
-            //updated()                         data更改后
-            //beforeUnmount()
-            //unmount()                         应用失效，DOM销毁后执行
-            //参数有：
-            //el                                指el指令绑定到的元素 可以直接操作DOM
-            //binding
-            //vnode
-            //prevnode
-
-
-            //计算属性computed
-            //当计算属性依赖的内容改变时才会重新计算
-            //在效果上与methods(重新渲染时执行)是一样的，但computed基于依赖缓存，只有依赖发生改变的时候执行，性能更好
-
-            //监听器watch
-            // watch: {
-            //     变量名(){
-            //     }
-            // }
-            //vm.$watch("变量名", (curr, prev) => {})-----------第二个参数为回调
-
-            //样式绑定
-            //:class="classArray"
-            //在data中声明变量：
-            //  classStr: "color"
-            //  classArray: ["color", "background"]
-            //  classObj: {color: true, background: false}
-
-            //绑定事件
-            //在@事件中传递默认参数(如event)时，前加$
-            //当在一个事件中调用多个函数时，在@事件属性中用逗号隔开函数名，并加括号     @click="fun1(), fun2()"
-            //事件修饰符:
-            //  @事件名.stop                              阻止冒泡
-            //  @事件名.self                              不会触发子元素，只有自己
-            //  @事件名.prevent                           阻止元素默认行为
-            //  @事件名.capture                           捕获冒泡，反转冒泡模式
-            //  @事件名.once                              只能点一次
-            //  @事件名.passive                           解决滚动时的性能
-            //鼠标、按键修饰符
-            //@事件名.13                                enter回车
-            //@事件名.left   right   middle
-
-            //表单数据双向绑定
-            //在<textarea></textarea>文本区域使用v-model代替插值
-            //<input type="checkbox" v-model="name" true-value="T" false-value="F"/>{{name}}
-            //修饰符
-            //v-model.lazy                                当失焦的时候进行双向绑定
-            //v-model.number
-            //v-model.trim                                去掉前后空格
-
-
-            //路由
-            //  Vue路由允许通过不同的URL访问不同的内容，可以不写a标签
-            //  可以在不重新加载页面的情况下对url进行操作
-            //  需要载入vue-router库使用<router-link></router-link>      <script src="https://unpkg.com/vue-router@next"></script>
-            //  使用router-link组件
-            //      属性:
-            //      to                                      指定链接，当被点击后，内部会立刻把值传递到router.push()
-            //      replace                                 点击后调用router.replace()，不会留下历史记录        <router-link :to="" replace>
-            //      append                                  在当前相对路径前添加路径
-            //      tag                                     将router-link渲染为何种标签
-            //      active-class                            设置链接激活时使用的CSS类名
-            //      event                                   声明可以用来触发的事件，可以为一个数组
-            //  使用<router-view></router-view>指定路由渲染的位置
-            //  创建路由        VueRouter.createRouter      参数history: VueRouter.createWebHashHistory(), routes对象
-
-
-            //混入
-            //  mixins定义了一部分可以复用的方法或computed
-            //  混入对象可以包含任意组件选项
-            //  组件使用混入对象时，所有混入对象的选项被混入组件的选项
-            //  //定义混入对象
-            // const mixin = {
-            //     created(){
-            //         this.sayHi()
-            //     },
-            //     methods:{
-            //         sayHi(){
-            //             console.log("Hi");
-            //         }
-            //     }
-            // }
-            // //使用混入
-            // const app = Vue.createApp({
-            //     mixins: [mixin]
-            // }).mount("#app")
-            //
-            //当组件和混入的对象含有同名选项时，这些相将以恰当的方法结合
-            //数据对象会在内部进行浅合并，发生冲突时组件的选项(methods、component、directives)优先
-            //同名生命周期函数将会合并为一个数组，因此都会被调用，混入对象的会优先调用
-            //可以使用app.mixin()定义全局混入对象，这会影响到之后创建的Vue实例
-
-
-            //axios
-            //  用来完成ajax请求
-            //  需要载入    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            //  可以用axios.get("", {params: {}})代替在url中添加参数
-            //  执行多个并发请求
-            //  axios.all([fun1(), fun2()])
-            //      .then(axios.spread())
-
-
-
-
-
-
-            #endregion
-            #region 小程序
-            //更改主界面上方颜色：app.json--window--naviBGColor
-            //添加页面：app.json--pages--"pages/xx/xx"
-            //允许使用爬虫进行全局搜索：project.config.json--setting--"checkSiteMap": true
-            //通过this.setData函数给data中的变量赋值
-            //使用view代替div
-            //scroll-view                   容器页面
-            //swiper                        滚动窗口(有indicator)
-            //text                          只有text可以长按选择操作，指定selectable="true"
-            //rich-text                     通过nodes属性可以将html渲染到页面当中
-            //button                        open-type提供的功能 bindtap绑定事件函数 data-*="{{}}"传递参数
-            //                                                 在事件处理函数中通过 event.target.dataset.参数名 拿到值
-            //block                         包裹性质的容器，不会被渲染到页面当中
-            //hidden属性                    可以代替wx:if="{{condition}}"   运行方式为切换样式
-            //wx:for="{{array}}"            默认{{index}}   {{item}}    wx:for-item="iName"手动指定变量名{{iName}}  wx:key="id"提高渲染效率
-
-            //rpx   将不同大小的屏幕均分为750等分来实现自动适配     在ip6上1px = 2rpx
-            //@import "xx.wxss";样式导入外联样式表
-            //在app.wxss中定义全局样式  就近原则局部样式会覆盖全局样式
-
-            //tabBar                        底部、顶部(不显示图标)，用于多页面的快速切换，最少2最多5
-            // "tabBar": {
-            //     "list": [{
-            //         "pagePath": "",
-            //         "text": ""
-            //     }],
-            //     "position": "bottom",
-            // }
-
-            //就近原则，页面配置会覆盖全局配置
-            //数据接口只能请求https且必须将接口的域名添加到信任列表中
-            //跳过request合法域名校验
-            //小程序宿主环境不是浏览器，没有跨域问题，没有Ajax
-
-            //navigator
-            //导航到tabBar时加属性open-type="switchTab"
-            //非tabBar时可以不写ot属性
-
-            //wxs不允许使用箭头函数和let
-            //在iOS上性能优于js
-            //  函数通过module.exports = {}   导出
-            //  在wxml中添加wxs标签并指定module名 src     可以直接通过module名.方法名调用
-            //  不能作为事件的回调函数
-
-            //引用组件
-            //  在(app/页面).json中usingComponents:{"名": "相对路径"}
-            //组件的事件处理函数需要定义到methods中,非事件处理函数名加前缀_
-            //全局样式对组件无效(只有class选择器有隔离效果)
-            //在options中styleIsolation: "isolated"     启用样式隔离
-            //                            apply-shared  不会影响页面
-            //                            shared        自定义组件会影响页面样式
-            //
-            //observes: {
-            //     "**": function(新值){
-            //     }
-            // }
-            //  可以使用通配符**代替所有属性名
-            //在options中声明pureDataPattern: /^_/
-            //凡是复合正则式的均是纯数据字段，可以用来提升页面更新的性能，一般以下划线开头
-            //
-            //组件的生命周期函数：
-            //created、attached、detached
-            //在Component构造器中的lifetimes: {attched() {}}
-            //在组件进行到attached生命周期时开展初始化工作
-            //
-            //组件所在页面的生命周期
-            //show、hide、resize
-            //在Component中定义pageLifeTimes: {show: function(){}}
-            //启用多个插槽：options里multipleSlots: true
-            //
-            //父子组件通信：
-            //属性绑定
-            //  父向子--只能传递JSON支持的类型，子组件通过properties接收
-            //事件绑定
-            //  子向父--可以传递任意类型
-            //  父组件中使用标签时 bind:传递函数名="函数名"
-            //  子组件中this.triggerEvent("函数名", { 参数列表 })
-            //  父组件中fun(e){ 变量: e.detail.value接收 }
-            //获取组件实例
-            //  父组件调用this.selectComponent("选择器")            获取子组件实例，可以直接访问其任意方法和数据，不支持标签选择器
-            //
-            //behaviors
-            //类似mixins
-            // module.exports = Behaviors({
-            //     porperties: {},
-            //     data: {},
-            //     methods: {}
-            // })
-            //require()导入behavior
-            //Component中hebaviors: []
-
-            //使用npm包
-            //初始化包管理配置文件
-            //  npm init -y
-            //安装npm包
-            //工具-构建npm
-            //
-
-            //import {promisify} from "miniprogram-api-promise"
-            // const wxp = wx.p = {};
-            // promisifyAll(wx, wxp);
-            #endregion
-            #region CS229
-            //监督学习的三要素：
-            //模型(总结数据的内在规律，用数学描述)
-            //策略(选取最优模型的评价准则)
-            //算法(选择最优模型的具体方法)
-
-            //监督学习实现步骤:
-            //  获取一个有限的数据集
-            //  确定包含所有学习模型的集合
-            //  确定模型选择的准则(学习策略)
-            //  实现求解最优模型的算法(学习算法)
-            //  通过学习算法选择最优模型
-            //  利用得到的最优模型对新数据进行预测或分析
-
-            //损失函数：用来衡量模型预测误差的大小
-            //  是系数的函数
-            //经验风险
-            //  关于训练数据集的平均损失
-            //经验风险最小化(ERM)
-            //  当样本足够多时有很好的学习效果
-            //  样本较小时存在问题
-            //训练误差：关于训练集的训练集的平均损失
-            //  本质上并不重要
-            //测试误差
-            //  关于测试集的平均损失
-            //  真正反映了模型的预测能力(泛化能力)
-            //正则化
-            //  结构风险最小化(SRM)：在ERM的基础上防止过拟合的策略，加上了表示模型复杂度的正则化项(惩罚项),模型越复杂正则化值越大
-            //奥卡姆剃刀原理：如无必要勿增实体
-            //交叉验证：
-            //  数据不充分时可以重复利用数据
-            //  简单交叉验证
-            //      将数据随机分为两部分
-            //  S折交叉验证
-            //      将数据随机切分为S个互不相交、相同大小的子集，S-1个作为训练集剩下一个为测试集，重复进行选取，有S种可能的选择
-            //  留一交叉验证
-            //  再划分出验证集用于模型选择
-
-
-            //评测分类问题
-            //精确率
-            //  所有 预测 为正类的数据中预测正确的比例
-            //召回率
-            //  所有 实际 为正类的数据中被正确找出的比例
-
-            //回归问题
-            //建立输入变量于输出变量之间的关系
-            //  等价于函数曲线的拟合
-            //步骤：
-            //1、导入依赖和测试数据，提取feature和label数据
-            //2、定义损失函数 (yi - w*xi - b) ** 2 求和，取平均使损失函数与样本的数据无关
-            //3、定义算法拟合函数求解w和b
-            //4、调用损失函数计算cost值
-
-            //多元线性回归
-            //用θ0 * x0 (x0=1)代替b, 用θ(1 to d)代替w
-            //步骤：
-            //1、导入依赖和测试数据
-            //2、定义损失函数同一元回归
-            //3、定义超参数(初值、学习率、次数)
-            //4、定义梯度下降函数
-
-            //使用sklearn库
-            //引入import LineaRegression from sklearn.linear_model
-            //创建实例lr = LinearRegression()
-            //训练模型lr.fit(x, y)                                          传入的x, y必须为二维数组
-            //从训练完的模型中返回w和b  lr.coef[0][0]  lr.intercept[0]
-
-
-
-
-
-
-            //单行注释#
-            //多行注释'''或"""      即多行文本
-            //def定义函数
-            //没有数组的概念，list列表代替(可为任意类型)  len(列表) 函数返回列表长度
-            //将数组(列向量)转化为矩阵  数组.reshape(-1, 1)       -1表示行数不限， 1表示生成一列数据
-            //相同缩进的一组语句构成代码组，首行以关键字开始，以冒号结束
-            //Print输出默认换行，不换行需要在变量末尾加end=""
-            //可以多变量赋值，交换变量a,b = b,a
-            //不可变数据：
-            //  Number(int、float、bool、complex)、String、Tuple(元组)
-            //可变数据：
-            //  List、Dictionary、Set(集合)
-            //判断类型
-            //type()
-            //isinstance()      会认为子类是一种父类类型
-            //del 变量名        手动删除变量释放内存
-            //pow(a, b)     ==      a ** b
-            //str = "";
-            //str[1:5:2]        取子串，从1开始取， 取到5，步长为2(隔两个取一个)
-
-            //元组用括号声明
-            //值可以为任意类型，不能修改，但可以包含可变的对象
-
-            //必须全部定义名称(同时可以定义默认值)，而名称顺序可以不同
-            //通过 *参数名, **参数名 传递不定长参数
-            //可以返回多个值，并使用多个的参数接收
-            //除法除完之后即为浮点型数据    ------ // 除法之后的结果向下取整
-
-
-
-
-            #endregion
-            #region PostGIS
-            //安装插件
-            //CREATE EXTENSION postgis;
-            //检查版本
-            //postgis_full_version();
-
-
-            //Postgre基本类型转换
-            //type::newtype
-
-            //使用Bundle3转换shp时注意不能使用中文路径
-
-
-            //基本函数:
-            //返回几何类型
-            //SELECT ST_GeometryType(列名) from 表;
-            //维度
-            //ST_NDims();
-            //空间参照
-            //ST_SRID();
-            //返回几何的文本字符串
-            //（默认查询几何对象返回十六进制的坐标表示）
-            //ST_AsText()
-
-
-            //基本几何对象:
-            //1、点Point
-            //	ST_X	ST_Y	ST_Z	ST_M
-            //2、线串Linestring
-            //	是否闭合
-            //	ST_IsClosed()
-            //	是否简单(不与自身交叉或接触)
-            //	ST_IsSimple()
-            //	长度
-            //	ST_Length()
-            //	起始/终止点坐标
-            //	ST_StartPoint()	/	ST_EndPoint()
-            //	构成坐标数
-            //	ST_NPoints()
-            //3、多边形Polygon
-            //	面积
-            //	ST_Area()
-            //	环数
-            //	ST_NRings()
-            //	返回最外部环Linestring
-            //	ST_ExteriorRing()
-            //	返回指定内环
-            //	ST_InteriorRingN(列名, n)
-            //	返回所有环周长
-            //	ST_Perimeter()
-            //4、图形集合Collection
-            //	集合中组成部分的数量
-            //	ST_NumGeometries()
-            //	返回指定几何部分
-            //	ST_GeometryN(geom, n)
-
-
-            //几何类型序列化和反序列化:
-            //由于SFSQL定义的WKT和WKB不支持高维，postgis定义了EWKT和EWKB	text示例：LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)
-            //1、WKT
-            //	ST_GeomFromText(text, srid)
-            //	ST_AsEWKT(geom)
-            //2、WKB
-            //	ST_GeomFromWKB(bytea)
-            //	ST_AsBinary(geom)
-            //	ST_AsEWKB(geom)
-            //3、GML
-            //	ST_AsGML()
-            //4、KML
-            //	ST_AsKML()
-            //5、GeoJson
-            //	ST_AsGeoJson(geom)		返回text
-            //6、SVG
-            //	ST_AsSVG()				返回text
-
-
-            //空间关系:
-            //1、相交
-            //	根据x、y坐标值判断两个几何对象是否相等
-            //	ST_Equals(geom, geom)
-            //	判断是否相交
-            //	ST_Intersect()			会自动使用空间索引
-            //	ST_Disjoint()
-            //	ST_Crosses()			相交生成的维度小于源几何对象的最大维度，且交集位于两个源的内部
-            //	判断是否叠置
-            //	（结果集与两个源都不同但具有相同维度）
-            //	ST_Overlaps()
-            //2、边界相交
-            //	边界接触，但内部不相交
-            //	ST_Touches()
-            //3、包含
-            //	互逆函数
-            //	ST_Within()	/	ST_Contains()
-            //4、相距
-            //	返回浮点距离
-            //	ST_Distance()
-            //	测试是否在某个范围之内(缓冲)，基于索引加速
-            //	ST_DWithin(geom, geom, distance)
-
-            #endregion
-            #region AO
-            // void MapBtnClick(object sender, EventArgs e)
-            // {
-            // mapDoc = new MapDocumentClass();
-            // OpenFileDialog ofg = new OpenFileDialog();
-            // ofg.Filter = "所有文件|*.*|地图文件|*.mxd";
-            // if (ofg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            // {
-            // string mapPath = ofg.FileName;
-            // try
-            // {
-            // mapDoc.Open(mapPath, null);
-            // IDocumentInfo info = mapDoc as IDocumentInfo;
-            // //输出地图文件信息...
-            // Console.WriteLine($"************输出**************{info.DocumentTitle}");
-            // if (mapDoc.MapCount != 0)
-            // {
-            // map = mapDoc.Map[0];
-            // if (map.LayerCount != 0)
-            // {
-            // for (int i = 0; i < map.LayerCount; i++)
-            // {
-            // ILayer layer = map.Layer[i];
-            // Console.WriteLine($"************输出**************{layer.Name}");
-            // }
-            // }
-            // mapCtrl.Map = map;
-            // }
-            // mapDoc.Close();
-            // }
-            // catch (Exception)
-            // {
-
-            // throw;
-            // }
-            // }
-            // }
-
-            // void TableBtnClick(object sender, EventArgs e)
-            // {
-            // ITableCollection tables = map as ITableCollection;
-            // OpenFileDialog ofg = new OpenFileDialog();
-            // ofg.Filter = "所有文件|*.*|属性表文件|*.dbf";
-            // if (ofg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            // {
-            // string pathName = System.IO.Path.GetDirectoryName(ofg.FileName);
-            // string tableName = System.IO.Path.GetFileName(ofg.FileName);
-            // try
-            // {
-            // //封装打开流程
-            // ITable table = OpenTable(pathName, tableName);
-            // if (table != null)
-            // {
-            // tables.AddTable(table);
-            // for (int i = 0; i < table.Fields.FieldCount; i++)
-            // {
-            // Console.WriteLine($"************输出**************{table.Fields.Field[i].Name}");
-            // }
-            // }
-            // }
-            // catch (Exception)
-            // {
-
-            // throw;
-            // }
-            // }
-            // }
-
-            // public ITable OpenTable(string pathName, string tableName)
-            // {
-            // //创建工作空间对象
-            // IWorkspaceName spcName = new WorkspaceNameClass();
-            // spcName.PathName = pathName;
-            // spcName.WorkspaceFactoryProgID = "esriDataSourcesFile.shapefileworkspacefactory";
-
-            // //创建数据集对象
-            // IDatasetName dsName = new TableNameClass();
-            // dsName.Name = tableName;
-            // dsName.WorkspaceName = spcName;
-
-            // //打开数据
-            // IName name = dsName as IName;
-            // ITable table = name.Open() as ITable;
-            // return table;
-            // }
             #endregion
             #region Ubuntu
             //Linux
