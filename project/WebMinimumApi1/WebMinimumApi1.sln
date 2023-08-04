@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMinimumApi1", "WebMinimumApi1\WebMinimumApi1.csproj", "{7490DA82-6844-4F50-AA3B-2C81BE6FDE66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebMinimumApi1", "WebMinimumApi1\WebMinimumApi1.csproj", "{7490DA82-6844-4F50-AA3B-2C81BE6FDE66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesMovie", "RazorPagesMovie\RazorPagesMovie.csproj", "{8A2B4CD4-771F-4E62-99CA-66F333C39712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7490DA82-6844-4F50-AA3B-2C81BE6FDE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7490DA82-6844-4F50-AA3B-2C81BE6FDE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7490DA82-6844-4F50-AA3B-2C81BE6FDE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2B4CD4-771F-4E62-99CA-66F333C39712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2B4CD4-771F-4E62-99CA-66F333C39712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2B4CD4-771F-4E62-99CA-66F333C39712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2B4CD4-771F-4E62-99CA-66F333C39712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

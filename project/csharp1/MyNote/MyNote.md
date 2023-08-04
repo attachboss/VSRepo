@@ -5460,6 +5460,11 @@ foreach(var item in asb.GetTypes())
 Type type = asb.GetType("包含 命名空间 类名 的完整名称");
 ```
 
+判断反射类型是否是一个类型的子类：
+Assemble asb = Assemble.LoadFrom(文件名);
+Type type = asb.GetType();
+if(typeof(父类).IsAssignableFrom(type)) ...
+
 创建对象的两种方法：
 
 ```csharp
@@ -6176,12 +6181,123 @@ logger.Error();
 </details>
 
 <details>
+<summary><b>AOP</b></summary>
+
+AOP 面向切面编程
+
+- 解决类的内部变化问题
+- 动态修改静态面向对象模型
+- 在不破坏封装的前提下扩展功能(公共、非业务逻辑)
+
+OOP 面对对象编程
+
+- 一切皆对象，对象交互组成功能，功能叠加组成模块，模块叠加组成系统
+- 应对需求变化扩展的时候实现困难
+- 面对对象是静态的，任何细微的变化都可能导致较大的影响
+
+设计模式：
+
+- 都在抽象、类
+- 无法解决内部变化
+- 设计出灵活、可扩展、可重用 的架构
+
+1. 装饰器模式、代理模式 实现静态 AOP
+2. .Net Remoting 实现动态代理 Real Proxy
+   必须继承 MarshalByRefObject
+3. Castle 动态代理
+   要调用的方法必须是 virtual (相当于代理对象重写了这个方法)
+4. Unity autofac
+   依赖注入容器
+5. MVC
+   必须统一入口，给 实例 方法 参数 的信息， 反射调用，调用过程中 查找特性并生效
+
+```csharp
+//声明容器
+IUnityContainer container = new UNityContainer();
+ExeConfigurationFileMap filemap = new ExeConfigurationFileMap();
+filemap.ExeconfigFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Unity.Config");
+Configuration config = ConfigurationManager.OpenMappedExeConfiguration(filemap, ConfigurationUserLevel.None);
+UnityConfigurationSection section = (UnityConfigurationSection)config.GetSection(UnityConfigurationSection.SectionName);
+section.Configure(container, "AOPContainer");
+
+//注册类型
+container.RegisterType<Abstract, Phone>();//抽象类
+container.RegisterType<Abstract, Phone>("123");//一对多
+container.RegisterType<IPhone, Phone>();//接口
+container.RegisterType<IPhone, PhoneChild>();//注册子类
+//创建对象(反射)
+IPhone obj = container.Resolve(IPhone);
+
+```
+
+```csharp
+IUnityContainer container = new UNityContainer();
+container.RegisterType<IPhone, Phone>(new TransientLifetimeManager())//默认创建瞬时对象
+container.RegisterType<IPhone, Phone>(new ContainerControlledLifetimeManager())//容器单例
+container.RegisterType<IPhone, Phone>(new PerThreadLifetimeManager())//线程单例
+//场景：web请求 每个请求建立一个DBContext对象
+
+container.RegisterType<IPhone, Phone>(new HierarchicalLifetimeManager())//分级容器单例
+container.RegisterType<IPhone, Phone>(new ExternallyControlledLifetimeManager())//外部可释放单例
+container.RegisterType<IPhone, Phone>(new PerResolveLifetimeManager())//循环引用 不推荐
+```
+
+Unity.Config
+
+```xml
+<configuration>
+    <unity>
+        <sectionExtension type="" />
+        <containers>
+            <container name="">
+                <extension type="Interception"/>
+                <register type="接口,dll" mapTo="实现类,dll">
+                    <interceptor type="InterfaceInterceptor" />
+                        <!- interceptor注册类型：接口、父类... -->
+                    <interceptionBehavior type="扩展类,dll" />
+                    <interceptionBehavior type="" />
+                    <interceptionBehavior type="" />
+                </register>
+            </container>
+        </containers>
+    </unity>
+</configuration>
+```
+
+添加扩展类：
+执行顺序由配置文件 interceptionBehavior 决定
+BeforeBehavior 在业务逻辑执行前扩展
+AfterBehavior
+
+继承并实现 IInterceptionBehavior
+在 Invoke 方法中添加扩展逻辑处理
+通过 IMethodInvocation 的 input 对象 中的 MethodBase 属性访问当前方法
+MethodBase.IsDefined(typeof(CustomAttribute), true)
+input.CreateExceptionMethodReturn 返回一个异常，中断流程
+
+AOP 实现在全部动作完成后发送信息：
+将发送信息的 Behavior 配置在最前面(装饰器)
+
+</details>
+
+<details>
 <summary><b>依赖注入</b></summary>
+
+DIP 依赖倒置原则
+系统架构中，高层模块不应直接依赖于底层模块，二者通过抽象来依赖
 
 DI
 控制反转 IOC
 将传统的控制倒转，只要声明就可以用
+
+在构造对象时，可以自动初始化对象所需要的对象
+构造函数注入 属性注入 方法注入 (都是反射构造)
 DI 是 IOC 思想的一种实现
+有了依赖注入，才能做到无限层级的依赖抽象，做到控制反转
+
+构造函数注入：效果最佳，默认查找参数最多的构造函数
+方法注入：最差，增加了一个没有意义的方法，破坏了封装
+属性注入：需要引入容器的依赖
 
 IOC 两种实现方式：
 
@@ -6288,6 +6404,57 @@ class Proxy
     public string Address { get; set; }
 }
 ```
+
+</details>
+
+<details>
+<summary><b>Cache缓存</b></summary>
+
+每个环节都有缓存
+浏览器-DNS-反向代理-服务器
+![Alt text](image-1.png)
+
+**浏览器**
+
+> HTTP1.0 Expires
+> HTTP Cache-Control
+
+`Dist Cache`、`Memory Cache`
+第一次请求保存在本地
+
+Cache-Control:
+
+- public
+- private
+- max-age: ms 数
+
+**CDN**
+
+- 缩短网络路径
+- 加快相应速度
+- 降低服务器压力(带宽)
+- DNS 解析域名时返回 CDN 域名服务器(指定域名的 CNAMS 记录)
+- 先解析到 CDN 检查缓存再从 CDN 解析到 IP
+
+通过`Response` `Header`缓存
+
+**反向代理**
+在服务器内部安装了一个代理，将请求分发到各个服务器上去
+- 隔离网络，保护服务器，节约公共IP
+- 网络加速，反向代理双网卡
+- 负载均衡
+
+分布式缓存
+1. 服务器内存空间有限
+2. 应对数据共享问题
+
+
+
+
+
+
+
+
 
 </details>
 
