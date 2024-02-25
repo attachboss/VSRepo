@@ -1550,6 +1550,8 @@ _使用`Bundle3`转换`shp`时注意不能使用中文路径_
    返回指定几何部分
    `ST_GeometryN(geom, n)`
 
+![Alt text](image-4.png)
+
 **几何类型序列化和反序列化**
 由于`SFSQL`定义的`WKT`和`WKB`不支持高维，postgis 定义了`EWKT`和`EWKB`
 text 示例：`LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)`
@@ -1583,22 +1585,25 @@ text 示例：`LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)`
 `ST_Equals(geom, geom)`
 
 判断是否相交
-`ST_Intersect()` 会自动使用空间索引
+`ST_Intersect()` 会自动使用**空间索引**
 `ST_Disjoint()`
-`ST_Crosses()` 相交生成的维度小于源几何对象的最大维度，且交集位于两个源的内部
+`ST_Crosses()` 相交生成的维度**小于**源几何对象的最大维度，且交集位于两个源的内部
+
+![Alt text](image-2.png)
 
 判断是否叠置
-（结果集与两个源都不同但具有相同维度）
+（结果集与两个源都不同但具有**相同维度**）
 `ST_Overlaps()`
+![Alt text](image-3.png)
 
-2. 边界相交
+1. 边界相交
 
-边界接触，但内部不相交
+**边界**接触，但内部不相交
 `ST_Touches()`
 
 3. 包含
 
-互逆函数
+**互逆**函数
 `ST_Within()` / `ST_Contains()`
 
 4. 相距
@@ -1606,8 +1611,344 @@ text 示例：`LINESTRING (Z/ZM) (0 1 2,3 4 12,3 345 23)`
 返回浮点距离
 `ST_Distance()`
 
-测试是否在某个范围之内(缓冲)，基于索引加速
+测试是否在某个范围之内(**缓冲**)，基于索引加速
 `ST_DWithin(geom, geom, distance)`
+
+**空间索引**
+
+```sql
+--创建空间索引
+CREATE INDEX nyc_census_blocks_geom_idx
+ON nyc_census_blocks
+USING GIST (geom);
+--（GIST-通用索引结构）
+```
+
+PostGIS 中最常用的函数（`ST_Contains`、`ST_Intersects`、`ST_DWithin`等）都包含自动索引过滤器
+但有些函数（`ST_Relate`、`ST_Disjoint`）不包括索引过滤器
+
+通过`&&`运算符执行空间索引的边界框搜索(纯索引查询)
+`neighborhoods.geom && blocks.geom`输出 49821
+`ST_Intersects(neighborhoods.geom, blocks.geom)`输出 26718
+
+执行空间索引搜索并不总是更快：
+如果搜索将返回表中的每条记录，则遍历索引树以获取每条记录实际上更慢
+
+PostgreSQL 保存每个索引列中数据分布的*统计信息*
+智能地选择何时使用或不使用空间索引来计算查询
+
+数据改变后，更新其统计信息
+`ANALYZE nyc_census_blocks;`
+
+大量数据改变后，清理表空间
+`VACUUM ANALYZE nyc_census_blocks;`
+
+**数据投影**
+
+1. 重投影
+
+`ST_TransForm(geom, SRID)`
+
+2. 设置投影
+
+`ST_SetSRID(geom, SRID)`
+
+**Geography 和 Geometry 类型**
+![Alt text](image-5.png)
+
+1. geom => geog
+   `SELECT Geography(ST_Transform(geom,4326)) AS geog,`
+
+2. geog => geom
+   `SELECT ST_X(geog::geometry) AS longitude`
+
+`::typename`是 PostgreSQL 中类型转换的语法
+
+_为什么不一直用 geography 类型呢？_
+
+- 直接支持 geography 类型的函数少
+- 球体上的计算要比笛卡尔计算计算量大得多。计算距离的公式包含两次 `sqrt()`调用、一次 `arctan()`调用、四次 `sin()`调用和两次 `cos()`调用，三角函数的计算非常耗费资源
+
+- 如果数据在地理范围上是紧凑的（包含在州、县或市内），用基于笛卡尔坐标的`geometry`
+- 如果需要测量在地理范围上是分散的数据集（覆盖世界大部分地区）的距离，用`geography`
+
+**几何图形创建函数**
+
+输入几何图形并输出几何图形
+
+1. `ST_Centroid(geom)`
+   返回几何图形质心(可能不在要素内部)
+   计算速度块
+
+2. `ST_PointOnSurface(geom)`
+   返回保证位于多边形内部的点
+   计算操作代价大得多
+
+3. `ST_Buffer(geom, dist)`
+   距离支持负值，表示内部缓冲区
+   对于线串和点只能返回空
+   `SELECT ST_Buffer(geom,500)::geometry(Polygon,26918) AS geom`
+
+4. `ST_Intersection(geom, geom)`
+   输出相交区域
+   如果不相交返回空
+
+5. `ST_Union([geom])`
+   输出并集
+
+```sql
+--通过分组合并blkid键前5个数字相同的所有几何图形来创建县地图
+--计算时间较长
+Create a nyc_census_counties table by merging census blocks
+CREATE TABLE nyc_census_counties AS
+SELECT
+  ST_Union(geom)::Geometry(MultiPolygon,26918) AS geom,
+  SubStr(blkid,1,5) AS countyid
+FROM nyc_census_blocks
+GROUP BY countyid;
+```
+
+> _blkid 示例_
+> 360610001001001 = 36 061 000100 1 001
+>
+> 36 = State of New York
+> 061 = New York County (Manhattan)
+> 000100 = Census Tract
+> 1 = Census Block Group
+> 001 = Census Block
+
+**空间连接**
+
+地铁站附近（500 米以内）的居民人数
+
+```sql
+--将不同的人口普查块数据传递到查询操作之前，确保只有不同的人口普查数据块
+--将查询分解为查找不同普查块的子查询
+WITH distinct_blocks AS (
+  SELECT DISTINCT ON (blkid) popn_total
+  FROM nyc_census_blocks census
+  JOIN nyc_subway_stations subway
+  ON ST_DWithin(census.geom, subway.geom, 500)
+)
+SELECT Sum(popn_total)
+FROM distinct_blocks;
+```
+
+**拓扑有效性**
+
+1. `ST_IsValid(geom)`
+   检测几何图形是否符合拓扑规则
+
+2. `ST_IsValidReason(geom)`
+   如果几何无效，返回无效原因
+   例如多边形自相交点
+
+3. `ST_MakeValid(geom)`
+   尝试在不对几何图形进行修改的情况下修复
+   只重新排列对象的结构，不删除移动节点
+   对于排列杂乱的数据无效
+
+4. 利用缓冲区修复
+   缓冲区由关于原始图形的偏移线构建
+   如果不偏移原始线，则新几何图形在结构上将与原始几何图形相同
+   使用 OGC 拓扑规则构建，可以确保有效
+
+**几何图形相等**
+
+![Alt text](image-6.png)
+
+1. `ST_OrderingEquals(geom, geom)`
+   精确相等
+   按顺序逐个比较两个几何图形的顶点
+
+2. `ST_Equals(geom, geom)`
+   空间相等
+   多边形包含相同的空间区域就相等
+
+3. `~=`
+   最小外接矩形相等
+   加快比较速度
+
+**线性参考**
+
+1. `ST_LineLocatePoint(LINESTRING, POINT)`
+
+计算线性参考比例
+
+```sql
+SELECT ST_LineLocatePoint('LINESTRING(0 0, 2 2)', 'POINT(1 1)');
+-- Answer 0.5
+
+SELECT ST_LineLocatePoint('LINESTRING(0 0, 2 2)', 'POINT(0 2)');
+-- 即做(0, 2)点到线串(0 0, 2 2)的垂线，使用对应的垂足点来求线性参考比例
+-- Answer 0.5
+
+SELECT ST_AsText(ST_LineInterpolatePoint('LINESTRING(0 0, 2 2)', 0.5));
+-- Answer POINT(1 1)
+```
+
+**维数扩展的 9 交模型**
+
+每个空间对象都具有：
+
+1. 内部 `interior`
+2. 边界 `boundary`
+3. 外部 `exterior`
+
+对于线：
+内部是以端点为界限的线的那一部分；
+边界是线性要素的端点；
+外部是平面中除内部和边界外的所有其他部分
+
+对于点：
+内部是点；
+边界是空集；
+外部是平面上除点以外的所有其他部分
+
+DE9IM 矩阵：
+![Alt text](image-7.png)
+交集是二维区域则用"2"填充
+仅在零维点处相交则用"0"填充
+
+当 内部，边界，外部 之间都没有交集时，将用"F"填充
+
+`ST_Relate(geom, geom)`
+答案（_1010F0212_）以 9 个字符的字符串形式返回
+但以三行的形式呈现
+
+`ST_Relate(geom, geom, '')`
+当两个几何要素的关系满足第三个参数时返回`true`
+
+字符串参数满足通配符：
+
+- `*` 表示此单元格中的任何值都匹配
+- `T` 表示任何非空都匹配(0, 1, 2)
+  示例：*`1*F00F212`\*
+
+**基于索引的聚簇**
+
+对于小型数据库在检索时位于内存之中
+大型数据库需要存放在物理磁盘上
+
+加速数据访问的一种方法(`cluster`聚簇)：
+一起检索的同一结果集中的数据将其存放在硬盘的相近物理位置上
+
+1. 基于 R 树的聚簇
+
+```sql
+-- Cluster the blocks based on their spatial index
+CLUSTER nyc_census_blocks USING nyc_census_blocks_geom_idx;
+```
+
+R 树的一个问题：
+叶子节点可能没有很高的*空间协调性*和*一致性*
+
+2. GeoHash 上的集群
+
+平衡优化 R 树的操作
+可以根据空间自相关的顺序对数据重新排列
+
+`ST_GeoHash()`
+首先需要在数据上建立一个 geohash 索引
+该方法仅适用于地理坐标的数据
+
+```sql
+--在使用前将其转为地理坐标
+CREATE INDEX nyc_census_blocks_geohash ON nyc_census_blocks (ST_GeoHash(ST_Transform(geom, 4326)));
+--进行聚簇
+CLUSTER nyc_census_blocks USING nyc_census_blocks_geohash;
+```
+
+**多维数据**
+
+对每个基本几何图形，可以添加`Z`维度表示高度信息
+添加`M`维度表示时间、道路英里数、距离信息等
+
+- 点 `PointZ`、`PointM`、`PointZM`
+- 线串 `LinestringZ`、`LinestringM`、`LinestringZM`
+- 多边形 `PolygonZ`、`PolygonM`、`PolygonZM`
+
+对于 WKT 的表示，附加维度的信息将会添加到 XY 坐标信息之后
+`POINT ZM(1 2 3 4)`
+
+除了上述数据类型，三维空间中支持的新类型：
+
+- TIN 将三角形网格建模为数据行
+- POLYHEDRALSURFACE 多面体表面，支持体积属性
+
+```
+POLYHEDRALSURFACE Z (
+  ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
+  ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
+  ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
+  ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
+  ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
+  ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
+)
+```
+
+计算三维对象关系的函数：
+
+- `ST_3DClosestPoint(geom, geom)`
+- `ST_3DDistance(geom, geom)`
+  <br>
+
+- `ST_3DDWithin(geom, geom)`
+- `ST_3DDFullyWithin(geom, geom)`
+- `ST_3DIntersects()`
+
+<br>
+
+- `ST_3DLongestLine(geom, geom)` 返回最长线、最短线(3DShortestLine)
+- `ST_3DMaxDistance` 返回笛卡尔坐标系投影单位最大距离
+
+N-D 索引
+在添加多维索引前，需要分析数据在**所有维度**中的分布情况
+可以为任意维度建立索引
+
+```sql
+--建立多维索引 nd表示N-D索引
+CREATE INDEX nyc_streets_gix_nd ON nyc_streets
+USING GIST (geom gist_geometry_ops_nd);
+```
+
+使用`&&&`索引操作符
+
+
+**最近邻域搜索**
+`Nearest Neighbour Search`
+同一般的空间查询不同，最近邻域搜索面对任何距离的要素
+
+基于索引的KNN
+K近邻(`K Nearest Neighbours`)
+K代表要寻找的结果的数量
+
+
+- 一种纯基于空间索引的近邻搜索方法
+- 通过在索引中上下移动，评估R树索引中几何边界框的距离，可以在不指定任意半径的情况下查询
+- 适用于数据密度高的大表
+- 非点数据可能精度不高(由于基于几何边界框的距离)
+
+可以在`Order By`子句中指定运算：
+1. 边界框中心点距离`<->`
+2. 边界框边界线距离`<#>`
+
+```sql
+--搜索到B St最近的10个地铁站
+SELECT
+  streets.gid,
+  streets.name
+FROM
+  nyc_streets streets
+ORDER BY
+  streets.geom <->
+  (SELECT geom FROM nyc_subway_stations WHERE name = 'Broad St')
+LIMIT 10;
+```
+![Alt text](image-8.png)
+解决距离不精确的方法：
+通过KNN提取近邻要素后，再通过逐要素计算真实几何距离
+
 
 </details>
 
@@ -6440,21 +6781,15 @@ Cache-Control:
 
 **反向代理**
 在服务器内部安装了一个代理，将请求分发到各个服务器上去
-- 隔离网络，保护服务器，节约公共IP
+
+- 隔离网络，保护服务器，节约公共 IP
 - 网络加速，反向代理双网卡
 - 负载均衡
 
 分布式缓存
+
 1. 服务器内存空间有限
 2. 应对数据共享问题
-
-
-
-
-
-
-
-
 
 </details>
 
@@ -6619,4 +6954,167 @@ public static Singleton CreateProtoType(){
 <summary><b><i>行为型</i></b></summary>
 
 </details>
-````
+
+##Linux
+
+<details>
+<summary><b>Ubuntu</b></summary>
+
+**虚拟机版本**：VMware.WorkstationPro 16.0.0
+**安装版本**：Ubuntu 22.04
+
+当前绝对路径
+
+> `$ pwd`
+
+将文件导入环境变量
+
+> `$ export PKF_CONFIG_PATH=路径`
+
+编译 C/C++文件
+
+> `$ g++ *.cpp -o *`
+
+获取库/模块编译信息
+
+> `$ pkg-config`
+
+更改文件权限
+
+> `$ sudo chmod 777 *`
+
+应用程序管理工具
+
+> `$ sudo apt-get install *`
+
+检查已安装的库、软件
+
+> `$ dpkg -l | grep [关键字]`
+
+**vi 使用**
+
+- a 向右插入
+- i 向左插入
+- o 向下添加一行
+- x 删除单个字符
+
+- 全部删除：按 esc 键后，先按 gg（到达顶部），然后 dG
+- 全部复制：按 esc 键后，先按 gg，然后 ggyG
+- 全选高亮显示：按 esc 键后，先按 gg，然后 ggvG 或者 ggVG
+- 单行复制：按 esc 键后, 然后 yy
+- 单行删除：按 esc 键后, 然后 dd
+- 粘贴：按 esc 键后, 然后 p
+
+**`opencv.pc` 文件内容：**
+
+> prefix=/usr/local
+> exec_prefix=${prefix}
+ includedir=${prefix}/include
+> libdir=${exec_prefix}/lib
+ Name: opencv
+ Description: The opencv library
+ Version:4.0.1
+ Cflags: -I${includedir}/opencv4
+> Libs: -L${libdir} -lopencv_shape -lopencv_stitching -lopencv_objdetect -lopencv_superres -lopencv_videostab -lopencv_calib3d -lopencv_features2d -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lopencv_photo -lopencv_ml -lopencv_imgproc -lopencv_flann -lopencv_core
+> ~
+
+**fatal error: opencv/cv.h: No such file or directory**
+
+`#include <opencv/cv.h>`
+在 opencv4 中 opencv2 的`cv.h`融合进了`imgproc.hpp`里，所以把源码中的`#include <opencv/cv.h>`改成`#include <opencv2/imgproc.hpp>`即可。
+
+**虚拟机共享文件夹消失：**
+
+> `$ sudo vmhgfs-fuse  .host:/  /mnt/hgfs/  -o allow_other  -o uid=1000`
+
+**运行 ORB_SLAM2** `mono_kitti`
+参数：词袋文件 配置文件 数据源位置
+
+> `./mono_kitti /home/attac/下载/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/attac/下载/ORB_SLAM2/Examples/Monocular/KITTI00-02.yaml /mnt/hgfs/share/00`
+
+移动虚拟机位置后重新在 VMware 中导入
+出现网络无法访问，没有有线网络图标的问题
+
+**查看网络状态：**
+
+> `$ sudo lshw -c Network`
+
+修复：
+
+> `$ sudo nmcli networking off` > `$ sudo nmcli networking on`
+
+**安装 ArcGIS Server**
+
+1. 安装依赖包
+
+```
+yum -y install fontconfig mesa-libGL mesa-libGLU libXtst libXext \
+libX11 libXi libXdmcp libXrender libXau xorg-x11-server-Xvfb \
+libXfont vim
+```
+
+2. 在安装 ArcGIS Server 之前，首先要在 linux 服务器中创建 arcgis*用户组*和*用户*，创建的 arcgis 用户供 server 运行时使用
+   使用 root 用户登陆到系统：
+   ` $ su - root`
+   创建用户组 arcgis：输入以下命令回车执行
+   ` $ groupadd arcgis`
+   创建用户 arcgis 并将其隶属于*用户组 arcgis*：
+   ` $ useradd  -g arcgis arcgis`
+   为新建的用户 arcgis 设置密码：
+   ` $ passwd arcgis`
+3. 配置`/etc/security/limits.conf`
+   在文件末尾追加
+
+```
+arcgissoft nofile 65535
+arcgishard nofile 65535
+arcgissoft nproc 25059
+arcgis hard nproc 25059
+```
+
+保存退出，执行如下命令使其生效：
+` $ ulimit-Hn -Hu`
+` $ ulimit -Sn –Su`
+
+3.  配置 `/etc/hosts`
+    在文件末尾添加
+    `192.168.56.112 机器名`
+    开放`6080`端口的访问。`4000`~`4003`端口开启备用
+
+```
+$ firewall-cmd --zone=public --add-port=6080/tcp --permanent
+$ firewall-cmd --zone=public --add-port=4000/tcp --permanent
+$ firewall-cmd --zone=public --add-port=4001/tcp --permanent
+$ firewall-cmd --zone=public --add-port=4002/tcp --permanent
+$ firewall-cmd --zone=public --add-port=4003/tcp --permanent
+```
+
+重启防火墙 生效
+`$ systemctl restart firewalld`
+
+4.  安装方式有两种
+
+- 无界面静默安装
+- 图形界面安装
+  静默安装 ArcGIS Server 10.3.1
+  使用 arcgis 用户登录到系统，解压刚刚上传的安装包，进入安装目录后执行安装脚本
+  `$ tar -xzf ArcGIS_for_Server_Linux_1031_145870.tar.gz`
+  `$ cd ArcGISServer`
+  `$ ./Setup -m silent -l yes -a /home/arcgis/ArcGISServer/ArcgisServer107.ecp`
+
+**apt-get 无法定位软件包：**
+
+1. 找到源镜像，备份
+
+```
+cd /etc/apt/                            // 切换到/etc/apt/ 目录下
+sudo cp sources.list sources.list.old   // 先把源文件复制到sources.list.old，备份
+sudo vi sources.list
+```
+
+2. 修改`sources.list` 文件，此刻会弹出很多内容，选中文件内容删掉，替换成镜像源。
+
+3. 更新软件包信息：
+   `sudo apt-get update`
+
+</details>

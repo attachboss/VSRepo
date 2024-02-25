@@ -5592,13 +5592,113 @@ namespace MyNote
 
 
 
+            // fatal error: opencv/cv.h: No such file or directory
+            // #include <opencv/cv.h>
+            // 在opencv4中opencv2的cv.h融合进了imgproc.hpp里，所以把源码中的#include <opencv/cv.h>改成#include <opencv2/imgproc.hpp>即可。
+
+
+
             //虚拟机共享文件夹消失：
             //$ sudo vmhgfs-fuse  .host:/  /mnt/hgfs/  -o allow_other  -o uid=1000
 
 
-            // fatal error: opencv/cv.h: No such file or directory
-            // #include <opencv/cv.h>
-            // 在opencv4中opencv2的cv.h融合进了imgproc.hpp里，所以把源码中的#include <opencv/cv.h>改成#include <opencv2/imgproc.hpp>即可。
+            //运行mono_kitti
+            //参数：词袋文件 配置文件 数据源位置
+            //./mono_kitti /home/attac/下载/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/attac/下载/ORB_SLAM2/Examples/Monocular/KITTI00-02.yaml /mnt/hgfs/share/00
+
+
+
+
+
+            //移动虚拟机位置后重新在VMware中导入
+            //出现网络无法访问，没有有线网络图标的问题
+
+            //查看网络状态：
+            //$ sudo lshw -c Network
+
+            //$ sudo nmcli networking off
+            //$ sudo nmcli networking on
+
+
+
+
+            //vi使用
+            //
+            //a 向右插入
+            //i 向左插入
+            //o 向下添加一行
+            //x 删除单个字符
+
+
+            // 全部删除：按esc键后，先按gg（到达顶部），然后dG
+            // 全部复制：按esc键后，先按gg，然后ggyG
+            // 全选高亮显示：按esc键后，先按gg，然后ggvG或者ggVG
+            
+            // 单行复制：按esc键后, 然后yy
+            // 单行删除：按esc键后, 然后dd
+            // 粘贴：按esc键后, 然后p
+
+
+
+
+
+
+            //安装ArcGIS Server
+
+            // 1.
+            //在安装ArcGIS Server之前，首先要在linux服务器中创建arcgis用户组和用户，创建的arcgis用户供server运行时使用
+
+            //使用root用户登陆到系统：
+            // $ su - root
+            //创建用户组arcgis：输入以下命令回车执行
+            // $ groupadd arcgis
+            //创建用户arcgis并将其隶属于用户组arcgis：
+            // $ useradd  -g arcgis arcgis
+            //为新建的用户arcgis设置密码：
+            // $ passwd arcgis
+
+            //2.
+            //配置/etc/security/limits.conf
+            // 在文件末尾追加
+
+            //arcgissoft nofile 65535
+            //arcgishard nofile 65535
+            //arcgissoft nproc 25059
+            //arcgis hard nproc 25059
+
+            //保存退出，执行如下命令使其生效：
+            // $ ulimit-Hn -Hu
+            // $ ulimit -Sn –Su
+
+            //3.
+            //配置 /etc/hosts
+            //在文件末尾添加
+            //192.168.56.112 机器名
+
+            // 开放6080端口的访问。4000~4003端口开启备用
+            //$ firewall-cmd --zone=public --add-port=6080/tcp --permanent
+            //$ firewall-cmd --zone=public --add-port=4000/tcp --permanent
+            //$ firewall-cmd --zone=public --add-port=4001/tcp --permanent
+            //$ firewall-cmd --zone=public --add-port=4002/tcp --permanent
+            //$ firewall-cmd --zone=public --add-port=4003/tcp --permanent
+            // 重启防火墙 生效
+            //$ systemctl restart firewalld
+
+
+
+            //4.
+            //安装方式有两种
+            //1.无界面静默安装
+            //2.图形界面安装
+
+            // 静默安装ArcGIS Server 10.3.1
+            //使用arcgis用户登录到系统，解压刚刚上传的安装包，进入安装目录后执行安装脚本
+            //$ tar -xzf ArcGIS_for_Server_Linux_1031_145870.tar.gz
+            //$ cd ArcGISServer
+            //$ ./Setup -m silent -l yes -a /home/arcgis/ArcgisServer103.ecp
+
+
+
 
             #endregion
 

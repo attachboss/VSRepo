@@ -4,11 +4,11 @@ D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(256,16): warning C4244: “+=”: 从
 D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(257,15): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
 D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(270,68): warning C4244: “=”: 从“float”转换到“unsigned char”，可能丢失数据
 D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(333,24): warning C4244: “参数”: 从“double”转换到“_Ty”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(333,24): warning C4244:         with
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(333,24): warning C4244:         [
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(333,24): warning C4244:             _Ty=float
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(333,24): warning C4244:         ]
 D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(341,1): warning C4326: “main”的返回类型应为“int”而非“void”
 D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(342,17): warning C4101: “end”: 未引用的局部变量
-D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(107): warning C4715: “KMeans”: 不是所有的控件路径都返回值
+D:\File\vs\project\GDAL_demo\cpp1\cpp1.cpp(107,1): warning C4715: “KMeans”: 不是所有的控件路径都返回值
   cpp1.vcxproj -> D:\File\vs\project\GDAL_demo\x64\Debug\cpp1.exe

@@ -34,7 +34,6 @@ D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\gdal_csharp.dll
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\gdalconst_csharp.dll
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\ogr_csharp.dll
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\osr_csharp.dll
-D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\gdalCS.csproj.CopyComplete
 D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\gdalCS.dll
 D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\refint\gdalCS.dll
 D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\gdalCS.pdb
@@ -45,3 +44,5 @@ D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\runtimes\win-x64\native\Ope
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\runtimes\win-x64\native\opencv_videoio_ffmpeg460_64.dll
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\runtimes\win-x86\native\OpenCvSharpExtern.dll
 D:\File\vs\project\GDAL_demo\gdalCS\bin\Debug\net6.0\runtimes\win-x86\native\opencv_videoio_ffmpeg460.dll
+D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\gdalCS.sourcelink.json
+D:\File\vs\project\GDAL_demo\gdalCS\obj\Debug\net6.0\gdalCS.csproj.Up2Date
