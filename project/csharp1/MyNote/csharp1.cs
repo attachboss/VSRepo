@@ -18,9 +18,9 @@ using ConfigServices;
 using MailServices;
 using Microsoft.Extensions.Configuration;
 
-namespace MyNote
+namespace csharp1
 {
-    public class MyNote
+    public class csharp1
     {
         #region 枚举
         //将枚举声明到命名空间的下面，类的外面，表示这个命名空间下所有的类都可以使用这个枚举。

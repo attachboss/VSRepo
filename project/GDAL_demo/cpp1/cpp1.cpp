@@ -5,10 +5,7 @@
 #include <time.h>
 #include <iomanip>
 #include <vector>
-#include <cmath>
-
-//#include <gdal.h>
-//#include <gdal_priv.h>
+#include <cmath>priv.h>
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>

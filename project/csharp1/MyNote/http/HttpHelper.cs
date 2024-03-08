@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
-using MyNote.Common;
-using MyNote.Model;
-using MyNote;
+using csharp1.Common;
+using csharp1.Model;
+using csharp1;
 using System.Net.Http.Headers;
 using System.Security.Policy;
 using System.Text;

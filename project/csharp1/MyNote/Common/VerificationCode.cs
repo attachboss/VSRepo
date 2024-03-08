@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     public static class VerificationCode
     {

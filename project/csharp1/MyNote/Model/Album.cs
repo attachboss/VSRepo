@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNote.Model
+namespace csharp1.Model
 {
     public class Album
     {

@@ -46,7 +46,6 @@ D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinimumApi1
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebassets.build.json
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebassets.development.json
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\scopedcss\bundle\WebMinimumApi1.styles.css
-D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinimumApi1.csproj.CopyComplete
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinimumApi1.dll
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\refint\WebMinimumApi1.dll
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinimumApi1.pdb
@@ -59,3 +58,5 @@ D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebasset
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.WebMinimumApi1.props
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.WebMinimumApi1.props
 D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\staticwebassets.pack.json
+D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinimumApi1.sourcelink.json
+D:\File\vs\project\WebMinimumApi1\WebMinimumApi1\obj\Debug\net6.0\WebMinim.D7E098BB.Up2Date

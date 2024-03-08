@@ -1,7 +1,7 @@
 ﻿using log4net;
 using log4net.Config;
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     public class Logger
     {

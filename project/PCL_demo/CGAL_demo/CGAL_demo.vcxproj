@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Program Files %28x86%29\boost_1_82_0;D:\Program Files %28x86%29\boost_1_82_0\lib64-msvc-14.3;D:\Program Files %28x86%29\CGAL-5.6\auxiliary\gmp\include;D:\Program Files %28x86%29\CGAL-5.6\include;D:\Program Files %28x86%29\eigen-3.4.0;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Program Files (x86)\CGAL-5.6\auxiliary\gmp\lib;D:\Program Files (x86)\boost_1_82_0\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Program Files %28x86%29\boost_1_82_0;D:\Program Files %28x86%29\boost_1_82_0\lib64-msvc-14.3;D:\Program Files %28x86%29\CGAL-5.5\auxiliary\gmp\include;D:\Program Files %28x86%29\CGAL-5.5\include;D:\Program Files %28x86%29\eigen-3.4.0;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program Files (x86)\CGAL-5.5\auxiliary\gmp\lib;D:\Program Files (x86)\boost_1_82_0\libs;$(LibraryPath)</LibraryPath>
     <ExecutablePath>D:\Program Files %28x86%29\eigen-3.4.0;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\boost_1_82_0;D:\Program Files %28x86%29\CGAL-5.6\auxiliary\gmp\include;D:\Program Files %28x86%29\eigen-3.4.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\boost_1_82_0;D:\Program Files %28x86%29\CGAL-5.5\auxiliary\gmp\include;D:\Program Files %28x86%29\eigen-3.4.0</AdditionalIncludeDirectories>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     public class SerializeHelper
     {

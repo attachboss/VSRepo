@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyNote.Properties {
+namespace csharp1.Properties {
     using System;
     
     

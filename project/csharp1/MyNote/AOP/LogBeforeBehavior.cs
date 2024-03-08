@@ -7,7 +7,7 @@ using Unity.Interception.InterceptionBehaviors;
 using Unity.Interception.Interceptors;
 using Unity.Interception.PolicyInjection.Pipeline;
 
-namespace MyNote.AOP
+namespace csharp1.AOP
 {
     public class LogBeforeBehavior : IInterceptionBehavior
     {

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     public class CustomLogHelper
     {

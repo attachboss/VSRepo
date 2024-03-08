@@ -11,6 +11,12 @@
 
 #include<pcl/point_types.h> //PCL中支持的点类型头文件。
 #include<pcl/point_cloud.h>
+#include <pcl/features/pfh.h>
+#include <pcl/features/fpfh.h>
+#include <pcl/features/vfh.h>
+#include <pcl/features/boundary.h>
+#include <pcl/features/normal_3d.h>
+#include <pcl/features/integral_image_normal.h>
 
 #include<pcl/kdtree/kdtree_flann.h>
 #include<pcl/octree/octree.h>
@@ -48,6 +54,85 @@ void viewerPsycho(visualization::PCLVisualizer& viewer)
 }
 
 
+//以.ply文件格式保存点云文件
+void savefile(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_result, pcl::PointCloud<pcl::Normal>::Ptr cloud_normals, string filename, string method)
+{
+	ofstream fout(method + "_" + filename);
+	fout << "ply" << endl << "format ascii 1.0" << endl
+		<< "element vertex " + std::to_string(cloud_result->size()) << endl
+		<< "property float x" << endl << "property float y" << endl << "property float z" << endl
+		<< "property float nx" << endl << "property float ny" << endl << "property float nz" << endl
+		<< "property uchar red" << endl << "property uchar green" << endl << "property uchar blue" << endl
+		<< "end_header" << endl;
+	for (int i = 0; i < cloud_result->points.size(); i++)
+	{
+		fout << cloud_result->points[i].x
+			<< " " << cloud_result->points[i].y
+			<< " " << cloud_result->points[i].z
+			<< " " << cloud_normals->points[i].normal_x
+			<< " " << cloud_normals->points[i].normal_y
+			<< " " << cloud_normals->points[i].normal_z
+			<< " " << std::to_string(cloud_result->at(i).r) << " " << std::to_string(cloud_result->at(i).g) << " " << std::to_string(cloud_result->at(i).b)
+			<< endl;
+	}
+	fout.close();
+}
+
+//FPFH快速点特征直方图
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr computeFPFH(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_origin, pcl::PointCloud<pcl::Normal>::Ptr cloud_normals, string filename)
+{
+	float radius;
+	int k_number;
+	int pf_num = 0;
+	cout << "input radius/k_nubmer of fpfh_search: ";
+	//cin >> radius;
+	//cin >> k_number;
+	clock_t start, finish;
+	start = clock();
+	pcl::FPFHEstimation<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh;
+	fpfh.setInputCloud(cloud_origin);
+	fpfh.setInputNormals(cloud_normals);
+	pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>());
+	fpfh.setSearchMethod(tree);
+	pcl::PointCloud<pcl::FPFHSignature33>::Ptr fpfh_fe_ptr(new pcl::PointCloud<pcl::FPFHSignature33>());
+	//pfh.setRadiusSearch(radius);
+	//fpfh.setKSearch(k_number);
+	fpfh.compute(*fpfh_fe_ptr);
+
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_b(new pcl::PointCloud<pcl::PointXYZRGB>);
+	cloud_b->resize(cloud_origin->size());
+	for (int i = 0; i < cloud_origin->points.size(); i++)
+	{
+		cloud_b->points[i].x = cloud_origin->points[i].x;
+		cloud_b->points[i].y = cloud_origin->points[i].y;
+		cloud_b->points[i].z = cloud_origin->points[i].z;
+	}
+
+	Eigen::Vector3d d, n1, n2;
+	double d_x, d_y, d_z;
+	for (int i = 0; i < fpfh_fe_ptr->points.size(); i++)
+	{
+		if (fpfh_fe_ptr->points[i].histogram[16] < 50)
+		{
+			pf_num++;
+			cloud_b->at(i).r = 255;
+			cloud_b->at(i).g = 0;
+			cloud_b->at(i).b = 0;
+		}
+		else
+		{
+			cloud_b->at(i).r = 130;
+			cloud_b->at(i).g = 130;
+			cloud_b->at(i).b = 130;
+		}
+	}
+	finish = clock();
+	cout << "total time is: " << finish - start << endl;
+	cout << "pf_num is: " << pf_num << endl;
+	savefile(cloud_b, cloud_normals, filename, "FPFH");
+	return cloud_b;
+}
+
 
 int main(int argc, char** argv)
 {
@@ -78,12 +163,20 @@ int main(int argc, char** argv)
 	//io::loadPCDFile(argv[fileNames[0]], *cloud);
 
 
-	char strfilepath[256] = "chef.pcd";
-	//将数据读到共享指针中
-	if (io::loadPCDFile(strfilepath, *cloud) == -1) {
-		cout << "error input!" << endl;
-		return -1;
-	};
+	//char strfilepath[256] = "chef.pcd";
+	////将数据读到共享指针中
+	//if (io::loadPCDFile(strfilepath, *cloud) == -1) {
+	//	cout << "error input!" << endl;
+	//	return -1;
+	//};
+
+	string filename = "chef.ply";
+	pcl::PointCloud<pcl::Normal>::Ptr cloud_normals(new pcl::PointCloud<pcl::Normal>);
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloudOrigin(new pcl::PointCloud<pcl::PointXYZ>);
+	pcl::PLYReader reader;
+	reader.read<pcl::Normal>(filename, *cloud_normals);
+	reader.read<pcl::PointXYZ>(filename, *cloudOrigin);
+	computeFPFH(cloudOrigin, cloud_normals, "chef.ply");
 
 
 #pragma region 写入点云
@@ -239,64 +332,64 @@ int main(int argc, char** argv)
 	//利用negative变量提取剩余数据
 	//剩余数据作为待处理点云循环提取
 
-	PCLPointCloud2::Ptr cloudBlob(new PCLPointCloud2);
-	PCLPointCloud2::Ptr cloudBlobFiltered(new PCLPointCloud2);
-	PCDReader reader;
-	reader.read("rs1.pcd", *cloudBlob);
+	//PCLPointCloud2::Ptr cloudBlob(new PCLPointCloud2);
+	//PCLPointCloud2::Ptr cloudBlobFiltered(new PCLPointCloud2);
+	//PCDReader reader;
+	//reader.read("rs1.pcd", *cloudBlob);
 
-	VoxelGrid<PCLPointCloud2> sor;
-	sor.setInputCloud(cloudBlob);
-	sor.setLeafSize(0.01, 0.01, 0.01);
-	sor.filter(*cloudBlobFiltered);
+	//VoxelGrid<PCLPointCloud2> sor;
+	//sor.setInputCloud(cloudBlob);
+	//sor.setLeafSize(0.01, 0.01, 0.01);
+	//sor.filter(*cloudBlobFiltered);
 #pragma endregion
 
 
-	//可视化展示
-	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D viewer"));
+	////可视化展示
+	//boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D viewer"));
 
-	//boost::shared_ptr<visualization::PCLVisualizer> rgbVis(PointCloud<PointXYZRGB>::ConstPtr cloud);
-	boost::shared_ptr<visualization::PCLVisualizer> customVis(PointCloud<PointXYZ>::ConstPtr cloud);
+	////boost::shared_ptr<visualization::PCLVisualizer> rgbVis(PointCloud<PointXYZRGB>::ConstPtr cloud);
+	//boost::shared_ptr<visualization::PCLVisualizer> customVis(PointCloud<PointXYZ>::ConstPtr cloud);
 
-	//为带有RGB属性的点云赋色
-	//visualization::PointCloudColorHandlerRGBField<PointXYZRGB> rgb(cloud);
-	//渲染点云法线
-	//viewer->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normals, 10, 0.05, "normals");
-
-
-	viewer->initCameraParameters();
-
-	int v1(0);
-	//viewer->createViewPort(0.0, 0.0, 0.5, 1.0, v1);
-	viewer->setBackgroundColor(0, 0, 0, v1);
-	visualization::PointCloudColorHandlerCustom<PointXYZ> singColor(cloud, 0, 255, 255);
-	viewer->addPointCloud<PointXYZ>(cloud, singColor, "pointCloud1", v1);
-	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud1");
-	viewer->addText("Before", 10, 10, "text1", v1);
-
-	//多窗口显示
-	//int v2(0);
-	//viewer->createViewPort(0.5, 0.0, 1.0, 1.0, v2);
-	//viewer->setBackgroundColor(0, 0, 0, v2);
-	//visualization::PointCloudColorHandlerCustom<PointXYZ> singColor2(cloudFiltered, 255, 0, 0);
-	//viewer->addPointCloud<PointXYZ>(cloudFiltered, singColor2, "pointCloud2", v2);
-	//viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud2");
-	//viewer->addText("After", 10, 10, "text2", v2);
+	////为带有RGB属性的点云赋色
+	////visualization::PointCloudColorHandlerRGBField<PointXYZRGB> rgb(cloud);
+	////渲染点云法线
+	////viewer->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normals, 10, 0.05, "normals");
 
 
-	//显示坐标系统方向
-	viewer->addCoordinateSystem(1.0);
+	//viewer->initCameraParameters();
+
+	//int v1(0);
+	////viewer->createViewPort(0.0, 0.0, 0.5, 1.0, v1);
+	//viewer->setBackgroundColor(0, 0, 0, v1);
+	//visualization::PointCloudColorHandlerCustom<PointXYZ> singColor(cloud, 0, 255, 255);
+	//viewer->addPointCloud<PointXYZ>(cloud, singColor, "pointCloud1", v1);
+	//viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud1");
+	//viewer->addText("Before", 10, 10, "text1", v1);
+
+	////多窗口显示
+	////int v2(0);
+	////viewer->createViewPort(0.5, 0.0, 1.0, 1.0, v2);
+	////viewer->setBackgroundColor(0, 0, 0, v2);
+	////visualization::PointCloudColorHandlerCustom<PointXYZ> singColor2(cloudFiltered, 255, 0, 0);
+	////viewer->addPointCloud<PointXYZ>(cloudFiltered, singColor2, "pointCloud2", v2);
+	////viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 3, "pointCloud2");
+	////viewer->addText("After", 10, 10, "text2", v2);
+
+
+	////显示坐标系统方向
+	//viewer->addCoordinateSystem(1.0);
 
 
 
 
-	//visualization::CloudViewer viewer("Cloud Viewer");
-	//viewer.showCloud(cloudFiltered);
-	//viewer.runOnVisualizationThreadOnce(viewerOneOff);
+	////visualization::CloudViewer viewer("Cloud Viewer");
+	////viewer.showCloud(cloudFiltered);
+	////viewer.runOnVisualizationThreadOnce(viewerOneOff);
 
-	//system("pause");
-	while (!viewer->wasStopped())
-	{
-		viewer->spinOnce(100);
-		boost::this_thread::sleep(boost::posix_time::microseconds(100000));
-	}
+	////system("pause");
+	//while (!viewer->wasStopped())
+	//{
+	//	viewer->spinOnce(100);
+	//	boost::this_thread::sleep(boost::posix_time::microseconds(100000));
+	//}
 }

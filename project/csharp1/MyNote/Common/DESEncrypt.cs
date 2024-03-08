@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     public static class DESEncrypt
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyNote.Common
+namespace csharp1.Common
 {
     //懒汉式单例
     public class Singleton

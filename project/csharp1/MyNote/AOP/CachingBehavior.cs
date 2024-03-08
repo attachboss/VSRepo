@@ -8,7 +8,7 @@ using Unity.Interception.ContainerIntegration;
 using Unity.Interception.InterceptionBehaviors;
 using Unity.Interception.PolicyInjection.Pipeline;
 
-namespace MyNote.AOP
+namespace csharp1.AOP
 {
     public class CachingBehavior : IInterceptionBehavior
     {
